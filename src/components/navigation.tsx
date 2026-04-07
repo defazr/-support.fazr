@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -22,6 +23,23 @@ const NAV_ITEMS = [
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-border">
@@ -36,7 +54,11 @@ export function Navigation() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+              className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                isActive(item.href)
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+              }`}
             >
               {item.label}
             </Link>
@@ -51,8 +73,8 @@ export function Navigation() {
               <span className="sr-only">메뉴 열기</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-72">
-            <SheetTitle className="text-left text-primary font-bold">
+          <SheetContent side="right" className="w-72 bg-gradient-to-b from-primary/5 to-white">
+            <SheetTitle className="text-left text-primary font-bold text-lg">
               메뉴
             </SheetTitle>
             <nav className="flex flex-col gap-1 mt-4">
@@ -61,7 +83,11 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-foreground hover:bg-accent rounded-md transition-colors"
+                  className={`px-4 py-3 text-base font-medium rounded-lg transition-all ${
+                    isActive(item.href)
+                      ? "text-primary bg-primary/10 border-l-3 border-primary"
+                      : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                  }`}
                 >
                   {item.label}
                 </Link>

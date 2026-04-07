@@ -188,12 +188,15 @@ export default function CalculatorPage() {
                 <p className="text-4xl font-bold text-primary mt-3 mb-1">
                   {formatAmount(result.amount)}원
                 </p>
-                <p className="text-sm text-muted-foreground mb-6">
+                <p className="text-sm text-muted-foreground mb-2">
                   예상 총 지원금 (1인당{" "}
                   {formatAmount(
                     getSubsidyAmount(regionType as RegionType)
                   )}
                   원 x {result.members}인)
+                </p>
+                <p className="text-sm text-green-700 bg-green-50 rounded-md px-3 py-2 mb-6">
+                  신청 시 지급 대상에 포함될 수 있습니다
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

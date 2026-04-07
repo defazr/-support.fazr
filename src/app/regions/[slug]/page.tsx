@@ -150,7 +150,7 @@ export default async function RegionDetailPage({ params }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
         <GovLinkButton type="apply" />
         <Button variant="outline" render={<Link href="/calculator" />} className="gap-2">
-            <Calculator className="h-4 w-4" />내 지원금 계산하기
+            <Calculator className="h-4 w-4" />{region.name} 기준으로 내가 받을 수 있을까?
         </Button>
       </div>
 

@@ -53,8 +53,11 @@ export default function HomePage() {
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
             2026 고유가 피해지원금
           </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-1">
+            소득 하위 70% 가구 대상
+          </p>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3">
-            소득 하위 70% 가구 대상, 1인당 최대{" "}
+            1인당 최대{" "}
             <strong className="text-foreground">25만원</strong> 지급 예상
           </p>
           <p className="text-sm text-muted-foreground mb-8">
@@ -123,6 +126,12 @@ export default function HomePage() {
               </Card>
             </Link>
           ))}
+        </div>
+        <div className="text-center mt-8">
+          <Button size="lg" render={<Link href="/calculator" />} className="px-8 py-6 text-base shadow-lg">
+            내가 받을 수 있을까?
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
 

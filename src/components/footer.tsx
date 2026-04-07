@@ -9,16 +9,6 @@ const INTERNAL_SERVICES = [
   { label: "지역 뉴스", href: "https://headlines.fazr.co.kr" },
 ];
 
-const OTHER_SERVICES = [
-  { label: "로또 분석", href: "https://lotto.newsforgreens.com" },
-  { label: "앱 추천", href: "https://apps.newsforgreens.com" },
-  { label: "가방 비교", href: "https://bag.fazr.co.kr" },
-  { label: "부가세 계산", href: "https://vat.newsforgreens.com" },
-  { label: "인북", href: "https://in-book.co.kr" },
-  { label: "테이크홈허브", href: "https://takehomehub.com" },
-  { label: "뉴스포그린스", href: "https://newsforgreens.com" },
-  { label: "FAZR", href: "https://fazr.co.kr" },
-];
 
 export function Footer() {
   return (
@@ -79,20 +69,6 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground"
-                >
-                  {service.label}
-                </a>
-              ))}
-            </div>
-            <Separator className="my-4" />
-            <div className="flex flex-wrap gap-x-3 gap-y-1">
-              {OTHER_SERVICES.map((service) => (
-                <a
-                  key={service.href}
-                  href={service.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-muted-foreground/70 hover:text-muted-foreground"
                 >
                   {service.label}
                 </a>

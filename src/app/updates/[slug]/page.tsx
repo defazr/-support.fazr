@@ -46,10 +46,20 @@ export default async function UpdateDetailPage({ params }: Props) {
           {post.date}
         </Badge>
         <h1 className="text-2xl md:text-3xl font-bold mb-4">{post.title}</h1>
-        <p className="text-muted-foreground mb-8">{post.description}</p>
+        <p className="text-muted-foreground mb-6">{post.description}</p>
+
+        {/* 요약 박스 */}
+        <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8 space-y-2">
+          <p className="text-sm font-medium text-foreground">핵심 요약</p>
+          <ul className="text-sm text-muted-foreground space-y-1">
+            <li>현재 상태: 국회 추경 심사 중</li>
+            <li>예상 지급: 확정 후 2~4주 내</li>
+            <li>예상 금액: 1인당 10~25만원 (지역별 차등)</li>
+          </ul>
+        </div>
 
         <div
-          className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-a:text-primary prose-strong:text-foreground"
+          className="prose prose-sm max-w-prose leading-relaxed prose-headings:text-foreground prose-headings:mt-8 prose-headings:mb-4 prose-p:text-muted-foreground prose-p:mb-4 prose-li:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:my-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
