@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 
 const INTERNAL_SERVICES = [
-  { label: "유류비 계산기", href: "https://fuel.fazr.co.kr" },
-  { label: "실시간 유가", href: "https://oil.newsforgreens.com" },
-  { label: "대출 이자 계산", href: "https://debt.newsforgreens.com" },
-  { label: "다른 계산기", href: "https://calc.fazr.co.kr" },
-  { label: "지역 뉴스", href: "https://headlines.fazr.co.kr" },
+  { label: "최저가 주유소", href: "https://fuel.fazr.co.kr/" },
+  { label: "오늘의 기름값", href: "https://oil.newsforgreens.com/" },
+  { label: "개인회생 진단", href: "https://debt.newsforgreens.com/" },
+  { label: "돈 계산기", href: "https://calc.fazr.co.kr/" },
+  { label: "부가세 워크벤치", href: "https://vat.newsforgreens.com/" },
+  { label: "LOTTO NFG", href: "https://lotto.newsforgreens.com/" },
 ];
 
 
