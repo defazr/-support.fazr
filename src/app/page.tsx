@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
+import { ShareButtons } from "@/components/share-buttons";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 
 const QUICK_LINKS = [
@@ -193,6 +194,11 @@ export default function HomePage() {
         >
           고유가 피해지원금 지급 일정 확인 →
         </Link>
+      </section>
+
+      {/* Share */}
+      <section className="max-w-6xl mx-auto px-4 pb-8">
+        <ShareButtons title="고유가 피해지원금 대상 확인해보세요" />
       </section>
 
       {/* Disclaimer */}

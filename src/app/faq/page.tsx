@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
   title: "자주 묻는 질문 - 고유가 피해지원금 FAQ",
@@ -172,6 +173,11 @@ export default function FAQPage() {
           </a>
         </CardContent>
       </Card>
+
+      {/* Ad placeholder — FAQ 하단 */}
+      <div className="my-8">
+        <AdSlot slot="4106279506" format="auto" />
+      </div>
 
       <div className="flex flex-wrap justify-center gap-4 mt-4 mb-8 text-sm">
         <Link href="/updates" className="text-primary hover:underline">

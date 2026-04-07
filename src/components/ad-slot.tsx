@@ -40,7 +40,7 @@ export function AdSlot({
   }, []);
 
   if (!pubId) {
-    return <div className={`min-h-[90px] w-full ${className}`} />;
+    return <div className={`min-h-[90px] w-full flex items-center justify-center ${className}`} />;
   }
 
   return (

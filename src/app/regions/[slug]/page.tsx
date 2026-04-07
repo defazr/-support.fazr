@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
+import { ShareButtons } from "@/components/share-buttons";
 import { GovLinkButton } from "@/components/gov-link-button";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 import regionsData from "@/data/regions.json";
@@ -162,6 +164,13 @@ export default async function RegionDetailPage({ params }: Props) {
         <Link href="/regions" className="text-primary hover:underline">
           다른 지역 보기
         </Link>
+      </div>
+
+      <ShareButtons title={`${region.fullName} 고유가 피해지원금 확인`} />
+
+      {/* Ad placeholder — 지역 상세 */}
+      <div className="my-8">
+        <AdSlot slot="1480116169" format="auto" />
       </div>
 
       {/* 같은 도 지역 */}

@@ -16,6 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
+import { ShareButtons } from "@/components/share-buttons";
 import { GovLinkButton } from "@/components/gov-link-button";
 import {
   SUBSIDY_CONFIG,
@@ -259,11 +260,14 @@ export default function CalculatorPage() {
         </Card>
       )}
 
-      {/* Ad Slot 2 */}
+      {/* Share + Ad */}
       {result && (
-        <div className="mt-6">
-          <AdSlot slot="1480116169" format="rectangle" />
-        </div>
+        <>
+          <ShareButtons title="고유가 피해지원금 계산 결과 확인해보세요" />
+          <div className="mt-6">
+            <AdSlot slot="1480116169" format="rectangle" />
+          </div>
+        </>
       )}
 
       {/* Income Threshold Reference */}

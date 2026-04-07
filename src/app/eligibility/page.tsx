@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 
 export const metadata: Metadata = {
@@ -175,6 +176,11 @@ export default function EligibilityPage() {
           </p>
         </CardContent>
       </Card>
+
+      {/* Ad placeholder — 대상 확인 */}
+      <div className="my-8">
+        <AdSlot slot="7853952826" format="auto" />
+      </div>
 
       {/* CTA */}
       <div className="text-center mb-8">

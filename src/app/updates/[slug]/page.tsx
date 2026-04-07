@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
+import { ShareButtons } from "@/components/share-buttons";
 import { UPDATES } from "@/data/updates";
 
 export function generateStaticParams() {
@@ -50,6 +51,8 @@ export default async function UpdateDetailPage({ params }: Props) {
         <h1 className="text-2xl md:text-3xl font-bold mb-4">{post.title}</h1>
         <p className="text-muted-foreground mb-6">{post.description}</p>
 
+        <ShareButtons title={post.title} />
+
         {/* 요약 박스 */}
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8 space-y-2">
           <p className="text-sm font-medium text-foreground">핵심 요약</p>
@@ -70,6 +73,8 @@ export default async function UpdateDetailPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
+
+      <ShareButtons title={post.title} />
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 mt-10 mb-8">
