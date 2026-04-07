@@ -53,14 +53,16 @@ export default function HomePage() {
             현재 국회 추경 심사 중
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-            2026 고유가 피해지원금
+            고유가 피해지원금 대상인지
+            <br />
+            지금 바로 확인하세요
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-1">
-            소득 하위 70% 가구 대상
+            소득 하위 <span className="text-blue-600 font-bold">70%</span> 가구 대상
           </p>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3">
             1인당 최대{" "}
-            <strong className="text-foreground">25만원</strong> 지급 예상
+            <span className="text-blue-600 font-bold">25만원</span> 지급 예상
           </p>
           <p className="text-sm text-muted-foreground mb-8">
             총 예산 {SUBSIDY_CONFIG.totalBudget} · 대상{" "}

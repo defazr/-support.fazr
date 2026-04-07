@@ -107,7 +107,7 @@ export default function EligibilityPage() {
                     </td>
                     <td className="text-right py-3 px-3">
                       {t.insuranceEmployee > 0 ? (
-                        <span className="font-medium text-primary">
+                        <span className="font-bold text-blue-600">
                           {formatAmount(t.insuranceEmployee)}원 이하
                         </span>
                       ) : (
@@ -116,7 +116,7 @@ export default function EligibilityPage() {
                     </td>
                     <td className="text-right py-3 px-3">
                       {t.insuranceRegional > 0 ? (
-                        <span className="font-medium text-primary">
+                        <span className="font-bold text-blue-600">
                           {formatAmount(t.insuranceRegional)}원 이하
                         </span>
                       ) : (
@@ -176,6 +176,16 @@ export default function EligibilityPage() {
           </p>
         </CardContent>
       </Card>
+
+      {/* 요약 박스 */}
+      <div className="bg-[#0369A1]/5 border border-[#0369A1]/20 rounded-lg p-5 mb-8 space-y-2">
+        <p className="text-sm font-medium text-foreground">핵심 요약</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>대상: 소득 하위 <span className="text-blue-600 font-bold">70%</span> 가구 (건강보험료 기준)</li>
+          <li>금액: 지역별 1인당 <span className="text-blue-600 font-bold">10만~25만원</span> 차등 지급</li>
+          <li>상태: 국회 추경 심사 중 (확정 시 즉시 업데이트)</li>
+        </ul>
+      </div>
 
       {/* Ad placeholder — 대상 확인 */}
       <div className="my-8">
