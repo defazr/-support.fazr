@@ -19,7 +19,7 @@ export function ScrollTopButton() {
     <Button
       variant="outline"
       size="icon"
-      className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg bg-white/90 backdrop-blur hover:bg-white"
+      className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg bg-white hover:bg-gray-50 cursor-pointer transition-colors duration-200"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="맨 위로 이동"
     >

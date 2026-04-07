@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { SkinnyBar } from "@/components/skinny-bar";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ScrollTopButton } from "@/components/scroll-top-button";
-
-const notoSansKR = Noto_Sans_KR({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${notoSansKR.variable} h-full antialiased`}>
+    <html lang="ko" className="h-full antialiased">
       <head>
         {/* GA4 placeholder — replace GA_MEASUREMENT_ID when ready */}
         {process.env.NEXT_PUBLIC_GA_ID && (

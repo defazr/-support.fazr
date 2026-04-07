@@ -27,31 +27,31 @@ export function Footer() {
             <div className="flex flex-col gap-1 mt-4">
               <Link
                 href="/eligibility"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
               >
                 대상 확인
               </Link>
               <Link
                 href="/calculator"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
               >
                 계산기
               </Link>
               <Link
                 href="/regions"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
               >
                 지역별 안내
               </Link>
               <Link
                 href="/faq"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
               >
                 자주 묻는 질문
               </Link>
               <Link
                 href="/updates"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
               >
                 업데이트
               </Link>
@@ -68,7 +68,7 @@ export function Footer() {
                   href={service.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
                 >
                   {service.label}
                 </a>

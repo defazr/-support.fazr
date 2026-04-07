@@ -44,7 +44,7 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-border">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="font-bold text-lg text-primary">
+        <Link href="/" className="font-bold text-lg text-primary cursor-pointer">
           고유가 피해지원금
         </Link>
 
@@ -54,9 +54,9 @@ export function Navigation() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md cursor-pointer ${
                 isActive(item.href)
-                  ? "text-primary bg-primary/10"
+                  ? "text-[#0369A1] bg-[#0369A1]/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
               }`}
             >
@@ -82,9 +82,9 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`px-4 py-3 text-base font-medium rounded-lg transition-all ${
+                  className={`px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 cursor-pointer ${
                     isActive(item.href)
-                      ? "text-blue-600 bg-blue-50"
+                      ? "text-[#0369A1] bg-[#0369A1]/10"
                       : "text-foreground hover:bg-gray-50"
                   }`}
                 >

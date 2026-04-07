@@ -55,14 +55,14 @@ export function ShareButtons({ title, className = "" }: ShareButtonsProps) {
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={handleNativeShare}
-            className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-primary text-white active:opacity-90 transition-opacity"
+            className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-[#0369A1] text-white active:opacity-90 transition-opacity cursor-pointer"
           >
             <Share2 className="w-4 h-4" />
             공유하기
           </button>
           <button
             onClick={handleCopy}
-            className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-gray-100 text-gray-700 active:bg-gray-200 transition-colors"
+            className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-gray-100 text-gray-700 active:bg-gray-200 transition-colors cursor-pointer"
           >
             <Link2 className="w-4 h-4" />
             {copied ? "복사됨!" : "링크 복사"}
@@ -84,7 +84,7 @@ export function ShareButtons({ title, className = "" }: ShareButtonsProps) {
               `https://share.naver.com/web/shareView?url=${encodedUrl}&title=${encodedTitle}`
             )
           }
-          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-[#03C75A] text-white hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-[#03C75A] text-white hover:opacity-90 transition-opacity cursor-pointer"
         >
           네이버
         </button>
@@ -94,7 +94,7 @@ export function ShareButtons({ title, className = "" }: ShareButtonsProps) {
               `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`
             )
           }
-          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-black text-white hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-black text-white hover:opacity-90 transition-opacity cursor-pointer"
         >
           X (트위터)
         </button>
@@ -104,13 +104,13 @@ export function ShareButtons({ title, className = "" }: ShareButtonsProps) {
               `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
             )
           }
-          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-[#1877F2] text-white hover:opacity-90 transition-opacity"
+          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-[#1877F2] text-white hover:opacity-90 transition-opacity cursor-pointer"
         >
           페이스북
         </button>
         <button
           onClick={handleCopy}
-          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+          className="flex items-center justify-center gap-2 h-11 rounded-2xl shadow-sm text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer"
         >
           <Link2 className="w-4 h-4" />
           {copied ? "복사됨!" : "링크 복사"}

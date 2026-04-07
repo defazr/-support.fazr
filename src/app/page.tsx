@@ -67,7 +67,7 @@ export default function HomePage() {
             {SUBSIDY_CONFIG.targetPopulation}
           </p>
 
-          <Button size="lg" render={<Link href="/calculator" />} className="text-lg px-8 py-6 shadow-lg">
+          <Button size="lg" render={<Link href="/calculator" />} className="text-lg px-8 py-6 shadow-lg bg-[#0369A1] hover:bg-[#0369A1]/90 cursor-pointer transition-all duration-200">
               내가 받을 수 있을까?
               <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

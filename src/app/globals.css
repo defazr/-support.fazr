@@ -2,15 +2,16 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @plugin "@tailwindcss/typography";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css');
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: "Pretendard", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: "Pretendard", system-ui, -apple-system, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,38 +51,39 @@
 }
 
 :root {
-  --background: oklch(0.985 0.002 250);
-  --foreground: oklch(0.145 0.02 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.02 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0.02 250);
-  --primary: oklch(0.488 0.243 264.376);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.95 0.02 250);
-  --secondary-foreground: oklch(0.25 0.06 250);
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.50 0.03 250);
-  --accent: oklch(0.93 0.03 250);
-  --accent-foreground: oklch(0.25 0.06 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.02 250);
-  --input: oklch(0.90 0.02 250);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.6 0.18 250);
-  --chart-3: oklch(0.7 0.12 250);
-  --chart-4: oklch(0.4 0.15 250);
-  --chart-5: oklch(0.3 0.10 250);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0.002 250);
-  --sidebar-foreground: oklch(0.145 0.02 250);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.95 0.02 250);
-  --sidebar-accent-foreground: oklch(0.25 0.06 250);
-  --sidebar-border: oklch(0.90 0.02 250);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  /* MASTER.md Design System — Government/Finance */
+  --background: #F8FAFC;
+  --foreground: #020617;
+  --card: #FFFFFF;
+  --card-foreground: #020617;
+  --popover: #FFFFFF;
+  --popover-foreground: #020617;
+  --primary: #0F172A;
+  --primary-foreground: #F8FAFC;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #334155;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #E2E8F0;
+  --accent-foreground: #0F172A;
+  --destructive: #DC2626;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #0369A1;
+  --chart-1: #0369A1;
+  --chart-2: #0F172A;
+  --chart-3: #334155;
+  --chart-4: #64748B;
+  --chart-5: #94A3B8;
+  --radius: 0.5rem;
+  --sidebar: #F8FAFC;
+  --sidebar-foreground: #020617;
+  --sidebar-primary: #0F172A;
+  --sidebar-primary-foreground: #F8FAFC;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #0369A1;
 }
 
 .dark {
@@ -141,4 +143,10 @@
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
