@@ -73,7 +73,7 @@ export function Navigation() {
               <span className="sr-only">메뉴 열기</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-72 bg-gradient-to-b from-primary/5 to-white">
+          <SheetContent side="right" className="w-72 bg-white border-l border-gray-200 shadow-xl">
             <SheetTitle className="text-left text-primary font-bold text-lg">
               메뉴
             </SheetTitle>
