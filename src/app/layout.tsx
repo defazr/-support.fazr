@@ -22,15 +22,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "고유가 피해지원금 - support.fazr.co.kr",
+    siteName: "고유가 피해지원금",
     images: [
       {
-        url: "/og/og-main.jpg",
+        url: "https://support.fazr.co.kr/og/og-main.jpg",
         width: 1200,
         height: 630,
         alt: "2026 고유가 피해지원금 - 대상 확인 & 예상 금액 계산",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "고유가 피해지원금 - 대상 확인 및 예상 금액 계산",
+    description:
+      "2026 고유가 피해지원금 대상 확인, 예상 금액 계산, 신청 방법 안내. 소득 하위 70% 기준, 최대 25만원 지급 예상.",
+    images: ["https://support.fazr.co.kr/og/og-main.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
