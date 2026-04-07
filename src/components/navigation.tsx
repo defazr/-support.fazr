@@ -85,8 +85,8 @@ export function Navigation() {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 text-base font-medium rounded-lg transition-all ${
                     isActive(item.href)
-                      ? "text-primary bg-primary/10 border-l-3 border-primary"
-                      : "text-foreground hover:bg-primary/5 hover:text-primary active:bg-primary/10"
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-foreground hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100"
                   }`}
                 >
                   {item.label}
