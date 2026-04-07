@@ -24,6 +24,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     siteName: "고유가 피해지원금 안내",
+    images: [
+      {
+        url: "/og/og-main.jpg",
+        width: 1200,
+        height: 630,
+        alt: "2026 고유가 피해지원금 - 대상 확인 & 예상 금액 계산",
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
