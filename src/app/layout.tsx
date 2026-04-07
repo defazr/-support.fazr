@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { SkinnyBar } from "@/components/skinny-bar";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ScrollTopButton } from "@/components/scroll-top-button";
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   title: {
@@ -51,20 +54,6 @@ export default function RootLayout({
   return (
     <html lang="ko" className="h-full antialiased">
       <head>
-        {/* GA4 placeholder — replace GA_MEASUREMENT_ID when ready */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`,
-              }}
-            />
-          </>
-        )}
         {/* AdSense — only loads when pub ID is set */}
         {process.env.NEXT_PUBLIC_ADSENSE_PUB_ID && (
           <script
@@ -75,6 +64,22 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-full flex flex-col font-sans">
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
         <SkinnyBar />
         <Navigation />
         <main className="flex-1">{children}</main>
