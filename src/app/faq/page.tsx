@@ -92,9 +92,35 @@ const FAQ_SECTIONS = [
   },
 ];
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, "");
+}
+
+function generateFaqJsonLd() {
+  const allItems = FAQ_SECTIONS.flatMap((section) => section.items);
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: stripHtml(item.a),
+      },
+    })),
+  };
+}
+
 export default function FAQPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFaqJsonLd()),
+        }}
+      />
       <div className="text-center mb-10">
         <div className="bg-primary/10 rounded-full p-3 w-fit mx-auto mb-4">
           <HelpCircle className="h-8 w-8 text-primary" />
