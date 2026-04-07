@@ -5,6 +5,7 @@ import { ArrowLeft, Clock, ArrowRight, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
 import { UPDATES } from "@/data/updates";
 
 export function generateStaticParams() {
@@ -57,6 +58,11 @@ export default async function UpdateDetailPage({ params }: Props) {
             <li>예상 지급: 확정 후 2~4주 내</li>
             <li>예상 금액: 1인당 10~25만원 (지역별 차등)</li>
           </ul>
+        </div>
+
+        {/* Ad Slot 3 */}
+        <div className="my-6">
+          <AdSlot slot="7853952826" format="rectangle" />
         </div>
 
         <div

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 
 const QUICK_LINKS = [
@@ -98,6 +99,11 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
+      </section>
+
+      {/* Ad Slot 1 */}
+      <section className="max-w-6xl mx-auto px-4 py-4">
+        <AdSlot slot="4106279506" format="horizontal" />
       </section>
 
       {/* Quick Links */}

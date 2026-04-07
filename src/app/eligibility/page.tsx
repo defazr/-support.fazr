@@ -191,6 +191,9 @@ export default function EligibilityPage() {
         <Link href="/regions" className="text-primary hover:underline">
           지역별 지급 금액 확인 →
         </Link>
+        <Link href="/updates" className="text-primary hover:underline">
+          고유가 피해지원금 최신 정책 변경 확인 →
+        </Link>
         <Link href="/" className="text-muted-foreground hover:text-foreground">
           고유가 피해지원금 전체 정보 보기 →
         </Link>

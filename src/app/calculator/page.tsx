@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
+import { AdSlot } from "@/components/ad-slot";
 import { GovLinkButton } from "@/components/gov-link-button";
 import {
   SUBSIDY_CONFIG,
@@ -256,6 +257,13 @@ export default function CalculatorPage() {
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {/* Ad Slot 2 */}
+      {result && (
+        <div className="mt-6">
+          <AdSlot slot="1480116169" format="rectangle" />
+        </div>
       )}
 
       {/* Income Threshold Reference */}

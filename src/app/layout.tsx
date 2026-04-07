@@ -72,6 +72,14 @@ export default function RootLayout({
             />
           </>
         )}
+        {/* AdSense — only loads when pub ID is set */}
+        {process.env.NEXT_PUBLIC_ADSENSE_PUB_ID && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <SkinnyBar />
