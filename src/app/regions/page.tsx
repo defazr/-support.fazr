@@ -48,14 +48,19 @@ export default function RegionsPage() {
         </p>
       </div>
 
-      {/* Calculator CTA */}
-      <div className="text-center mb-8">
+      {/* Page CTAs */}
+      <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
         <Link
           href="/calculator"
-          className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+          className="inline-flex items-center gap-1 text-primary font-medium hover:underline"
         >
-          내 지원금 바로 계산하기
-          <ArrowRight className="h-4 w-4" />
+          고유가 지원금 계산하기 →
+        </Link>
+        <Link href="/eligibility" className="text-primary hover:underline">
+          고유가 지원금 대상 기준 먼저 확인 →
+        </Link>
+        <Link href="/faq" className="text-primary hover:underline">
+          고유가 지원금 조건이 궁금하다면 →
         </Link>
       </div>
 

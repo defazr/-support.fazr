@@ -184,6 +184,18 @@ export default function EligibilityPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap justify-center gap-4 mt-4 mb-8 text-sm">
+        <Link href="/faq" className="text-primary hover:underline">
+          고유가 지원금 대상 조건이 헷갈린다면 FAQ 보기 →
+        </Link>
+        <Link href="/regions" className="text-primary hover:underline">
+          지역별 지급 금액 확인 →
+        </Link>
+        <Link href="/" className="text-muted-foreground hover:text-foreground">
+          고유가 피해지원금 전체 정보 보기 →
+        </Link>
+      </div>
+
       <DisclaimerBanner />
     </div>
   );

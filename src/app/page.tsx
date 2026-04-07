@@ -179,6 +179,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Updates link */}
+      <section className="max-w-6xl mx-auto px-4 pb-8 text-center">
+        <Link
+          href="/updates"
+          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+        >
+          고유가 피해지원금 지급 일정 확인 →
+        </Link>
+      </section>
+
       {/* Disclaimer */}
       <section className="max-w-6xl mx-auto px-4 pb-12">
         <DisclaimerBanner />

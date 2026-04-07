@@ -173,6 +173,15 @@ export default function FAQPage() {
         </CardContent>
       </Card>
 
+      <div className="flex flex-wrap justify-center gap-4 mt-4 mb-8 text-sm">
+        <Link href="/updates" className="text-primary hover:underline">
+          고유가 피해지원금 최신 정책 변경 확인 →
+        </Link>
+        <Link href="/" className="text-muted-foreground hover:text-foreground">
+          전체 지원금 안내 다시 보기 →
+        </Link>
+      </div>
+
       <DisclaimerBanner />
     </div>
   );

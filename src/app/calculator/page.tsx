@@ -300,6 +300,15 @@ export default function CalculatorPage() {
         </CardContent>
       </Card>
 
+      <div className="flex flex-wrap justify-center gap-4 mt-8 text-sm">
+        <Link href="/updates" className="text-primary hover:underline">
+          고유가 피해지원금 지급 일정이 궁금하다면 →
+        </Link>
+        <Link href="/" className="text-muted-foreground hover:text-foreground">
+          처음으로 돌아가기 →
+        </Link>
+      </div>
+
       <div className="mt-6">
         <DisclaimerBanner />
       </div>
