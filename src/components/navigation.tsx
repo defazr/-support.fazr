@@ -74,10 +74,9 @@ export function Navigation() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72 bg-white border-l border-gray-200 shadow-xl">
-            <SheetTitle className="text-left text-primary font-bold text-lg">
-              메뉴
-            </SheetTitle>
-            <nav className="flex flex-col gap-1 mt-4">
+            <SheetTitle className="sr-only">메뉴</SheetTitle>
+            <div className="border-b border-gray-200 mb-0" />
+            <nav className="flex flex-col gap-1 pt-4">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
@@ -86,7 +85,7 @@ export function Navigation() {
                   className={`px-4 py-3 text-base font-medium rounded-lg transition-all ${
                     isActive(item.href)
                       ? "text-blue-600 bg-blue-50"
-                      : "text-foreground hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100"
+                      : "text-foreground hover:bg-gray-50"
                   }`}
                 >
                   {item.label}
