@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Calculator, ArrowRight, Fuel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -233,7 +234,20 @@ export default function CalculatorPage() {
               </div>
             )}
 
-            <div className="mt-6 pt-4 border-t">
+            <div className="mt-6 pt-4 border-t space-y-2">
+              <div className="flex flex-wrap justify-center gap-3 text-sm">
+                <Link href="/regions" className="text-primary hover:underline">
+                  지역별 상세 정보 보기
+                </Link>
+                <span className="text-muted-foreground">·</span>
+                <Link href="/faq" className="text-primary hover:underline">
+                  자주 묻는 질문
+                </Link>
+                <span className="text-muted-foreground">·</span>
+                <Link href="/eligibility" className="text-primary hover:underline">
+                  대상 기준 확인
+                </Link>
+              </div>
               <p className="text-xs text-muted-foreground text-center">
                 * 위 결과는 예상 기준이며, 실제 지원금은 정책 확정 후 변경될 수
                 있습니다. 정확한 정보는 정부24 또는 관할 주민센터를 통해

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "업데이트 - 고유가 피해지원금 최신 소식",
   description:
     "2026 고유가 피해지원금 정책 변경, 추경 심사 현황, 신청 일정 등 최신 업데이트 소식을 확인하세요.",
+  alternates: { canonical: "/updates" },
 };
 
 export default function UpdatesPage() {

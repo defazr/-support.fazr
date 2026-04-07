@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "대상 확인 - 고유가 피해지원금 자격 기준",
   description:
     "2026 고유가 피해지원금 대상 여부를 건강보험료 기준으로 확인하세요. 가구원 수별 소득 기준, 직장·지역 건강보험료 기준표 안내.",
+  alternates: { canonical: "/eligibility" },
 };
 
 function formatAmount(num: number): string {

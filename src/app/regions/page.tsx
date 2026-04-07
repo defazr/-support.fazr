@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "인구감소지역 목록 - 89개 지자체 고유가 지원금 특별·우대 혜택",
   description:
     "2026 고유가 피해지원금 인구감소지역 89개 전체 목록. 특별지역 40곳(25만원), 우대지역 49곳(20만원) 지역별 예상 지급액 확인.",
+  alternates: { canonical: "/regions" },
 };
 
 const regions = regionsData.regions as Region[];
@@ -45,6 +46,17 @@ export default function RegionsPage() {
         <p className="text-muted-foreground mt-2">
           인구감소지역 거주자는 일반 지역보다 더 많은 지원금을 받을 수 있습니다
         </p>
+      </div>
+
+      {/* Calculator CTA */}
+      <div className="text-center mb-8">
+        <Link
+          href="/calculator"
+          className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+        >
+          내 지원금 바로 계산하기
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
 
       {/* Summary */}

@@ -20,10 +20,13 @@ export const metadata: Metadata = {
   description:
     "2026 고유가 피해지원금 대상 확인, 예상 금액 계산, 신청 방법 안내. 소득 하위 70% 기준, 최대 25만원 지급 예상.",
   metadataBase: new URL("https://support.fazr.co.kr"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "고유가 피해지원금 안내",
+    siteName: "고유가 피해지원금 - support.fazr.co.kr",
     images: [
       {
         url: "/og/og-main.jpg",
@@ -35,6 +38,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+  },
+  verification: {
+    other: {
+      "naver-site-verification": ["089d836d9cc01800e7c0542ffd7e3c3a8e7369b2"],
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

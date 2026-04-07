@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${region.fullName} 고유가 피해지원금 - 대상 확인 및 예상 금액`,
     description: `${region.fullName} 고유가 피해지원금 안내. 인구감소 ${region.type}지역, 1인당 ${region.amount.toLocaleString("ko-KR")}원 예상 지급. 대상 확인 및 신청 방법.`,
+    alternates: { canonical: `/regions/${slug}` },
   };
 }
 
@@ -147,11 +148,20 @@ export default async function RegionDetailPage({ params }: Props) {
       </Card>
 
       {/* CTAs */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <GovLinkButton type="apply" />
         <Button variant="outline" render={<Link href="/calculator" />} className="gap-2">
             <Calculator className="h-4 w-4" />{region.name} 기준으로 내가 받을 수 있을까?
         </Button>
+      </div>
+      <div className="flex flex-wrap gap-3 text-sm mb-6">
+        <Link href="/eligibility" className="text-primary hover:underline">
+          대상 기준 확인
+        </Link>
+        <span className="text-muted-foreground">·</span>
+        <Link href="/regions" className="text-primary hover:underline">
+          다른 지역 보기
+        </Link>
       </div>
 
       {/* 같은 도 지역 */}
