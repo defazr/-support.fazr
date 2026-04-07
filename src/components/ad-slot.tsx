@@ -21,17 +21,22 @@ export function AdSlot({
   format = "auto",
   className = "",
 }: AdSlotProps) {
-  const adRef = useRef<HTMLModElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const pushed = useRef(false);
 
   useEffect(() => {
     if (!pubId || pushed.current) return;
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      pushed.current = true;
-    } catch {
-      // adsense not loaded yet
-    }
+
+    const timer = setTimeout(() => {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch {
+        // adsense not ready
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!pubId) {
@@ -39,11 +44,10 @@ export function AdSlot({
   }
 
   return (
-    <div className={`flex justify-center ${className}`}>
+    <div ref={containerRef} className={`flex justify-center overflow-hidden ${className}`}>
       <ins
-        ref={adRef}
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ display: "block", width: "100%", minHeight: "90px" }}
         data-ad-client={`ca-${pubId}`}
         data-ad-slot={slot}
         data-ad-format={format}
