@@ -28,8 +28,10 @@ export function Navigation() {
   useEffect(() => {
     if (!open) return;
     document.body.style.overflow = "hidden";
+    document.body.setAttribute("data-menu-open", "true");
     return () => {
       document.body.style.overflow = "auto";
+      document.body.removeAttribute("data-menu-open");
     };
   }, [open]);
 

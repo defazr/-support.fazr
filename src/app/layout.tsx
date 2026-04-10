@@ -5,6 +5,7 @@ import { SkinnyBar } from "@/components/skinny-bar";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { ScrollTopButton } from "@/components/scroll-top-button";
+import { VignetteCleanup } from "@/components/vignette-cleanup";
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -87,6 +88,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <VignetteCleanup />
         <SkinnyBar />
         <Navigation />
         <main className="flex-1">{children}</main>
