@@ -50,7 +50,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
-            현재 국회 추경 심사 중
+            추경 통과 — 4월 지급 시작
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
             고유가 피해지원금 대상인지
@@ -62,7 +62,7 @@ export default function HomePage() {
           </p>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3">
             1인당 최대{" "}
-            <span className="text-blue-600 font-bold">25만원</span> 지급 예상
+            <span className="text-blue-600 font-bold">60만원</span> 차등 지급
           </p>
           <p className="text-sm text-muted-foreground mb-8">
             총 예산 {SUBSIDY_CONFIG.totalBudget} · 대상{" "}
@@ -84,8 +84,8 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 -mt-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "수도권", value: "10만원", sub: "1인당 예상" },
-            { label: "비수도권", value: "15만원", sub: "1인당 예상" },
+            { label: "수도권", value: "10만원", sub: "1인당" },
+            { label: "비수도권", value: "15만원", sub: "1인당" },
             { label: "우대지역", value: "20만원", sub: "인구감소 49곳" },
             { label: "특별지역", value: "25만원", sub: "인구감소 40곳" },
           ].map((stat) => (

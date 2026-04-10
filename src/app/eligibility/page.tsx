@@ -138,7 +138,7 @@ export default function EligibilityPage() {
       {/* 지역별 지급액 */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>지역별 1인당 예상 지급액</CardTitle>
+          <CardTitle>지역별 1인당 지급액</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -183,7 +183,7 @@ export default function EligibilityPage() {
         <ul className="text-sm text-muted-foreground space-y-1">
           <li>대상: 소득 하위 <span className="text-blue-600 font-bold">70%</span> 가구 (건강보험료 기준)</li>
           <li>금액: 지역별 1인당 <span className="text-blue-600 font-bold">10만~25만원</span> 차등 지급</li>
-          <li>상태: 국회 추경 심사 중 (확정 시 즉시 업데이트)</li>
+          <li>상태: 추경 국회 통과 (4월 10일 확정)</li>
         </ul>
       </div>
 

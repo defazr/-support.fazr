@@ -87,7 +87,7 @@ export default async function RegionDetailPage({ params }: Props) {
               {formatAmount(region.amount)}원
             </p>
             <p className="text-muted-foreground mt-2">
-              인구감소 {region.type}지역 기준 · 1인당 예상 금액
+              인구감소 {region.type}지역 기준 · 1인당 지급액
             </p>
           </div>
 
