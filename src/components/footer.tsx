@@ -13,7 +13,7 @@ const INTERNAL_SERVICES = [
 
 export function Footer() {
   return (
-    <footer className="bg-muted/50 border-t border-border mt-12">
+    <footer className="bg-muted/50 border-t border-border mt-12 pb-20">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* 1단: 사이트 정보 */}

@@ -91,7 +91,7 @@ export default function RootLayout({
         <VignetteCleanup />
         <SkinnyBar />
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 min-h-dvh">{children}</main>
         <Footer />
         <ScrollTopButton />
       </body>
