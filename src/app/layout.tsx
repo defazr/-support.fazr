@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="h-full antialiased">
+    <html lang="ko" className="antialiased">
       <head>
         {/* AdSense — only loads when pub ID is set */}
         {process.env.NEXT_PUBLIC_ADSENSE_PUB_ID && (
@@ -70,7 +70,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="flex flex-col font-sans">
         {gaId && (
           <>
             <Script
