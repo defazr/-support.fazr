@@ -187,9 +187,9 @@ export default function EligibilityPage() {
         </ul>
       </div>
 
-      {/* Ad placeholder — 대상 확인 */}
+      {/* 디스플레이 광고 — 대상 확인 */}
       <div className="my-8">
-        <AdSlot slot="7853952826" format="auto" />
+        <AdSlot slot="1340925456" format="auto" minHeight="280px" />
       </div>
 
       {/* CTA */}

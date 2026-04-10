@@ -174,9 +174,9 @@ export default function FAQPage() {
         </CardContent>
       </Card>
 
-      {/* Ad placeholder — FAQ 하단 */}
+      {/* 멀티플렉스 광고 — FAQ 하단 */}
       <div className="my-8">
-        <AdSlot slot="4106279506" format="auto" />
+        <AdSlot slot="8171712676" format="autorelaxed" minHeight="600px" />
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 mt-4 mb-8 text-sm">

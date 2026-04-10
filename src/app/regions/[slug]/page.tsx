@@ -168,9 +168,9 @@ export default async function RegionDetailPage({ params }: Props) {
 
       <ShareButtons title={`${region.fullName} 고유가 피해지원금 확인`} />
 
-      {/* Ad placeholder — 지역 상세 */}
+      {/* 디스플레이 광고 — 지역 상세 */}
       <div className="my-8">
-        <AdSlot slot="1480116169" format="auto" />
+        <AdSlot slot="9027843789" format="auto" minHeight="280px" />
       </div>
 
       {/* 같은 도 지역 */}
