@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | 고유가 피해지원금",
   },
   description:
-    "2026 고유가 피해지원금 대상 확인, 예상 금액 계산, 신청 방법 안내. 소득 하위 70% 기준, 최대 25만원 지급 예상.",
+    "2026 고유가 피해지원금(고유가지원금/민생지원금) 대상 확인, 신청 방법, 지급일 안내. 소득 하위 70% 1인당 10만~60만원 지급.",
   metadataBase: new URL("https://support.fazr.co.kr"),
   alternates: {
     canonical: "/",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "고유가 피해지원금 - 대상 확인 및 예상 금액 계산",
     description:
-      "2026 고유가 피해지원금 대상 확인, 예상 금액 계산, 신청 방법 안내. 소득 하위 70% 기준, 최대 25만원 지급 예상.",
+      "2026 고유가 피해지원금(고유가지원금/민생지원금) 대상 확인, 신청 방법, 지급일 안내. 소득 하위 70% 1인당 10만~60만원 지급.",
     images: ["https://support.fazr.co.kr/og/og-main.jpg"],
   },
   icons: {

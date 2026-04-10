@@ -1,5 +1,6 @@
 export const SKINNY_BAR = {
-  text: "여야 추경 최종 합의 | 본회의 통과 예정 | 확정 시 즉시 업데이트",
+  text: "추경 통과! 고유가 피해지원금 4월 말 1차 지급 예정 | 대상 확인하세요",
   link: "/updates",
   active: true,
+  status: "확정" as const,
 };
