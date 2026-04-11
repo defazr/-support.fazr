@@ -76,7 +76,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "고유가 지원금 외에 다른 혜택도 있나요?",
-        a: '유류세 추가 인하(휘발유 450원/L, 경유 281원/L)와 K패스 환급률 상향(일반 30%, 저소득층 83%)이 함께 시행됩니다. 또한 금리인하요구권을 행사하면 대출 이자 부담도 줄일 수 있습니다. 자세한 내용은 <a href="https://debt.newsforgreens.com" target="_blank" rel="noopener noreferrer" class="text-primary underline">대출 이자 줄이는 법</a>에서 확인하세요.',
+        a: '유류세 인하(휘발유 약 57원/L, 경유 약 58원/L)와 K패스 환급률 상향(일반 20→30%, 저소득층 53→83%)이 함께 시행됩니다. 유가·물가 부담으로 채무 상환이 어려워졌다면 <a href="https://debt.newsforgreens.com/" target="_blank" rel="noopener noreferrer" class="text-primary underline">개인회생 진단</a>을 통해 상환 계획을 점검해볼 수 있습니다.',
       },
     ],
   },
