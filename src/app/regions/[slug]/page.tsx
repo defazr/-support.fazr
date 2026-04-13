@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
 import { ShareButtons } from "@/components/share-buttons";
-import { GovLinkButton } from "@/components/gov-link-button";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 import regionsData from "@/data/regions.json";
 import type { Region } from "@/data/types";
@@ -151,7 +150,9 @@ export default async function RegionDetailPage({ params }: Props) {
 
       {/* CTAs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-        <GovLinkButton type="apply" />
+        <Button render={<Link href="/updates/government-official-payment-plan-2026" />} className="gap-2">
+            <ArrowRight className="h-4 w-4" />신청 방법 안내
+        </Button>
         <Button variant="outline" render={<Link href="/calculator" />} className="gap-2">
             <Calculator className="h-4 w-4" />{region.name} 기준으로 내가 받을 수 있을까?
         </Button>

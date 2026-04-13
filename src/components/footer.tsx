@@ -82,8 +82,8 @@ export function Footer() {
             <h3 className="font-bold text-foreground mb-3">안내 사항</h3>
             <p className="text-xs text-muted-foreground leading-relaxed bg-muted/80 p-4 rounded-lg">
               본 사이트는 정부 공식 사이트가 아니며, 안내 정보는 정책 확정 전
-              예상 기준으로 변경될 수 있습니다. 정확한 정보는 정부24 또는 관할
-              주민센터를 통해 확인하시기 바랍니다.
+              예상 기준으로 변경될 수 있습니다. 정확한 정보는 관할 주민센터
+              또는 카드사 앱을 통해 확인하시기 바랍니다.
             </p>
           </div>
         </div>

@@ -17,7 +17,6 @@ import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
 import { ShareButtons } from "@/components/share-buttons";
-import { GovLinkButton } from "@/components/gov-link-button";
 import {
   SUBSIDY_CONFIG,
   getSubsidyAmount,
@@ -203,7 +202,10 @@ export default function CalculatorPage() {
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <GovLinkButton type="apply" />
+                  <Button variant="default" render={<Link href="/updates/government-official-payment-plan-2026" />} className="w-full gap-2">
+                    <ArrowRight className="h-4 w-4" />
+                    신청 방법 안내
+                  </Button>
                   <a
                     href="https://fuel.fazr.co.kr"
                     target="_blank"
@@ -230,7 +232,7 @@ export default function CalculatorPage() {
                 <p className="text-muted-foreground mt-2">{result.message}</p>
                 {members !== "5" && (
                   <p className="text-sm text-muted-foreground mt-4">
-                    정확한 대상 여부는 정부24에서 확인하세요
+                    정확한 대상 여부는 관할 주민센터 또는 카드사 앱에서 확인하세요
                   </p>
                 )}
               </div>
@@ -252,7 +254,7 @@ export default function CalculatorPage() {
               </div>
               <p className="text-xs text-muted-foreground text-center">
                 * 위 결과는 예상 기준이며, 건강보험료 컷오프 기준에 따라 변경될 수
-                있습니다. 정확한 정보는 정부24 또는 관할 주민센터를 통해
+                있습니다. 정확한 정보는 관할 주민센터 또는 카드사 앱을 통해
                 확인하시기 바랍니다.
               </p>
             </div>
