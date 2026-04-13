@@ -109,6 +109,18 @@ export default function HomePage() {
         <AdSlot slot="4106279506" format="horizontal" />
       </section>
 
+      {/* 스미싱 경고 */}
+      <section className="max-w-6xl mx-auto px-4 pt-8">
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <p className="text-sm text-amber-900 font-medium">
+            ※ 고유가 피해지원금 관련 URL이 포함된 문자는 모두 스미싱입니다.
+          </p>
+          <p className="text-sm text-amber-800 mt-1">
+            정부·카드사는 URL 포함 문자를 발송하지 않습니다.
+          </p>
+        </div>
+      </section>
+
       {/* Quick Links */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-center mb-8">

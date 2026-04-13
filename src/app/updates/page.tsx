@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Newspaper, ArrowRight, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
@@ -57,6 +58,14 @@ export default function UpdatesPage() {
             )}
           </div>
         ))}
+      </div>
+
+      {/* Calculator CTA */}
+      <div className="text-center mt-10 mb-8">
+        <Button size="lg" render={<Link href="/calculator" />} className="w-full sm:w-auto px-8 py-6 text-base shadow-lg bg-[#0369A1] hover:bg-[#0369A1]/90">
+          내가 받을 금액 바로 확인하기
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
       </div>
 
       <div className="mt-8">

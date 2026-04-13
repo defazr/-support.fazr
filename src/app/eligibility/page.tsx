@@ -225,6 +225,16 @@ export default function EligibilityPage() {
         </ul>
       </div>
 
+      {/* 신청 경로 안내 */}
+      <div className="bg-[#0369A1]/5 border border-[#0369A1]/20 rounded-lg p-4 mb-8">
+        <p className="text-sm text-muted-foreground">
+          신청은 카드사 앱, 지역사랑상품권 앱, 주민센터에서 가능합니다.{" "}
+          <Link href="/updates/government-official-payment-plan-2026" className="text-[#0369A1] font-medium underline">
+            지금 바로 신청 방법을 확인해보세요
+          </Link>
+        </p>
+      </div>
+
       {/* 디스플레이 광고 — 대상 확인 */}
       <div className="my-8">
         <AdSlot slot="1340925456" format="auto" minHeight="280px" />
