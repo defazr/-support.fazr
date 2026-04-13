@@ -204,7 +204,7 @@ export default function CalculatorPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Button variant="default" render={<Link href="/updates/government-official-payment-plan-2026" />} className="w-full gap-2">
                     <ArrowRight className="h-4 w-4" />
-                    신청 방법 안내
+                    최신 지급 소식 보기
                   </Button>
                   <a
                     href="https://fuel.fazr.co.kr"
