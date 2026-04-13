@@ -2,14 +2,14 @@
 
 > 다음 Claude Code 세션이 이 파일을 먼저 읽고 현재 상태를 파악한다.
 
-## 마지막 세션: 2026-04-11 (v2)
+## 마지막 세션: 2026-04-13
 
-### 프로젝트 상태: ✅ 운영 중 + 광고 ON + 트래픽 유입 시작
+### 프로젝트 상태: ✅ 운영 중 + 광고 ON + 정부 발표 반영 완료
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
 - **배포**: Vercel 자동 배포 (push → 자동 빌드)
-- **총 페이지**: 104개
+- **총 페이지**: 105개
 
 ### 기술 스택
 
@@ -45,14 +45,21 @@
 - **VignetteCleanup** (`vignette-cleanup.tsx`): Vignette 자동 광고 body 잔류 정리. MutationObserver. **건드리지 마라.**
 - **AdSlot** (`ad-slot.tsx`): 디스플레이 + 멀티플렉스 통합. format/minHeight prop.
 - **ShareButtons** (`share-buttons.tsx`): 모바일 navigator.share() / PC 네이버·X·페북·링크복사
+- **GovLinkButton** (`gov-link-button.tsx`): 현재 active:false. calculator/regions에서 제거됨 → 내부 링크로 교체 완료.
 
-### 콘텐츠 현재 상태 (2026-04-11)
+### 콘텐츠 현재 상태 (2026-04-13)
 
-- 추경: **통과 확정** (4/10 본회의)
+- 추경: **통과 확정** (4/10 본회의) + **정부 공식 발표** (4/11)
 - subsidy.ts status: "확정"
-- 스키니바: "추경 통과! 4월 말 1차 지급 예정"
-- 정부24 링크: **active=false** (국무회의 후 활성화)
-- updates 글 4개 (속보 + 지급안내 + 신청방법 + 인구감소지역)
+- 스키니바: "4월 27일 지급 시작! 고유가 피해지원금 대상 바로 확인하세요"
+- gov-links.ts: **active=false** (라벨 "최신 지급 소식 보기"로 교체 완료)
+- updates 글 **5개** (속보-정부발표 + 속보-추경통과 + 지급안내 + 신청방법 + 인구감소지역)
+- "정부24" 표현: **사이트 전체 제거** (실제 채널 아님)
+- 날짜: 전부 확정형 (4월 27일, 5월 18일, 8월 31일)
+- 건보료 컷오프: "5월 중 발표 예정" 유지 (미확정)
+- FAQ: 12개 항목 (신규 2개: 공시가격, 세대분리)
+- 홈: 스미싱 경고 박스 추가
+- calculator/eligibility: 신청 경로 안내 박스 추가
 
 ### 디자인 시스템
 
@@ -64,18 +71,20 @@
 
 1. **body/html에 높이 클래스 금지** — h-full, min-h-full, min-h-screen 넣으면 iOS 스크롤 버그 재발. min-h-dvh는 main에만.
 2. **SSOT 전부 확인** — 항목 누락 금지
-2. **아닌 건 말해라** — 지시서가 와도 문제 보이면 의견 제시
-3. **GA4 = next/script** — dangerouslySetInnerHTML 금지
-4. **구조 변경 금지** — CSS 클래스만 수정
-5. **VignetteCleanup 건드리지 마라** — 자동 광고 충돌 방지 핵심
-6. **정부24 링크 = active:false 유지** — 공식 발표 전까지
-7. **Vercel env** — printf로 줄바꿈 없이 추가, 변경 후 재배포 필수
-8. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인
+3. **아닌 건 말해라** — 지시서가 와도 문제 보이면 의견 제시
+4. **GA4 = next/script** — dangerouslySetInnerHTML 금지
+5. **구조 변경 금지** — CSS 클래스만 수정
+6. **VignetteCleanup 건드리지 마라** — 자동 광고 충돌 방지 핵심
+7. **"정부24" 사용 금지** — 실제 신청 채널 아님. 카드사 앱/지역사랑상품권 앱/주민센터가 정확
+8. **Vercel env** — printf로 줄바꿈 없이 추가, 변경 후 재배포 필수
+9. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인
+10. **calculator 로직 수정 금지** — 데이터만 교체, 로직 변경은 사용자 확인 후
 
 ### 다음 작업 후보
 
-1. 4/11 국무회의 후 gov-links.ts 활성화
-2. FAQ Phase 2 (추경 통과 반영)
-3. updates.ts summary 필드 구조화
-4. GA4 + AdSense 대시보드 모니터링
-5. 콘텐츠 freshness 업데이트
+1. 4/27 지급 시작 → 스키니바/status "지급중" 전환, gov-links 활성화 판단
+2. calculator 취약계층 로직 보완 (비수도권·인구감소지역 +5만원)
+3. 건보료 컷오프 발표 후 subsidy.ts incomeThresholds 업데이트
+4. GA4 + AdSense 수익 모니터링 → 슬롯 최적화
+5. 검색 유입 키워드 분석 → 콘텐츠 확장
+6. updates.ts summary 필드 구조화
