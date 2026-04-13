@@ -62,7 +62,7 @@ export default function EligibilityPage() {
                 <ul className="text-sm text-red-800 mt-2 space-y-1">
                   <li>건강보험료 기준 초과</li>
                   <li>고소득 가구 (상위 30%)</li>
-                  <li>세부 제외 대상 (정책 확정 시 안내)</li>
+                  <li>세부 제외 대상 (건보료 컷오프 5월 중 발표)</li>
                 </ul>
               </div>
             </div>
@@ -129,8 +129,8 @@ export default function EligibilityPage() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-4">
-            * 위 기준은 소득 하위 70% 예상 기준이며, 정책 확정 시 변경될 수
-            있습니다.
+            * 위 기준은 소득 하위 70% 예상 기준이며, 건강보험료 컷오프 기준은
+            5월 중 발표 예정입니다.
           </p>
         </CardContent>
       </Card>
@@ -177,13 +177,51 @@ export default function EligibilityPage() {
         </CardContent>
       </Card>
 
+      {/* 취약계층 지급 금액 */}
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>취약계층 지급 금액 (1차: 4월 27일~5월 8일)</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b bg-muted/50">
+                  <th className="text-left py-3 px-3 font-medium">대상</th>
+                  <th className="text-right py-3 px-3 font-medium">수도권</th>
+                  <th className="text-right py-3 px-3 font-medium">비수도권·인구감소</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="py-3 px-3 font-medium">기초생활수급자</td>
+                  <td className="text-right py-3 px-3"><span className="font-bold text-blue-600">55만원</span></td>
+                  <td className="text-right py-3 px-3"><span className="font-bold text-blue-600">60만원</span></td>
+                </tr>
+                <tr className="border-b last:border-0">
+                  <td className="py-3 px-3 font-medium">차상위·한부모</td>
+                  <td className="text-right py-3 px-3"><span className="font-bold text-blue-600">45만원</span></td>
+                  <td className="text-right py-3 px-3"><span className="font-bold text-blue-600">50만원</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            * 취약계층은 별도 신청 없이 자동 지급됩니다.
+          </p>
+        </CardContent>
+      </Card>
+
       {/* 요약 박스 */}
       <div className="bg-[#0369A1]/5 border border-[#0369A1]/20 rounded-lg p-5 mb-8 space-y-2">
         <p className="text-sm font-medium text-foreground">핵심 요약</p>
         <ul className="text-sm text-muted-foreground space-y-1">
           <li>대상: 소득 하위 <span className="text-blue-600 font-bold">70%</span> 가구 (건강보험료 기준)</li>
-          <li>금액: 지역별 1인당 <span className="text-blue-600 font-bold">10만~25만원</span> 차등 지급</li>
-          <li>상태: 추경 국회 통과 (4월 10일 확정)</li>
+          <li>1차 지급: <span className="text-blue-600 font-bold">4월 27일~5월 8일</span> (취약계층 자동 지급)</li>
+          <li>2차 지급: <span className="text-blue-600 font-bold">5월 18일~7월 3일</span> (일반 가구)</li>
+          <li>금액: 일반 1인당 <span className="text-blue-600 font-bold">10만~25만원</span>, 취약계층 <span className="text-blue-600 font-bold">45만~60만원</span></li>
+          <li>사용 기한: <span className="text-blue-600 font-bold">8월 31일까지</span> (미사용 시 자동 소멸)</li>
+          <li>기준일: <span className="text-blue-600 font-bold">2026년 3월 30일</span> 주민등록상 주소지</li>
         </ul>
       </div>
 

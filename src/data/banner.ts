@@ -1,5 +1,5 @@
 export const SKINNY_BAR = {
-  text: "추경 통과! 고유가 피해지원금 4월 말 1차 지급 예정 | 대상 확인하세요",
+  text: "4월 27일 지급 시작! 고유가 피해지원금 대상 바로 확인하세요",
   link: "/updates",
   active: true,
   status: "확정" as const,

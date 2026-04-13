@@ -230,7 +230,7 @@ export default function CalculatorPage() {
                 <p className="text-muted-foreground mt-2">{result.message}</p>
                 {members !== "5" && (
                   <p className="text-sm text-muted-foreground mt-4">
-                    정확한 대상 여부는 정책 확정 후 정부24에서 확인하세요
+                    정확한 대상 여부는 정부24에서 확인하세요
                   </p>
                 )}
               </div>
@@ -251,7 +251,7 @@ export default function CalculatorPage() {
                 </Link>
               </div>
               <p className="text-xs text-muted-foreground text-center">
-                * 위 결과는 예상 기준이며, 실제 지원금은 정책 확정 후 변경될 수
+                * 위 결과는 예상 기준이며, 건강보험료 컷오프 기준에 따라 변경될 수
                 있습니다. 정확한 정보는 정부24 또는 관할 주민센터를 통해
                 확인하시기 바랍니다.
               </p>
@@ -307,7 +307,7 @@ export default function CalculatorPage() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-3">
-            * 소득 하위 70% 기준 예상치이며, 정책 확정 시 변경될 수 있습니다
+            * 소득 하위 70% 기준 예상치이며, 건강보험료 컷오프 기준은 5월 중 발표 예정입니다
           </p>
         </CardContent>
       </Card>

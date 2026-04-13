@@ -58,8 +58,8 @@ export default async function UpdateDetailPage({ params }: Props) {
           <p className="text-sm font-medium text-foreground">핵심 요약</p>
           <ul className="text-sm text-muted-foreground space-y-1">
             <li>현재 상태: 추경 국회 통과 (4월 10일)</li>
-            <li>1차 지급: 4월 중 (취약계층 자동 지급)</li>
-            <li>2차 지급: 5월 중 (일반 가구, 건보료 기준)</li>
+            <li>1차 지급: 4월 27일~5월 8일 (취약계층 자동 지급)</li>
+            <li>2차 지급: 5월 18일~7월 3일 (일반 가구, 건보료 기준)</li>
             <li>금액: 1인당 10만~60만원 (지역·계층별 차등)</li>
           </ul>
         </div>
