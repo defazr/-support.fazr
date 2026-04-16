@@ -274,6 +274,84 @@ export default function CalculatorPage() {
         </div>
       )}
 
+      {/* 사용 안내 박스 */}
+      {result && (
+        <div className="mt-6 space-y-4">
+          {/* 블록 1 — 최상단 배너 */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-sm font-semibold text-amber-800">
+              💡 받기 전에 확인하세요
+            </p>
+            <p className="text-sm text-amber-700 mt-1">
+              지급 수단을 어떻게 선택하느냐에 따라 사용 가능한 범위가 크게 달라집니다.
+            </p>
+          </div>
+
+          {/* 블록 2 — 제목 + 본문 */}
+          <div>
+            <h2 className="text-lg font-bold mb-2">받은 지원금, 어디서 쓸 수 있나요?</h2>
+            <p className="text-sm text-muted-foreground">
+              고유가 피해지원금은 지급 수단(카드 / 지역사랑상품권 / 선불카드)에 따라 사용 가능한 범위가 달라집니다.
+            </p>
+          </div>
+
+          {/* 블록 3 — 2단 비교 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Card>
+              <CardContent className="pt-4">
+                <p className="font-semibold mb-2">신용·체크카드</p>
+                <p className="text-sm text-muted-foreground">
+                  주소지 관할 지자체 내 연매출 30억원 이하 소상공인 매장
+                </p>
+                <p className="text-xs text-muted-foreground mt-2 pt-2 border-t">
+                  사용 범위: 대부분 소상공인 매장에서 사용 가능 (단, 업종별 제한 있음)
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-4">
+                <p className="font-semibold mb-2">지역사랑상품권</p>
+                <p className="text-sm text-muted-foreground">
+                  주소지 관할 지자체의 상품권 가맹점 (지방정부 조례별)
+                </p>
+                <p className="text-xs text-muted-foreground mt-2 pt-2 border-t">
+                  사용 범위: 가맹점에 한정, 업종은 지역마다 차이
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* 블록 4 — ⚠️ 경고 */}
+          <div className="border-l-4 border-amber-400 bg-amber-50 rounded-r-lg p-4">
+            <p className="font-semibold text-amber-800 mb-2">
+              ⚠️ 주유소에서 사용하려면 반드시 확인하세요
+            </p>
+            <p className="text-base font-medium text-amber-900 mb-2">
+              실제로 10곳 중 약 7곳은 기준을 초과합니다.
+            </p>
+            <p className="text-sm text-amber-800 mb-2">
+              주유소는 연매출 30억원 이하만 사용 가능하기 때문에, 대부분의 주유소에서는 사용할 수 없는 경우가 많습니다.
+            </p>
+            <p className="text-sm text-amber-800 mb-3">
+              카드로 받아도 대부분의 주유소에서는 사용할 수 없는 경우가 많고, 지역사랑상품권은 가맹 주유소 자체가 매우 적거나 없는 지역도 있습니다.
+            </p>
+            <p className="text-sm font-medium text-amber-900">
+              👉 특히 주유가 목적이라면, 지급 수단 선택 전에 반드시 사용 가능 여부를 확인하세요.
+            </p>
+          </div>
+
+          {/* 블록 5 — CTA */}
+          <div className="flex flex-wrap gap-3 text-sm">
+            <Link href="/updates/oil-subsidy-usage-guide-2026" className="text-primary hover:underline">
+              사용처 자세히 보기 →
+            </Link>
+            <Link href="/faq" className="text-primary hover:underline">
+              FAQ에서 더 확인 →
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Share + Ad */}
       {result && (
         <>
