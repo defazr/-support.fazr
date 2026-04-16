@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 로컬 검증용 임시 문서 (커밋 제외)
+FAQ-EXTRACT.md
