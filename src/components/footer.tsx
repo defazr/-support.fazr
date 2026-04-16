@@ -87,7 +87,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-xs text-muted-foreground space-y-1 text-center pt-6 border-t border-border/40 mt-6">
+        <div className="text-xs text-muted-foreground space-y-1 text-left md:text-center pt-6 border-t border-border/40 mt-6">
           <p className="font-medium">FAZR (다파라코프)</p>
           <p>대표자: 오석영 | 개인정보보호책임자: 오석영</p>
           <p>사업자등록번호: 208-09-27644</p>
