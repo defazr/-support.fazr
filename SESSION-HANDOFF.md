@@ -4,7 +4,7 @@
 
 ## 마지막 세션: 2026-04-16
 
-### 프로젝트 상태: ✅ 운영 중 + 광고 ON + 지급 수단 가이드 추가
+### 프로젝트 상태: ✅ 운영 중 + 광고 ON + FAZR 브랜드 통일 완료
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
@@ -47,7 +47,20 @@
 - **ShareButtons** (`share-buttons.tsx`): 모바일 navigator.share() / PC 네이버·X·페북·링크복사
 - **GovLinkButton** (`gov-link-button.tsx`): 현재 active:false. calculator/regions에서 제거됨 → 내부 링크로 교체 완료.
 
-### 콘텐츠 현재 상태 (2026-04-14)
+### FAZR 브랜드 (2026-04-16 추가)
+
+- 헤더: "FAZR" 라벨 (사이트명 좌측, text-xs muted)
+- 홈: "FAZR에서 제공하는 고유가 피해지원금 안내 서비스입니다"
+- 계산기: "FAZR에서 제공하는 고유가 피해지원금 계산 서비스입니다"
+- 푸터: 사업자 정보 블록 (다파라코프, 208-09-27644)
+- 카피라이트: © 2026 다파라코프 (eitc.fazr와 통일)
+
+### Playwright MCP
+
+- 설치 완료. 시각 검증 워크플로 확립.
+- 모든 UI 수정 후 Playwright 스크린샷 검증 포함 원칙.
+
+### 콘텐츠 현재 상태 (2026-04-16)
 
 - 추경: **통과 확정** (4/10 본회의) + **정부 공식 발표** (4/11)
 - subsidy.ts status: "확정"
@@ -87,7 +100,6 @@
 
 ### 다음 작업 후보
 
-0. **Playwright MCP 설치** (다음 세션 첫 작업): `claude mcp add --transport stdio playwright -- npx -y @playwright/mcp@latest` → 브라우저 스크린샷 검증 가능
 1. **4/20**: 국민비서 가입 시작 확인 → 콘텐츠 업데이트
 2. **4/27**: 지급 시작 → 스키니바/status "지급중" 전환, 실제 신청 링크 확인
 3. calculator 취약계층 로직 보완 (비수도권·인구감소지역 +5만원)
