@@ -341,13 +341,13 @@ export default function CalculatorPage() {
           </div>
 
           {/* 블록 5 — CTA */}
-          <div className="flex flex-wrap gap-3 text-sm">
-            <Link href="/updates/oil-subsidy-usage-guide-2026" className="text-primary hover:underline">
-              사용처 자세히 보기 →
-            </Link>
-            <Link href="/faq" className="text-primary hover:underline">
-              FAQ에서 더 확인 →
-            </Link>
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+            <Button variant="default" render={<Link href="/updates/oil-subsidy-usage-guide-2026" />} className="w-full">
+              사용처 확인하기
+            </Button>
+            <Button variant="outline" render={<Link href="/faq" />} className="w-full text-primary">
+              궁금한 점 바로 확인
+            </Button>
           </div>
         </div>
       )}
