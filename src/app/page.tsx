@@ -218,6 +218,9 @@ export default function HomePage() {
       {/* Disclaimer */}
       <section className="max-w-6xl mx-auto px-4 pb-12">
         <DisclaimerBanner />
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          FAZR에서 제공하는 고유가 피해지원금 안내 서비스입니다
+        </p>
       </section>
     </>
   );

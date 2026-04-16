@@ -402,6 +402,9 @@ export default function CalculatorPage() {
 
       <div className="mt-6">
         <DisclaimerBanner />
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          FAZR에서 제공하는 고유가 피해지원금 계산 서비스입니다
+        </p>
       </div>
     </div>
   );
