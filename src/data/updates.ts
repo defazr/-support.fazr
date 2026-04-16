@@ -116,15 +116,7 @@ export const UPDATES: UpdatePost[] = [
 
 <hr />
 
-<div class="not-prose text-center mt-8">
-<p class="font-semibold mb-3">내가 얼마 받을 수 있는지 확인해보세요</p>
-<a href="/calculator" class="inline-block bg-[#0369A1] text-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-all">내 예상 지원금 확인하기</a>
-<div class="mt-5 text-sm text-gray-500">
-<a href="/eligibility" class="text-gray-500 hover:text-gray-900 no-underline">대상 기준 상세</a>
-<span class="mx-2">·</span>
-<a href="/faq" class="text-gray-500 hover:text-gray-900 no-underline">자주 묻는 질문</a>
-</div>
-</div>
+<p><a href="/calculator">내 예상 지원금 확인</a> · <a href="/eligibility">대상 기준 상세</a> · <a href="/faq">자주 묻는 질문</a></p>
     `.trim(),
   },
   {
