@@ -13,7 +13,7 @@ export const UPDATES: UpdatePost[] = [
       "고유가 피해지원금, 어떻게 받아야 잘 쓸까? — 지급 수단별 사용 범위 완벽 정리",
     description:
       "고유가 피해지원금은 카드·지역사랑상품권·선불카드 중 어떤 것으로 받느냐에 따라 사용 가능한 범위가 달라집니다. 주유소·편의점·배달앱 사용 가능 여부, 주요 사용 목적별 지급 수단 선택 가이드.",
-    date: "2026-04-15",
+    date: "2026-04-16",
     content: `
 <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
 <p class="font-semibold text-amber-800">⚠️ 먼저 알아야 할 것</p>
@@ -116,7 +116,7 @@ export const UPDATES: UpdatePost[] = [
 
 <hr />
 
-<p><a href="/calculator">내 예상 지원금 확인</a> · <a href="/eligibility">대상 기준 상세</a> · <a href="/faq">자주 묻는 질문</a></p>
+<p class="text-center"><a href="/calculator">내 예상 지원금 확인</a> · <a href="/eligibility">대상 기준 상세</a> · <a href="/faq">자주 묻는 질문</a></p>
     `.trim(),
   },
   {
