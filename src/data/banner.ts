@@ -1,6 +1,6 @@
 export const SKINNY_BAR = {
-  text: "4월 27일 지급 시작! 고유가 피해지원금 대상 바로 확인하세요",
-  link: "/updates",
+  text: "국민비서 알림 신청 시작 (4월 20일) — 신청 시작일 미리 받아보세요",
+  link: "/updates/government-assistant-notification-2026",
   active: true,
   status: "확정" as const,
 };

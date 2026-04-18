@@ -8,6 +8,48 @@ export interface UpdatePost {
 
 export const UPDATES: UpdatePost[] = [
   {
+    slug: "government-assistant-notification-2026",
+    title:
+      "[속보] 고유가 피해지원금 국민비서 알림 신청 시작 (4월 20일)",
+    description:
+      "신청 시작 2일 전 미리 안내받는 방법과 신청 채널을 한 번에 확인하세요.",
+    date: "2026-04-20",
+    content: `
+<p>⚠️ <strong>주의: 이건 "지원금 신청"이 아니라 "알림 신청"입니다</strong></p>
+<p>지원금 신청은 1차 4월 27일, 2차 5월 18일부터 시작됩니다. 국민비서 알림은 신청 시작일을 미리 알려주는 서비스입니다.</p>
+
+<h2>국민비서 알림서비스란?</h2>
+<p>내 신청 시작일과 예상 금액을 1차 지급 시작 2일 전(4월 25일)부터 미리 안내받을 수 있는 정부 공식 알림 서비스입니다.</p>
+<p>알림 신청을 해두면 본인 신청 시작일(요일제 적용), 예상 지급 금액, 신청 방법, 사용 기한 및 사용 지역 등을 신청 기간 전에 미리 안내받을 수 있습니다.</p>
+
+<h2>알림 신청 채널 (4월 20일부터)</h2>
+<p>다음 4개 채널에서 모두 신청 가능합니다:</p>
+<ul>
+<li>국민비서 누리집: <a href="https://ips.go.kr" target="_blank" rel="noopener noreferrer">https://ips.go.kr</a></li>
+<li>네이버앱</li>
+<li>카카오톡</li>
+<li>토스</li>
+</ul>
+<p>평소 자주 사용하는 채널 1개에서 신청하면 됩니다.</p>
+
+<h2>안내 받는 시점</h2>
+<ul>
+<li>1차 신청 대상자(취약계층): 4월 25일부터 순차 안내</li>
+<li>2차 신청 대상자(일반): 5월 16일부터 순차 안내</li>
+</ul>
+
+<h2>주의사항</h2>
+<p>알림은 신청 시작일을 알려주는 역할입니다. 실제 지원금 신청은 본인이 직접 카드사 앱·지역사랑상품권 앱·주민센터에서 해야 합니다.</p>
+<p>또한 정부·카드사·지역화폐사는 URL이 포함된 문자메시지를 발송하지 않습니다. URL 링크가 포함된 알림은 100% 사기이므로 절대 클릭하지 마세요.</p>
+
+<hr />
+
+<p class="text-center">내 예상 지원금 확인 → <a href="/calculator" class="text-primary underline">/calculator</a><br />
+대상 기준 상세 → <a href="/eligibility" class="text-primary underline">/eligibility</a><br />
+자주 묻는 질문 → <a href="/faq" class="text-primary underline">/faq</a></p>
+`,
+  },
+  {
     slug: "oil-subsidy-usage-guide-2026",
     title:
       "고유가 피해지원금, 어떻게 받아야 잘 쓸까? — 지급 수단별 사용 범위 완벽 정리",
