@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Calculator,
@@ -8,6 +9,37 @@ import {
   TrendingUp,
   Banknote,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인",
+  description:
+    "고유가 피해지원금 대상인지 확인하고, 내가 받을 금액까지 바로 계산해보세요. 행안부 공식 발표 기준 반영, 무료로 즉시 확인 가능합니다.",
+  alternates: {
+    canonical: "https://support.fazr.co.kr",
+  },
+  openGraph: {
+    title: "고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인",
+    description:
+      "고유가 피해지원금 대상인지 확인하고, 내가 받을 금액까지 바로 계산해보세요. 행안부 공식 발표 기준 반영, 무료로 즉시 확인 가능합니다.",
+    url: "https://support.fazr.co.kr",
+    type: "website",
+    images: [
+      {
+        url: "https://support.fazr.co.kr/og/og-main.jpg",
+        width: 1200,
+        height: 630,
+        alt: "고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인",
+    description:
+      "고유가 피해지원금 대상인지 확인하고, 내가 받을 금액까지 바로 계산해보세요. 행안부 공식 발표 기준 반영, 무료로 즉시 확인 가능합니다.",
+    images: ["https://support.fazr.co.kr/og/og-main.jpg"],
+  },
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

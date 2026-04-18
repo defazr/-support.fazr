@@ -9,10 +9,23 @@ import { AdSlot } from "@/components/ad-slot";
 import { SUBSIDY_CONFIG } from "@/data/subsidy";
 
 export const metadata: Metadata = {
-  title: "대상 확인 - 고유가 피해지원금 자격 기준",
+  title: "고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026)",
   description:
-    "2026 고유가 피해지원금 대상 여부를 건강보험료 기준으로 확인하세요. 가구원 수별 소득 기준, 직장·지역 건강보험료 기준표 안내.",
-  alternates: { canonical: "/eligibility" },
+    "행안부 공식 발표 기준으로 고유가 피해지원금 대상 여부를 확인하세요. 건강보험료 기준 3초 판정, 복잡한 조건 없이 간단히 조회 가능합니다.",
+  alternates: { canonical: "https://support.fazr.co.kr/eligibility" },
+  openGraph: {
+    title: "고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026)",
+    description:
+      "행안부 공식 발표 기준으로 고유가 피해지원금 대상 여부를 확인하세요. 건강보험료 기준 3초 판정, 복잡한 조건 없이 간단히 조회 가능합니다.",
+    url: "https://support.fazr.co.kr/eligibility",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026)",
+    description:
+      "행안부 공식 발표 기준으로 고유가 피해지원금 대상 여부를 확인하세요. 건강보험료 기준 3초 판정, 복잡한 조건 없이 간단히 조회 가능합니다.",
+  },
 };
 
 function formatAmount(num: number): string {
