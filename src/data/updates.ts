@@ -44,9 +44,7 @@ export const UPDATES: UpdatePost[] = [
 
 <hr />
 
-<p class="text-center">내 예상 지원금 확인 → <a href="/calculator" class="text-primary underline">/calculator</a><br />
-대상 기준 상세 → <a href="/eligibility" class="text-primary underline">/eligibility</a><br />
-자주 묻는 질문 → <a href="/faq" class="text-primary underline">/faq</a></p>
+<p class="text-center"><a href="/calculator">내 예상 지원금 확인</a> · <a href="/eligibility">대상 기준 상세</a> · <a href="/faq">자주 묻는 질문</a></p>
 `,
   },
   {
