@@ -37,6 +37,8 @@ export default function CalculatorPage() {
   const [insurance, setInsurance] = useState<string>("");
   const [regionType, setRegionType] = useState<string>("");
   const [result, setResult] = useState<CalcResult>(null);
+  const [errorField, setErrorField] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const regionLabels: Record<string, string> = {
     수도권: "수도권",
@@ -46,11 +48,43 @@ export default function CalculatorPage() {
   };
 
   function handleCalculate() {
-    const memberNum = parseInt(members);
+    if (!members) {
+      setErrorField("household-size");
+      setErrorMessage("가구원 수를 선택해 주세요");
+      document.getElementById("household-size")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      return;
+    }
+
     const insuranceNum = parseInt(insurance.replace(/,/g, ""));
+    if (!insurance || !insuranceNum) {
+      setErrorField("insurance-fee");
+      setErrorMessage("월 건강보험료를 입력해 주세요");
+      document.getElementById("insurance-fee")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      setTimeout(() => {
+        document.getElementById("insurance-fee")?.focus();
+      }, 300);
+      return;
+    }
 
-    if (!memberNum || !insuranceNum || !regionType) return;
+    if (!regionType) {
+      setErrorField("region");
+      setErrorMessage("거주 지역을 선택해 주세요");
+      document.getElementById("region")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      return;
+    }
 
+    setErrorField(null);
+
+    const memberNum = parseInt(members);
     const eligibility = checkEligibility(memberNum, insuranceNum);
     const amount = eligibility.eligible
       ? getSubsidyAmount(regionType as RegionType) * memberNum
@@ -98,10 +132,13 @@ export default function CalculatorPage() {
         </CardHeader>
         <CardContent className="space-y-5">
           {/* 가구원 수 */}
-          <div>
+          <div id="household-size">
             <label className="text-sm font-medium mb-2 block">가구원 수</label>
-            <Select value={members} onValueChange={(v) => setMembers(v ?? "")}>
-              <SelectTrigger>
+            <Select value={members} onValueChange={(v) => {
+              setMembers(v ?? "");
+              if (errorField === "household-size") setErrorField(null);
+            }}>
+              <SelectTrigger className={errorField === "household-size" ? "border-red-500" : ""}>
                 <SelectValue placeholder="가구원 수를 선택하세요" />
               </SelectTrigger>
               <SelectContent>
@@ -112,6 +149,9 @@ export default function CalculatorPage() {
                 <SelectItem value="5">5인 이상 가구</SelectItem>
               </SelectContent>
             </Select>
+            {errorField === "household-size" && (
+              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+            )}
           </div>
 
           {/* 건강보험료 */}
@@ -121,26 +161,38 @@ export default function CalculatorPage() {
             </label>
             <div className="relative">
               <Input
+                id="insurance-fee"
                 type="text"
                 inputMode="numeric"
                 placeholder="건강보험료를 입력하세요"
                 value={insurance}
-                onChange={(e) => handleInsuranceChange(e.target.value)}
+                onChange={(e) => {
+                  handleInsuranceChange(e.target.value);
+                  if (errorField === "insurance-fee") setErrorField(null);
+                }}
+                className={errorField === "insurance-fee" ? "border-red-500" : ""}
               />
               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
                 원
               </span>
             </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              건강보험료 고지서 또는 국민건강보험 앱에서 확인 가능
-            </p>
+            {errorField === "insurance-fee" ? (
+              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+            ) : (
+              <p className="text-xs text-muted-foreground mt-1">
+                건강보험료 고지서 또는 국민건강보험 앱에서 확인 가능
+              </p>
+            )}
           </div>
 
           {/* 거주 지역 */}
-          <div>
+          <div id="region">
             <label className="text-sm font-medium mb-2 block">거주 지역</label>
-            <Select value={regionType} onValueChange={(v) => setRegionType(v ?? "")}>
-              <SelectTrigger>
+            <Select value={regionType} onValueChange={(v) => {
+              setRegionType(v ?? "");
+              if (errorField === "region") setErrorField(null);
+            }}>
+              <SelectTrigger className={errorField === "region" ? "border-red-500" : ""}>
                 <SelectValue placeholder="거주 지역을 선택하세요" />
               </SelectTrigger>
               <SelectContent>
@@ -156,19 +208,22 @@ export default function CalculatorPage() {
                 </SelectItem>
               </SelectContent>
             </Select>
-            <p className="text-xs text-muted-foreground mt-1">
-              인구감소지역 여부는{" "}
-              <a href="/regions" className="text-primary underline">
-                지역별 안내
-              </a>
-              에서 확인하세요
-            </p>
+            {errorField === "region" ? (
+              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+            ) : (
+              <p className="text-xs text-muted-foreground mt-1">
+                인구감소지역 여부는{" "}
+                <a href="/regions" className="text-primary underline">
+                  지역별 안내
+                </a>
+                에서 확인하세요
+              </p>
+            )}
           </div>
 
           <Button
             onClick={handleCalculate}
             className="w-full py-6 text-base"
-            disabled={!members || !insurance || !regionType}
           >
             예상 지원금 계산하기
           </Button>
