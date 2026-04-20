@@ -2,9 +2,9 @@
 
 > 다음 Claude Code 세션이 이 파일을 먼저 읽고 현재 상태를 파악한다.
 
-## 마지막 세션: 2026-04-18
+## 마지막 세션: 2026-04-20
 
-### 프로젝트 상태: ✅ 운영 중 + 광고 ON + 4/20 국민비서 대응 완료
+### 프로젝트 상태: ✅ 운영 중 + 광고 정상화(ads.txt + hydration 수정) + 4/20 국민비서 대응 완료
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
@@ -24,9 +24,18 @@
 | 변수 | 값 | 상태 |
 |---|---|---|
 | `NEXT_PUBLIC_GA_ID` | `G-GQTTM24X4D` | ✅ 활성 (next/script) |
-| `NEXT_PUBLIC_ADSENSE_PUB_ID` | `pub-7976139023602789` | ✅ 활성 |
+| `NEXT_PUBLIC_ADSENSE_PUB_ID` | `pub-7976139023602789` | ✅ 활성 (next/script + afterInteractive, 2026-04-20 수정) |
 
 **중요**: NEXT_PUBLIC_ 변수는 빌드 타임. 추가/변경 후 `vercel --prod --yes` 재배포 필수.
+
+### AdSense 정상화 (2026-04-20)
+
+- **ads.txt**: `public/ads.txt` 1줄 추가 → `https://support.fazr.co.kr/ads.txt` 200 OK
+  - `google.com, pub-7976139023602789, DIRECT, f08c47fec0942fa0`
+- **AdSense 스크립트 로드 패턴**: 원시 `<script async>` (head) → `<Script strategy="afterInteractive">` (body, GA 옆)
+  - 원인: hydration 전 실행 → Auto Ads(앵커·전면)가 React 마운트 ins 슬롯 못 찾음
+  - 수정 파일: `src/app/layout.tsx` 1파일 1블록
+  - 무관 영역: ad-slot.tsx 수동 7개 슬롯, vignette-cleanup.tsx, pub ID, 슬롯 ID
 
 ### 광고 슬롯 (7개)
 
@@ -61,7 +70,7 @@
 - 설치 완료. 시각 검증 워크플로 확립.
 - 모든 UI 수정 후 Playwright 스크린샷 검증 포함 원칙.
 
-### 콘텐츠 현재 상태 (2026-04-18)
+### 콘텐츠 현재 상태 (2026-04-20)
 
 - 추경: **통과 확정** (4/10 본회의) + **정부 공식 발표** (4/11)
 - subsidy.ts status: "확정"
@@ -102,22 +111,26 @@
 ### 주의사항
 
 1. **body/html에 높이 클래스 금지** — h-full, min-h-full, min-h-screen 넣으면 iOS 스크롤 버그 재발
-2. **SSOT 전부 확인** — 항목 누락 금지
+2. **SSOT 전부 확인** — 항목 누락 금지. 타 제도 용어 혼입 주의 (예: 근로장려금)
 3. **아닌 건 말해라** — 지시서가 와도 문제 보이면 의견 제시
-4. **GA4 = next/script** — dangerouslySetInnerHTML 금지
+4. **GA4 + AdSense = next/script + strategy="afterInteractive"** — 원시 `<script async>` 금지 (hydration 전 실행되어 Auto Ads 망가짐)
 5. **구조 변경 금지** — CSS 클래스만 수정
 6. **VignetteCleanup 건드리지 마라** — 자동 광고 충돌 방지 핵심
 7. **"정부24" 사용 금지** — 실제 신청 채널 아님
 8. **Vercel env** — printf로 줄바꿈 없이 추가, 변경 후 재배포 필수
-9. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인
+9. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인 (캐시 미스 시 캐시버스터 사용)
 10. **calculator 로직 수정 금지** — 데이터만 교체, 로직 변경은 사용자 확인 후
 11. **스키니바 자동 전환 금지** — 수동 텍스트 교체만. 4/27에 다시 변경 필요.
+12. **YMYL 미확정 수치 인용 시** — 반드시 "확정 전 추정치"/"발표 예정" 명시
+13. **브랜치 전략** — main 기준 새 브랜치에 단일 목적 1 커밋만. 과거 브랜치 재사용 금지.
+14. **외부 스크립트 추가 시 ads.txt 필수 동시 추가** — AdSense 수익 직격
 
 ### 다음 작업 후보
 
 1. **4/25~4/26**: 4/27 전환 통합 지시서 (스키니바 + Hero + status + 신규 글 + 요일제)
 2. **5월 초**: 건보료 컷오프 발표 반영
-3. calculator 취약계층 로직 보완 (비수도권·인구감소지역 +5만원)
-4. 전담 콜센터 번호 확정 시 FAQ 업데이트
-5. GA4 + AdSense 수익 모니터링 → 슬롯 최적화
-6. 검색 유입 키워드 분석 → 콘텐츠 확장
+3. **AdSense 24-48h 후**: 광고 노출 안정성 재확인 (ads.txt 크롤 + Auto Ads 정상화)
+4. calculator 취약계층 로직 보완 (비수도권·인구감소지역 +5만원)
+5. 전담 콜센터 번호 확정 시 FAQ Q18 업데이트
+6. GA4 + AdSense 수익 지표 비교 (이번 조치 전후)
+7. 검색 유입 키워드 분석 → 콘텐츠 확장
