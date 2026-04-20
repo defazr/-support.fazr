@@ -62,14 +62,6 @@ export default function RootLayout({
   return (
     <html lang="ko" className="antialiased">
       <head>
-        {/* AdSense — only loads when pub ID is set */}
-        {process.env.NEXT_PUBLIC_ADSENSE_PUB_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
-            crossOrigin="anonymous"
-          />
-        )}
       </head>
       <body className="flex flex-col font-sans">
         {gaId && (
@@ -87,6 +79,14 @@ export default function RootLayout({
               `}
             </Script>
           </>
+        )}
+        {process.env.NEXT_PUBLIC_ADSENSE_PUB_ID && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+          />
         )}
         <VignetteCleanup />
         <SkinnyBar />
