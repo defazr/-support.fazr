@@ -19,12 +19,21 @@ export const metadata: Metadata = {
       "행안부 공식 발표 기준으로 고유가 피해지원금 대상 여부를 확인하세요. 건강보험료 기준 3초 판정, 복잡한 조건 없이 간단히 조회 가능합니다.",
     url: "https://support.fazr.co.kr/eligibility",
     type: "website",
+    images: [
+      {
+        url: "/og/og-main.jpg",
+        width: 1200,
+        height: 630,
+        alt: "고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026)",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026)",
     description:
       "행안부 공식 발표 기준으로 고유가 피해지원금 대상 여부를 확인하세요. 건강보험료 기준 3초 판정, 복잡한 조건 없이 간단히 조회 가능합니다.",
+    images: ["/og/og-main.jpg"],
   },
 };
 
