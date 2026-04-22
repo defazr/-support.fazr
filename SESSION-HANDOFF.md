@@ -111,9 +111,12 @@
 
 **calculator (calculator/page.tsx)**:
 - 계산 버튼 아래 체류 유도 블록: "아직 계산 안 하셨나요?" + outline 버튼 → /eligibility
+  - `{!result && (...)}` 조건부 렌더링 (계산 후 숨김)
 - 신청 경로 문구: "언제, 어떻게 받는지 전체 확인하기"
 - 보조 설명 3곳: text-xs → text-sm (모바일 가독성)
 - 작업1 블록: mt-8 + text-slate-600 (여백+대비)
+- 결과 자동 스크롤: useRef + resultRef → 계산 후 scrollIntoView (smooth, block: start)
+- 진입 시 scrollTo(0,0): useEffect 마운트 시 강제 상단 (Vignette 광고 하단 고착 해결)
 
 ### 코드 프리즈 (4/23~4/24)
 

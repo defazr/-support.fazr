@@ -2,7 +2,7 @@
 
 > Claude Code 세션 완료. GPT가 이 파일을 읽고 다음 전략을 설계한다.
 
-## 이전 핸드오프(GPT-HANDOFF-20260420.md) 이후 커밋 4개
+## 이전 핸드오프(GPT-HANDOFF-20260420.md) 이후 커밋 6개
 
 | # | 커밋 | 내용 |
 |---|---|---|
@@ -10,8 +10,10 @@
 | 2 | 81c4ebe | feat(ux): 홈+계산기 마이크로 개선 4개 — 흐름(flow) 만들기 |
 | 3 | 7277281 | fix(a11y): calculator 모바일 가독성 개선 — text-xs → text-sm + 에러 강화 |
 | 4 | 0a2e983 | feat(ux): calculator 작업1 블록 — link → outline 버튼 + 대비 강화 |
+| 5 | ee6eae3 | fix(ux): calculator 결과 자동 스크롤 + 작업1 블록 조건부 렌더링 |
+| 6 | 5c0f457 | fix(ux): calculator 진입 시 scrollTo(0,0) — Vignette 광고 후 하단 고착 해결 |
 
-모두 main 직접 push (메타/텍스트/className 수준, 구조 변경 0).
+모두 main 직접 push.
 
 ---
 
@@ -73,6 +75,19 @@ GPT 설계 + Claude UI 검토 + Code audit 기반.
 - "대상 조건 먼저 확인하기" Button: variant="link" → variant="outline" + w-full
 - 보조 설명: text-slate-500 → text-slate-600
 
+### 5. 조건부 렌더링 + 결과 자동 스크롤 (ee6eae3)
+
+- 작업1 블록("아직 계산 안 하셨나요?")을 `{!result && (...)}` 감싸기 — 계산 후 논리 모순 해소
+- useRef + resultRef → 계산 후 결과 Card로 scrollIntoView (smooth, block: start)
+- 모바일 71%에서 결과 인지 실패 방지
+
+### 6. calculator 진입 시 scrollTo(0,0) (5c0f457)
+
+- 증상: 페이지 이동 → Vignette 광고 → 닫으면 하단 고착 → 계산 불가 (기능 장애)
+- audit: Link scroll={false} 0건, scrollRestoration 미설정, VignetteCleanup 무관 → Vignette 간섭 확정
+- 해결: `useEffect(() => { window.scrollTo(0, 0); }, [])` 마운트 시 강제 상단
+- Playwright 시각 검증: 사용자 직접 확인 완료 — 완벽 동작
+
 ---
 
 ## 사이트 현재 상태 (2026-04-22)
@@ -106,7 +121,7 @@ GPT 설계 + Claude UI 검토 + Code audit 기반.
 
 ## 코드 프리즈 (4/23~4/24)
 
-어떤 코드 변경도 금지. 4/22 작업 4개 효과 관측 기간.
+어떤 코드 변경도 금지. 4/22 작업 6개 효과 관측 기간.
 
 ### 관측 KPI
 
@@ -154,9 +169,11 @@ GPT 설계 + Claude UI 검토 + Code audit 기반.
 2. **"이전 세션에서 추가한 블록" 언급 시 현재 코드에서 존재 여부 반드시 확인** — 이번 세션에서 "재확인 유도 블록" 미구현 상태 발견.
 3. **Card 배경/border 변경은 디자인 시스템 영역** — 데이터 확인 없이 즉시 적용 금지.
 4. **에러 메시지는 가장 크게 보여야 함** — 모바일 + 중장년 + 입력 폼 환경에서 text-xs 금지.
+5. **AdSense Vignette는 Next.js scroll-to-top을 방해함** — "use client" 페이지에서 마운트 시 `window.scrollTo(0, 0)` 필요. audit 먼저 → 수정 패턴 확립.
+6. **조건부 렌더링 누락 주의** — 체류 유도 블록 등 "상태 전 전용 UI"는 반드시 `{!state && (...)}` 감싸기.
 
 ---
 
 ## 한 줄 핵심
 
-트래픽 폭발(일일 3,000명+) 대응 — OG 수정 + 흐름(flow) 4개 + 가독성 + 버튼 강화. 이탈률 95% → 80~85% 목표. 4/23~4/24 관측 후 4/27 전환 작업 돌입.
+트래픽 폭발(일일 3,000명+) 대응 — OG 수정 + 흐름(flow) 4개 + 가독성 + 버튼 강화 + 조건부 렌더링 + 결과 자동 스크롤 + Vignette 스크롤 수정. 커밋 6개. 이탈률 95% → 80~85% 목표. 4/23~4/24 관측 후 4/27 전환 작업 돌입.
