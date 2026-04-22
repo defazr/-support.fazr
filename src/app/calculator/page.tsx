@@ -150,7 +150,7 @@ export default function CalculatorPage() {
               </SelectContent>
             </Select>
             {errorField === "household-size" && (
-              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+              <p className="text-red-600 text-sm font-medium mt-1">{errorMessage}</p>
             )}
           </div>
 
@@ -177,9 +177,9 @@ export default function CalculatorPage() {
               </span>
             </div>
             {errorField === "insurance-fee" ? (
-              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+              <p className="text-red-600 text-sm font-medium mt-1">{errorMessage}</p>
             ) : (
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 건강보험료 고지서 또는 국민건강보험 앱에서 확인 가능
               </p>
             )}
@@ -209,9 +209,9 @@ export default function CalculatorPage() {
               </SelectContent>
             </Select>
             {errorField === "region" ? (
-              <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
+              <p className="text-red-600 text-sm font-medium mt-1">{errorMessage}</p>
             ) : (
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 인구감소지역 여부는{" "}
                 <a href="/regions" className="text-primary underline">
                   지역별 안내
@@ -231,11 +231,11 @@ export default function CalculatorPage() {
       </Card>
 
       {/* 계산 안 한 사용자 체류 유도 */}
-      <div className="mt-6 p-4 bg-slate-50 rounded-lg text-center border border-slate-200">
+      <div className="mt-8 p-4 bg-slate-50 rounded-lg text-center border border-slate-200">
         <p className="text-sm text-slate-700 mb-2">
           아직 계산 안 하셨나요?
         </p>
-        <p className="text-xs text-slate-500 mb-3">
+        <p className="text-sm text-slate-500 mb-3">
           기준만 먼저 확인해보셔도 됩니다
         </p>
         <Button
