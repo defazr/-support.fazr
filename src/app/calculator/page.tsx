@@ -235,13 +235,13 @@ export default function CalculatorPage() {
         <p className="text-sm text-slate-700 mb-2">
           아직 계산 안 하셨나요?
         </p>
-        <p className="text-sm text-slate-500 mb-3">
+        <p className="text-sm text-slate-600 mb-3">
           기준만 먼저 확인해보셔도 됩니다
         </p>
         <Button
-          variant="link"
+          variant="outline"
           render={<Link href="/eligibility" />}
-          className="text-sm font-semibold"
+          className="w-full text-sm font-semibold"
         >
           대상 조건 먼저 확인하기 →
         </Button>
