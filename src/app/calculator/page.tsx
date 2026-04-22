@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Calculator, ArrowRight, Fuel } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,10 @@ export default function CalculatorPage() {
   const [errorField, setErrorField] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const resultRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const regionLabels: Record<string, string> = {
     수도권: "수도권",
