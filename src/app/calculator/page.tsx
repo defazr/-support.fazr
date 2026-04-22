@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { Calculator, ArrowRight, Fuel } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,6 +39,7 @@ export default function CalculatorPage() {
   const [result, setResult] = useState<CalcResult>(null);
   const [errorField, setErrorField] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const regionLabels: Record<string, string> = {
     수도권: "수도권",
@@ -97,6 +98,13 @@ export default function CalculatorPage() {
       regionLabel: regionLabels[regionType] || regionType,
       members: memberNum,
     });
+
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
   }
 
   function formatAmount(num: number): string {
@@ -230,7 +238,8 @@ export default function CalculatorPage() {
         </CardContent>
       </Card>
 
-      {/* 계산 안 한 사용자 체류 유도 */}
+      {/* 계산 안 한 사용자 체류 유도 — 결과 없을 때만 표시 */}
+      {!result && (
       <div className="mt-8 p-4 bg-slate-50 rounded-lg text-center border border-slate-200">
         <p className="text-sm text-slate-700 mb-2">
           아직 계산 안 하셨나요?
@@ -246,9 +255,11 @@ export default function CalculatorPage() {
           대상 조건 먼저 확인하기 →
         </Button>
       </div>
+      )}
 
       {/* Result */}
       {result && (
+        <div ref={resultRef}>
         <Card className="mt-6">
           <CardContent className="pt-6">
             {result.eligible ? (
@@ -319,6 +330,7 @@ export default function CalculatorPage() {
             </div>
           </CardContent>
         </Card>
+        </div>
       )}
 
       {/* 신청 경로 안내 */}
