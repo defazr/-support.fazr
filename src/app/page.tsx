@@ -102,12 +102,12 @@ export default function HomePage() {
           </p>
 
           <Button size="lg" render={<Link href="/calculator" />} className="text-lg px-8 py-6 shadow-lg bg-[#0369A1] hover:bg-[#0369A1]/90 cursor-pointer transition-all duration-200">
-              내가 받을 수 있을까?
+              3초 계산으로 금액 확인하기
               <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
 
           <p className="text-xs text-muted-foreground mt-4">
-            건강보험료 기준으로 3초 만에 확인하세요
+            건강보험료 기준으로 예상 금액을 바로 계산합니다
           </p>
         </div>
       </section>
@@ -121,17 +121,19 @@ export default function HomePage() {
             { label: "우대지역", value: "20만원", sub: "인구감소 49곳" },
             { label: "특별지역", value: "25만원", sub: "인구감소 40곳" },
           ].map((stat) => (
-            <Card key={stat.label} className="text-center">
-              <CardContent className="pt-5 pb-4">
-                <p className="text-xs text-muted-foreground">{stat.label}</p>
-                <p className="text-2xl font-bold text-primary mt-1">
-                  {stat.value}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {stat.sub}
-                </p>
-              </CardContent>
-            </Card>
+            <Link key={stat.label} href="/regions">
+              <Card className="text-center cursor-pointer hover:shadow-md transition">
+                <CardContent className="pt-5 pb-4">
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  <p className="text-2xl font-bold text-primary mt-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {stat.sub}
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -182,7 +184,7 @@ export default function HomePage() {
         </div>
         <div className="text-center mt-8">
           <Button size="lg" render={<Link href="/calculator" />} className="px-8 py-6 text-base shadow-lg">
-            내가 받을 수 있을까?
+            3초 계산으로 금액 확인하기
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>

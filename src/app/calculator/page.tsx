@@ -230,6 +230,23 @@ export default function CalculatorPage() {
         </CardContent>
       </Card>
 
+      {/* 계산 안 한 사용자 체류 유도 */}
+      <div className="mt-6 p-4 bg-slate-50 rounded-lg text-center border border-slate-200">
+        <p className="text-sm text-slate-700 mb-2">
+          아직 계산 안 하셨나요?
+        </p>
+        <p className="text-xs text-slate-500 mb-3">
+          기준만 먼저 확인해보셔도 됩니다
+        </p>
+        <Button
+          variant="link"
+          render={<Link href="/eligibility" />}
+          className="text-sm font-semibold"
+        >
+          대상 조건 먼저 확인하기 →
+        </Button>
+      </div>
+
       {/* Result */}
       {result && (
         <Card className="mt-6">
@@ -310,7 +327,7 @@ export default function CalculatorPage() {
           <p className="text-sm text-muted-foreground">
             신청은 카드사 앱, 지역사랑상품권 앱, 주민센터에서 가능합니다.{" "}
             <Link href="/updates/government-official-payment-plan-2026" className="text-[#0369A1] font-medium underline">
-              지금 바로 신청 방법을 확인해보세요
+              언제, 어떻게 받는지 전체 확인하기
             </Link>
           </p>
         </div>
