@@ -437,6 +437,11 @@ export default function CalculatorPage() {
         </>
       )}
 
+      {/* Ad Slot — Display (기준표 위) */}
+      <div className="mt-6">
+        <AdSlot slot="4342527732" format="auto" />
+      </div>
+
       {/* Income Threshold Reference */}
       <Card className="mt-6">
         <CardHeader>

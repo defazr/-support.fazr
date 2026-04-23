@@ -138,6 +138,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Ad Slot — In-article (Key Stats 아래) */}
+      <section className="max-w-6xl mx-auto px-4 pt-8">
+        <AdSlot slot="3245068480" format="fluid" layout="in-article" />
+      </section>
+
+      {/* 취약계층 지급 금액 */}
+      <section className="max-w-6xl mx-auto px-4 mt-8">
+        <h2 className="text-lg font-semibold text-slate-900 mb-4 text-center">
+          취약계층 지급 금액 (1차: 4월 27일~5월 8일)
+        </h2>
+        <Card className="p-6">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-center">
+              <p className="text-sm text-slate-600 mb-1">기초생활수급자</p>
+              <p className="text-xs text-slate-500 mb-2">수도권</p>
+              <p className="text-2xl font-bold text-slate-900">55만원</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-slate-600 mb-1">기초생활수급자</p>
+              <p className="text-xs text-slate-500 mb-2">비수도권</p>
+              <p className="text-2xl font-bold text-slate-900">60만원</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-slate-600 mb-1">차상위·한부모</p>
+              <p className="text-xs text-slate-500 mb-2">수도권</p>
+              <p className="text-2xl font-bold text-slate-900">45만원</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-slate-600 mb-1">차상위·한부모</p>
+              <p className="text-xs text-slate-500 mb-2">비수도권</p>
+              <p className="text-2xl font-bold text-slate-900">50만원</p>
+            </div>
+          </div>
+          <p className="text-xs text-slate-500 text-center mt-4">
+            * 취약계층은 별도 신청 없이 자동 지급됩니다
+          </p>
+        </Card>
+      </section>
+
       {/* Ad Slot 1 */}
       <section className="max-w-6xl mx-auto px-4 py-4">
         <AdSlot slot="4106279506" format="horizontal" />

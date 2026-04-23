@@ -75,6 +75,11 @@ export default async function UpdateDetailPage({ params }: Props) {
         />
       </article>
 
+      {/* Ad Slot — 멀티플렉스 수평 (본문 끝) */}
+      <div className="my-6">
+        <AdSlot slot="5972985780" format="autorelaxed" />
+      </div>
+
       <ShareButtons title={post.title} />
 
       {/* CTAs */}

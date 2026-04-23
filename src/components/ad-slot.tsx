@@ -10,7 +10,8 @@ declare global {
 
 interface AdSlotProps {
   slot: string;
-  format?: "auto" | "rectangle" | "horizontal" | "autorelaxed";
+  format?: "auto" | "rectangle" | "horizontal" | "autorelaxed" | "fluid";
+  layout?: string;
   className?: string;
   minHeight?: string;
 }
@@ -20,6 +21,7 @@ const pubId = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID;
 export function AdSlot({
   slot,
   format = "auto",
+  layout,
   className = "",
   minHeight = "90px",
 }: AdSlotProps) {
@@ -46,6 +48,7 @@ export function AdSlot({
   }
 
   const isMultiplex = format === "autorelaxed";
+  const isFluid = format === "fluid";
 
   return (
     <div ref={containerRef} className={`flex justify-center overflow-hidden ${className}`}>
@@ -55,7 +58,8 @@ export function AdSlot({
         data-ad-client={`ca-${pubId}`}
         data-ad-slot={slot}
         data-ad-format={format}
-        {...(!isMultiplex && { "data-full-width-responsive": "true" })}
+        {...(layout && { "data-ad-layout": layout })}
+        {...(!isMultiplex && !isFluid && { "data-full-width-responsive": "true" })}
       />
     </div>
   );
