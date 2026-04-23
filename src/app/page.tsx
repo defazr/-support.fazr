@@ -145,36 +145,54 @@ export default function HomePage() {
 
       {/* 취약계층 지급 금액 */}
       <section className="max-w-6xl mx-auto px-4 mt-8">
-        <h2 className="text-lg font-semibold text-slate-900 mb-4 text-center">
+        <h2 className="text-lg font-semibold text-foreground mb-4 text-center">
           취약계층 지급 금액 (1차: 4월 27일~5월 8일)
         </h2>
-        <Card className="p-6">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="text-center">
-              <p className="text-sm text-slate-600 mb-1">기초생활수급자</p>
-              <p className="text-xs text-slate-500 mb-2">수도권</p>
-              <p className="text-2xl font-bold text-slate-900">55만원</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-slate-600 mb-1">기초생활수급자</p>
-              <p className="text-xs text-slate-500 mb-2">비수도권</p>
-              <p className="text-2xl font-bold text-slate-900">60만원</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-slate-600 mb-1">차상위·한부모</p>
-              <p className="text-xs text-slate-500 mb-2">수도권</p>
-              <p className="text-2xl font-bold text-slate-900">45만원</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-slate-600 mb-1">차상위·한부모</p>
-              <p className="text-xs text-slate-500 mb-2">비수도권</p>
-              <p className="text-2xl font-bold text-slate-900">50만원</p>
-            </div>
-          </div>
-          <p className="text-xs text-slate-500 text-center mt-4">
-            * 취약계층은 별도 신청 없이 자동 지급됩니다
-          </p>
-        </Card>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Link href="/eligibility">
+            <Card className="text-center cursor-pointer hover:shadow-md transition">
+              <CardContent className="px-4 pt-5 pb-4">
+                <p className="text-xs text-muted-foreground">기초생활수급자</p>
+                <p className="text-2xl font-bold text-primary mt-1">55만원</p>
+                <p className="text-xs text-muted-foreground mt-1">수도권</p>
+                <p className="text-xs text-primary font-medium mt-2">자동 지급 대상</p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/eligibility">
+            <Card className="text-center cursor-pointer hover:shadow-md transition">
+              <CardContent className="px-4 pt-5 pb-4">
+                <p className="text-xs text-muted-foreground">기초생활수급자</p>
+                <p className="text-2xl font-bold text-primary mt-1">60만원</p>
+                <p className="text-xs text-muted-foreground mt-1">비수도권</p>
+                <p className="text-xs text-primary font-medium mt-2">자동 지급 대상</p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/eligibility">
+            <Card className="text-center cursor-pointer hover:shadow-md transition">
+              <CardContent className="px-4 pt-5 pb-4">
+                <p className="text-xs text-muted-foreground">차상위·한부모</p>
+                <p className="text-2xl font-bold text-primary mt-1">45만원</p>
+                <p className="text-xs text-muted-foreground mt-1">수도권</p>
+                <p className="text-xs text-primary font-medium mt-2">자동 지급 대상</p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link href="/eligibility">
+            <Card className="text-center cursor-pointer hover:shadow-md transition">
+              <CardContent className="px-4 pt-5 pb-4">
+                <p className="text-xs text-muted-foreground">차상위·한부모</p>
+                <p className="text-2xl font-bold text-primary mt-1">50만원</p>
+                <p className="text-xs text-muted-foreground mt-1">비수도권</p>
+                <p className="text-xs text-primary font-medium mt-2">자동 지급 대상</p>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          * 취약계층은 별도 신청 없이 자동 지급됩니다
+        </p>
       </section>
 
       {/* Ad Slot 1 */}
