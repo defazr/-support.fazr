@@ -1,6 +1,6 @@
 export const SKINNY_BAR = {
-  text: "국민비서 알림 신청 시작 (4월 20일) — 신청 시작일 미리 받아보세요",
-  link: "/updates/government-assistant-notification-2026",
+  text: "1차 신청 진행중 (4/27~5/8) — 출생연도별 신청일 확인",
+  link: "/updates/weekly-application-schedule-2026",
   active: true,
-  status: "확정" as const,
+  status: "신청중" as const,
 };

@@ -82,7 +82,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
-            4월 27일 지급 시작
+            1차 신청 진행중 (4/27~5/8)
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
             고유가 피해지원금 대상인지

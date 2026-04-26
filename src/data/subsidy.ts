@@ -1,7 +1,7 @@
 export const SUBSIDY_CONFIG = {
   name: "고유가 피해지원금",
   year: 2026,
-  status: "확정" as const, // "심사중" | "확정" | "신청중" | "지급중" | "종료"
+  status: "신청중" as const, // "심사중" | "확정" | "신청중" | "지급중" | "종료"
   totalBudget: "4조 8,000억 원",
   targetPopulation: "약 3,577만 명 (소득 하위 70%)",
 

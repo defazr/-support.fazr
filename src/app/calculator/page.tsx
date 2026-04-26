@@ -337,6 +337,16 @@ export default function CalculatorPage() {
         </div>
       )}
 
+      {/* 요일제 안내 (4/27 1차 신청) — 항상 표시 */}
+      <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <p className="text-sm text-amber-900">
+          <span className="font-semibold">📅 출생연도 끝자리에 따라 신청일이 다릅니다.</span>{" "}
+          <Link href="/updates/weekly-application-schedule-2026" className="text-amber-900 font-medium underline">
+            자세한 일정 확인
+          </Link>
+        </p>
+      </div>
+
       {/* 신청 경로 안내 */}
       {result && result.eligible && (
         <div className="mt-6 bg-[#0369A1]/5 border border-[#0369A1]/20 rounded-lg p-4">
