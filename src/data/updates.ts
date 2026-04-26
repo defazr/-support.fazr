@@ -18,6 +18,7 @@ export const UPDATES: UpdatePost[] = [
 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
 <p class="font-semibold text-blue-800">4월 27일(월) 09시부터 5월 8일(금) 18시까지 1차 신청 기간입니다.</p>
 <p class="text-blue-700 mt-1">첫 주(4/27~4/30)는 출생연도 끝자리별 요일제(5부제)가 적용되며, 5월 1일부터는 모두 신청 가능합니다.</p>
+<p class="text-blue-700 mt-2 font-medium">👉 내가 언제 신청 가능한지 바로 확인하려면<br />→ 출생연도 끝자리 기준 신청일을 먼저 확인하세요.</p>
 <p class="text-blue-700 mt-1">내가 언제 신청 가능한지 출생연도 끝자리로 아래 표에서 바로 확인하세요.</p>
 </div>
 
@@ -168,20 +169,35 @@ export const UPDATES: UpdatePost[] = [
 </ul>
 
 <h3>사용처 (연 매출 30억 이하 오프라인 가맹점)</h3>
-<p><strong>사용 가능 업종 예시:</strong></p>
+<p><strong>✔ 사용 가능</strong></p>
 <ul>
-<li>전통시장, 동네마트, 식당, 미용실, 안경점</li>
+<li>전통시장, 동네마트</li>
+<li>일반 식당, 카페</li>
+<li>미용실, 안경점, 병원, 약국</li>
+<li>편의점, 학원 등 대부분의 동네 상점</li>
 </ul>
-<p><strong>사용 불가 업종 예시:</strong></p>
+<p><strong>❌ 사용 불가</strong></p>
 <ul>
-<li>대형마트, 백화점, 대형 외국계 매장, 프랜차이즈 직영점</li>
+<li>대형마트, 백화점</li>
+<li>이마트, 롯데마트, 홈플러스 등</li>
+<li>온라인 쇼핑몰</li>
+<li>일부 대형 프랜차이즈 직영점</li>
 </ul>
+<p class="bg-slate-50 rounded-lg p-3 mt-2 font-medium">👉 쉽게 말해: 우리 동네에서 쓰는 곳은 대부분 가능, 대형 유통은 거의 불가</p>
+<p class="text-sm text-muted-foreground mt-1">※ 프랜차이즈도 가맹점은 대부분 사용 가능하지만, 직영점은 제한될 수 있습니다.</p>
 
 <h3>지급 방식</h3>
 <ul>
 <li>신용카드/체크카드 교차 사용 가능</li>
 <li>포인트 충전·차감 방식</li>
 </ul>
+
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6 mb-6">
+<p class="font-semibold text-blue-800">👉 4/27 신청 시작! 지금 신청 가능 날짜 확인하세요</p>
+<p class="text-blue-700 mt-1">출생연도 끝자리로 본인 신청 가능일을 먼저 확인하세요.</p>
+<p class="text-blue-700 mt-2">→ <a href="/eligibility">2026 고유가 피해지원금 대상 확인</a></p>
+<p class="text-blue-700">→ <a href="/calculator">2026 고유가 피해지원금 계산기 — 내가 받을 금액 확인</a></p>
+</div>
 
 <h2>스미싱 주의</h2>
 
@@ -203,11 +219,11 @@ export const UPDATES: UpdatePost[] = [
 
 <h3>자세한 정보 확인</h3>
 <ul>
-<li><a href="/faq">자주 묻는 질문</a></li>
-<li><a href="/calculator">예상 금액 계산하기</a></li>
-<li><a href="/eligibility">대상 확인</a></li>
-<li><a href="/updates/government-official-payment-plan-2026">[속보] 4월 27일부터 지급 시작</a></li>
-<li><a href="/updates/oil-subsidy-usage-guide-2026">지급 수단별 사용 범위</a></li>
+<li><a href="/faq">2026 고유가 피해지원금 자주 묻는 질문</a></li>
+<li><a href="/calculator">2026 고유가 피해지원금 계산기 — 내가 받을 금액 확인</a></li>
+<li><a href="/eligibility">2026 고유가 피해지원금 대상 확인 — 행안부 발표 기준</a></li>
+<li><a href="/updates/government-official-payment-plan-2026">[속보] 2026 고유가 피해지원금 4월 27일 지급 시작</a></li>
+<li><a href="/updates/oil-subsidy-usage-guide-2026">2026 고유가 피해지원금 사용처 — 어디서 쓸 수 있나</a></li>
 </ul>
 
 <hr />
