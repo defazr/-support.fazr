@@ -4,7 +4,7 @@
 
 ## 마지막 세션: 2026-04-26
 
-### 프로젝트 상태: ✅ 운영 중 + D-1 신규 글 발행 + SEO 직격
+### 프로젝트 상태: ✅ 운영 중 + D-Day 세팅 완료 (4/27 09시 1차 신청 시작)
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
@@ -76,9 +76,11 @@
 ### 콘텐츠 현재 상태 (2026-04-26)
 
 - 추경: **통과 확정** (4/10 본회의) + **정부 공식 발표** (4/11)
-- subsidy.ts status: "확정" (**4/27 "지급중" 전환 예정**)
-- Hero 배지: "4월 27일 지급 시작"
-- 스키니바: **"국민비서 알림 신청 시작 (4월 20일) — 신청 시작일 미리 받아보세요"** → /updates/government-assistant-notification-2026 (**4/27 교체 필요**)
+- subsidy.ts status: **"신청중"** (4/26 커밋 29ea5da)
+- Hero 배지: **"1차 신청 진행중 (4/27~5/8)"** (4/26 변경)
+- 스키니바: **"1차 신청 진행중 (4/27~5/8) — 출생연도별 신청일 확인"** → /updates/weekly-application-schedule-2026 (4/26 변경)
+- eligibility: **요일제 안내 amber 박스 추가** (신청 경로 안내 위, weekly-application-schedule-2026 링크)
+- calculator: **요일제 안내 amber 박스 추가** (조건부 밖 항상 표시, weekly-application-schedule-2026 링크)
 - gov-links.ts: **active=false**
 - updates 글 **10개** (+1: weekly-application-schedule-2026, D-1 출생연도별 신청일 가이드)
 - 홈 취약계층 박스: Card 4장 + /eligibility 링크 + "자동 지급 대상" 라벨 (4/23 추가)
@@ -147,9 +149,12 @@
 
 ### 다음 작업 후보
 
-1. **4/27**: **1차 지급 시작 대응** (스키니바 + Hero + status "지급중" + 요일제 안내 상단 고정 + calculator 취약계층 로직)
-2. **4/28+**: 신규 글 색인 효과 분석 + CTA 버튼화 판단
+1. **4/28+**: GA4 트래픽/CTR 데이터 분석 + CTA 버튼화 판단
+2. **4/28+**: Vercel 빌드비 절감 (.vercelignore + main만 빌드 설정)
 3. **5월 초**: 건보료 컷오프 발표 반영
-4. 전담 콜센터 번호 확정 시 FAQ Q18 업데이트
-5. GA4 + AdSense 수익 지표 비교
-6. 검색 유입 키워드 분석 → 콘텐츠 확장
+4. **5/8 이후**: status "신청중" → "지급중" 전환 (2차 신청 시작 대응)
+5. FAQ "신청 ≠ 지급" 명확화 1건 추가
+6. 신규 글 하단 calculator/eligibility CTA 추가 (체류→전환)
+7. calculator 폼 위로 요일제 안내 이동 검토 (CTR 데이터 기반)
+8. 전담 콜센터 번호 확정 시 FAQ Q18 업데이트
+9. 검색 유입 키워드 분석 → 콘텐츠 확장
