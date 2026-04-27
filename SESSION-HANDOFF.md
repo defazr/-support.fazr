@@ -83,16 +83,19 @@
 - calculator: **요일제 안내 amber 박스** + "4/26 추가 발표" 1줄
 - 신규 글 상단: **NoticeBox** (4/26 행안부 추가 발표 4항목 — 4/30 통합, 근로자의 날, 등초본 수수료, 읍면 사용처)
 - updates 글 **10개**
-- FAQ: **20개 항목**
+- FAQ: **20개 항목** + Q1 한 줄 요약 추가 (4/27)
+- FAQ 메타: title/description 리라이트 (4/27) — "지급 대상" 키워드 직격
+- eligibility/calculator amber/blue 박스: 링크 줄바꿈(block mt-1) 통일 (4/27)
 - 건보료 컷오프: "5월 중 발표 예정" 유지 (미확정)
 
-### SEO 메타 (2026-04-18 적용)
+### SEO 메타 (2026-04-27 업데이트)
 
 | 페이지 | title | canonical |
 |---|---|---|
 | 홈 | 고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인 | https://support.fazr.co.kr |
 | /calculator | 고유가 피해지원금 계산기｜대상 확인 + 지원금 금액 바로 확인 | https://support.fazr.co.kr/calculator |
 | /eligibility | 고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026) | https://support.fazr.co.kr/eligibility |
+| /faq | 고유가 피해지원금 자주 묻는 질문｜지급 대상·금액·신청 방법 총정리 | https://support.fazr.co.kr/faq |
 
 ### 디자인 시스템
 
@@ -117,9 +120,9 @@
 
 ### 다음 작업 후보
 
-1. **4/28**: FAQ CTR 개선 (수익 직결)
-2. **4/28**: 신규 글 색인 확인 (네이버/구글)
-3. **4/28**: 전환율 → CTA 판단
+1. **4/28**: 신규 글 색인 확인 (네이버/구글)
+2. **4/28**: 전환율 → CTA 판단
+3. **4/28**: GSC /faq CTR 측정 (목표 2.7% → 6%+)
 4. **4/28+**: 요약 박스 동적화 (하드코딩 → post별 데이터)
 5. **4/28+**: NoticeBox 다른 글 마이그레이션 검토 (card-company, oil-subsidy-usage-guide)
 6. **5월 초**: 건보료 컷오프 발표 반영
