@@ -255,6 +255,9 @@ export default function EligibilityPage() {
             자세한 일정 확인
           </Link>
         </p>
+        <p className="text-xs text-amber-800 mt-2">
+          📢 4/26 추가 발표: 4/30 통합 운영(끝자리 4·9·5·0) · 등·초본 수수료 면제 · 읍·면 사용처 확장
+        </p>
       </div>
 
       {/* 신청 경로 안내 */}
