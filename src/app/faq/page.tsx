@@ -13,9 +13,9 @@ import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "자주 묻는 질문 - 고유가 피해지원금 FAQ",
+  title: "고유가 피해지원금 자주 묻는 질문｜지급 대상·금액·신청 방법 총정리",
   description:
-    "고유가 피해지원금 신청 방법, 대상 기준, 맞벌이 가능 여부, 1인 가구 지원금, K패스 연계, 금리인하 등 자주 묻는 질문 총정리.",
+    "고유가 피해지원금 지급 대상은 누구? 소득 하위 70% 기준, 1인당 10~60만원, 4/27 신청 시작. 맞벌이·1인 가구·미성년자 지원 여부까지 한 번에 확인하세요.",
   alternates: { canonical: "/faq" },
 };
 
@@ -25,7 +25,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "고유가 피해지원금 대상은 누구인가요?",
-        a: '소득 하위 70% 가구가 대상입니다. 건강보험료 납부액을 기준으로 선별되며, 4인 가구 기준 월 소득 약 974만원 이하가 해당됩니다. 건강보험료 컷오프 기준은 5월 중 발표 예정입니다. <a href="/eligibility" class="text-primary underline">대상 기준 자세히 보기</a>',
+        a: '<p class="font-semibold text-slate-900 mb-3">📌 한 줄 요약: 2007년 12월 31일 이전 출생자 중 소득 하위 70%에 해당하는 약 4,400만 명이 지급 대상입니다 (2026년 행정안전부 기준).</p>소득 하위 70% 가구가 대상입니다. 건강보험료 납부액을 기준으로 선별되며, 4인 가구 기준 월 소득 약 974만원 이하가 해당됩니다. 건강보험료 컷오프 기준은 5월 중 발표 예정입니다. <a href="/eligibility" class="text-primary underline">대상 기준 자세히 보기</a>',
       },
       {
         q: "1인 가구도 고유가 피해지원금 받을 수 있나요?",
