@@ -2,13 +2,14 @@
 
 > 다음 Claude Code 세션이 이 파일을 먼저 읽고 현재 상태를 파악한다.
 
-## 마지막 세션: 2026-04-26
+## 마지막 세션: 2026-04-27
 
-### 프로젝트 상태: ✅ 운영 중 + D-Day 세팅 완료 (4/27 09시 1차 신청 시작)
+### 프로젝트 상태: ✅ 운영 중 + 1차 신청 진행중 (4/27~5/8)
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
 - **배포**: Vercel 자동 배포 (push → 자동 빌드)
+- **Ignored Build Step**: `git diff --quiet HEAD^ HEAD -- ':!*.md' ':!docs/'` (4/27 설정 — .md만 변경 시 빌드 스킵)
 - **총 페이지**: 109개
 
 ### 기술 스택
@@ -33,9 +34,6 @@
 - **ads.txt**: `public/ads.txt` 1줄 추가 → `https://support.fazr.co.kr/ads.txt` 200 OK
   - `google.com, pub-7976139023602789, DIRECT, f08c47fec0942fa0`
 - **AdSense 스크립트 로드 패턴**: 원시 `<script async>` (head) → `<Script strategy="afterInteractive">` (body, GA 옆)
-  - 원인: hydration 전 실행 → Auto Ads(앵커·전면)가 React 마운트 ins 슬롯 못 찾음
-  - 수정 파일: `src/app/layout.tsx` 1파일 1블록
-  - 무관 영역: ad-slot.tsx 수동 10개 슬롯, vignette-cleanup.tsx, pub ID, 슬롯 ID
 
 ### 광고 슬롯 (10개) — 4/23 업데이트
 
@@ -54,11 +52,19 @@
 
 ### 핵심 컴포넌트
 
+- **NoticeBox** (`notice-box.tsx`): 4/27 신규. shadcn Card 기반. amber 톤. notices?: Notice[] 옵셔널로 글별 렌더. prose 밖 배치 (li margin 충돌 회피).
 - **VignetteCleanup** (`vignette-cleanup.tsx`): Vignette 자동 광고 body 잔류 정리. MutationObserver. **건드리지 마라.**
-- **AdSlot** (`ad-slot.tsx`): 디스플레이 + 멀티플렉스 + 인아티클 통합. format/layout/minHeight prop. fluid 포맷 + layout prop 4/23 추가.
+- **AdSlot** (`ad-slot.tsx`): 디스플레이 + 멀티플렉스 + 인아티클 통합. format/layout/minHeight prop. pubId 없으면(로컬) 90px placeholder div.
 - **ShareButtons** (`share-buttons.tsx`): 모바일 navigator.share() / PC 네이버·X·페북·링크복사
-- **GovLinkButton** (`gov-link-button.tsx`): 현재 active:false. calculator/regions에서 제거됨 → 내부 링크로 교체 완료.
-- **SkinnyBar** (`skinny-bar.tsx`): "use client". `src/data/banner.ts`에서 단일 객체 import. 자동 전환 로직 없음.
+- **SkinnyBar** (`skinny-bar.tsx`): "use client". `src/data/banner.ts`에서 단일 객체 import.
+
+### 4/27 구조 변경 사항
+
+- **NoticeBox 컴포넌트화**: updates.ts의 raw HTML amber 박스 → notices 배열 + NoticeBox 컴포넌트 분리. 신규 글 1건만 적용. 다른 글 9개는 기존 raw HTML 유지.
+- **prose max-w-3xl**: [slug]/page.tsx에서 max-w-prose(65ch) → max-w-3xl(768px). 부모 컨테이너와 동일 폭 통일. 한국어 가독성 OK.
+- **요약 박스 mt-6**: 공유 버튼-요약 박스 간격 확보.
+- **.vercelignore**: *.md 빌드 업로드 제외 (빌드 트리거 차단은 Ignored Build Step에서 처리).
+- **Ignored Build Step**: Vercel Dashboard에서 설정. .md만 변경 시 빌드 스킵.
 
 ### FAZR 브랜드 (2026-04-16 추가)
 
@@ -66,29 +72,19 @@
 - 홈: "FAZR에서 제공하는 고유가 피해지원금 안내 서비스입니다"
 - 계산기: "FAZR에서 제공하는 고유가 피해지원금 계산 서비스입니다"
 - 푸터: 사업자 정보 블록 (다파라코프, 208-09-27644)
-- 카피라이트: © 2026 다파라코프 (eitc.fazr와 통일)
 
-### Playwright MCP
-
-- 설치 완료. 시각 검증 워크플로 확립.
-- 모든 UI 수정 후 Playwright 스크린샷 검증 포함 원칙.
-
-### 콘텐츠 현재 상태 (2026-04-26)
+### 콘텐츠 현재 상태 (2026-04-27)
 
 - 추경: **통과 확정** (4/10 본회의) + **정부 공식 발표** (4/11)
-- subsidy.ts status: **"신청중"** (4/26 커밋 29ea5da)
-- Hero 배지: **"1차 신청 진행중 (4/27~5/8)"** (4/26 변경)
-- 스키니바: **"1차 신청 진행중 (4/27~5/8) — 출생연도별 신청일 확인"** → /updates/weekly-application-schedule-2026 (4/26 변경)
-- eligibility: **요일제 안내 amber 박스 추가** (신청 경로 안내 위, weekly-application-schedule-2026 링크)
-- calculator: **요일제 안내 amber 박스 추가** (조건부 밖 항상 표시, weekly-application-schedule-2026 링크)
-- gov-links.ts: **active=false**
-- updates 글 **10개** (+1: weekly-application-schedule-2026, D-1 출생연도별 신청일 가이드)
-- 홈 취약계층 박스: Card 4장 + /eligibility 링크 + "자동 지급 대상" 라벨 (4/23 추가)
-- "정부24" 표현: **사이트 전체 제거** (면책 조항만 "정부 공식 사이트 아님")
-- 날짜: 전부 확정형 (4월 27일, 5월 18일, 8월 31일)
-- 건보료 컷오프: "5월 중 발표 예정" 유지 (미확정)
+- subsidy.ts status: **"신청중"**
+- Hero 배지: **"1차 신청 진행중 (4/27~5/8)"**
+- 스키니바: **"1차 신청 진행중 (4/27~5/8) — 출생연도별 신청일 확인"** → /updates/weekly-application-schedule-2026
+- eligibility: **요일제 안내 amber 박스** + "4/26 추가 발표" 1줄
+- calculator: **요일제 안내 amber 박스** + "4/26 추가 발표" 1줄
+- 신규 글 상단: **NoticeBox** (4/26 행안부 추가 발표 4항목 — 4/30 통합, 근로자의 날, 등초본 수수료, 읍면 사용처)
+- updates 글 **10개**
 - FAQ: **20개 항목**
-- 국민비서: 4채널 명시 (ips.go.kr / 네이버앱 / 카카오톡 / 토스)
+- 건보료 컷오프: "5월 중 발표 예정" 유지 (미확정)
 
 ### SEO 메타 (2026-04-18 적용)
 
@@ -97,32 +93,6 @@
 | 홈 | 고유가 피해지원금 대상 조회·계산기｜내가 받을 금액 바로 확인 | https://support.fazr.co.kr |
 | /calculator | 고유가 피해지원금 계산기｜대상 확인 + 지원금 금액 바로 확인 | https://support.fazr.co.kr/calculator |
 | /eligibility | 고유가 피해지원금 대상 확인｜행안부 발표 기준 반영 (2026) | https://support.fazr.co.kr/eligibility |
-
-- 홈 메타: `src/app/page.tsx`에 신설 (layout.tsx 폴백 보존)
-- OG/Twitter 카드: 3페이지 개별 적용
-- OG 이미지: 3페이지 모두 og-main.jpg (4/22 수정)
-
-### calculator 버튼 UX (2026-04-18 적용, 4/22 보강)
-
-- disabled 조건 제거 → 버튼 항상 활성화
-- 미입력 필드 순차 검증 + 인라인 에러 (text-red-600 text-sm font-medium, 4/22 강화)
-- scrollIntoView(block: center) + Input만 focus
-- onChange 에러 자동 리셋
-
-### UX 마이크로 개선 (2026-04-22 적용)
-
-**홈 (page.tsx)**:
-- CTA 버튼: "내가 받을 수 있을까?" → "3초 계산으로 금액 확인하기" (2곳)
-- Key Stats 카드 4장: 정적 → Link /regions 연결 + hover:shadow-md
-
-**calculator (calculator/page.tsx)**:
-- 계산 버튼 아래 체류 유도 블록: "아직 계산 안 하셨나요?" + outline 버튼 → /eligibility
-  - `{!result && (...)}` 조건부 렌더링 (계산 후 숨김)
-- 신청 경로 문구: "언제, 어떻게 받는지 전체 확인하기"
-- 보조 설명 3곳: text-xs → text-sm (모바일 가독성)
-- 작업1 블록: mt-8 + text-slate-600 (여백+대비)
-- 결과 자동 스크롤: useRef + resultRef → 계산 후 scrollIntoView (smooth, block: start)
-- 진입 시 scrollTo(0,0): useEffect 마운트 시 강제 상단 (Vignette 광고 하단 고착 해결)
 
 ### 디자인 시스템
 
@@ -133,28 +103,24 @@
 ### 주의사항
 
 1. **body/html에 높이 클래스 금지** — h-full, min-h-full, min-h-screen 넣으면 iOS 스크롤 버그 재발
-2. **SSOT 전부 확인** — 항목 누락 금지. 타 제도 용어 혼입 주의 (예: 근로장려금)
+2. **SSOT 전부 확인** — 항목 누락 금지. 타 제도 용어 혼입 주의
 3. **아닌 건 말해라** — 지시서가 와도 문제 보이면 의견 제시
-4. **GA4 + AdSense = next/script + strategy="afterInteractive"** — 원시 `<script async>` 금지 (hydration 전 실행되어 Auto Ads 망가짐)
+4. **GA4 + AdSense = next/script + strategy="afterInteractive"** — 원시 `<script async>` 금지
 5. **구조 변경 금지** — CSS 클래스만 수정
 6. **VignetteCleanup 건드리지 마라** — 자동 광고 충돌 방지 핵심
-7. **"정부24" 사용 금지** — 실제 신청 채널 아님
-8. **Vercel env** — printf로 줄바꿈 없이 추가, 변경 후 재배포 필수
-9. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인 (캐시 미스 시 캐시버스터 사용)
-10. **calculator 로직 수정 금지** — 데이터만 교체, 로직 변경은 사용자 확인 후
-11. **스키니바 자동 전환 금지** — 수동 텍스트 교체만. 4/27에 다시 변경 필요.
-12. **YMRL 미확정 수치 인용 시** — 반드시 "확정 전 추정치"/"발표 예정" 명시
-13. **브랜치 전략** — main 기준 새 브랜치에 단일 목적 1 커밋만. 과거 브랜치 재사용 금지.
-14. **외부 스크립트 추가 시 ads.txt 필수 동시 추가** — AdSense 수익 직격
+7. **Vercel env** — printf로 줄바꿈 없이 추가, 변경 후 재배포 필수
+8. **검증 필수** — 수정 후 grep + curl로 라이브 사이트 확인
+9. **디자인 수정 = 로컬 스크린샷 확인 → 승인 → 푸시 1회** — 빌드 낭비 방지
+10. **NoticeBox prose 밖 유지** — prose 안에 넣으면 li margin 충돌
+11. **브랜치 전략** — main 기준 새 브랜치에 단일 목적 1 커밋만
+12. **.vercelignore ≠ 빌드 트리거 차단** — Ignored Build Step(Vercel Dashboard)이 빌드 스킵 담당
 
 ### 다음 작업 후보
 
-1. **4/28+**: GA4 트래픽/CTR 데이터 분석 + CTA 버튼화 판단
-2. **4/28+**: Vercel 빌드비 절감 (.vercelignore + main만 빌드 설정)
-3. **5월 초**: 건보료 컷오프 발표 반영
-4. **5/8 이후**: status "신청중" → "지급중" 전환 (2차 신청 시작 대응)
-5. FAQ "신청 ≠ 지급" 명확화 1건 추가
-6. 신규 글 하단 calculator/eligibility CTA 추가 (체류→전환)
-7. calculator 폼 위로 요일제 안내 이동 검토 (CTR 데이터 기반)
-8. 전담 콜센터 번호 확정 시 FAQ Q18 업데이트
-9. 검색 유입 키워드 분석 → 콘텐츠 확장
+1. **4/28**: FAQ CTR 개선 (수익 직결)
+2. **4/28**: 신규 글 색인 확인 (네이버/구글)
+3. **4/28**: 전환율 → CTA 판단
+4. **4/28+**: 요약 박스 동적화 (하드코딩 → post별 데이터)
+5. **4/28+**: NoticeBox 다른 글 마이그레이션 검토 (card-company, oil-subsidy-usage-guide)
+6. **5월 초**: 건보료 컷오프 발표 반영
+7. **5/8 이후**: status "신청중" → "지급중" 전환
