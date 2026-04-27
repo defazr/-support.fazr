@@ -1,8 +1,11 @@
+import type { Notice } from "@/components/notice-box";
+
 export interface UpdatePost {
   slug: string;
   title: string;
   description: string;
   date: string;
+  notices?: Notice[];
   content: string;
 }
 
@@ -14,18 +17,31 @@ export const UPDATES: UpdatePost[] = [
     description:
       "2026 고유가 피해지원금 1차 신청방법 안내. 4월 27일(월) 09시 시작, 5월 8일(금) 18시 마감. 출생연도 끝자리별 5부제(4/27~4/30) + 5월 1일부터 모두 신청 가능. 5월 9일~17일 시스템 중단 후 5월 18일 2차 신청 시작. 내가 언제 신청 가능한지 출생연도로 바로 확인하세요.",
     date: "2026-04-26",
+    notices: [
+      {
+        title: "4월 26일 행정안전부 추가 발표 안내",
+        effective: "아래 내용은 4월 27일 신청 시작부터 적용됩니다.",
+        items: [
+          {
+            label: "4월 30일(목)",
+            text: "5월 1일 근로자의 날 휴무로, 출생연도 끝자리 4·9 + 5·0 통합 신청 가능",
+          },
+          {
+            label: "5월 1일 근로자의 날",
+            text: "요일제 미적용, 카드사·기관 영업 여부는 각 기관 공지 확인 필요",
+          },
+          {
+            label: "등·초본 발급 수수료 한시 면제",
+            text: "1차(4/27~5/8) · 2차(5/18~7/3) 신청 기간 중 주민센터 방문 또는 무인민원발급기 이용 시 (온라인 발급은 원래 무료, 방문·무인발급기만 한시 면제)",
+          },
+          {
+            label: "읍·면 지역 사용처 확장",
+            text: "하나로마트, 로컬푸드직매장, 지역소비자생활협동조합, 아름다운가게 추가",
+          },
+        ],
+      },
+    ],
     content: `
-<div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
-<p class="font-semibold text-amber-900">📢 4월 26일 행정안전부 추가 발표 안내</p>
-<p class="text-xs text-amber-800 mt-1">※ 아래 내용은 4월 27일 신청 시작부터 적용됩니다.</p>
-<ul class="text-amber-900 mt-2 text-sm list-none pl-0 [&>li]:mt-4 [&>li:first-child]:mt-0">
-<li><span class="block font-semibold mb-1">4월 30일(목)</span><span class="block text-amber-900/90">5월 1일 근로자의 날 휴무로, 출생연도 끝자리 4·9 + 5·0 통합 신청 가능</span></li>
-<li><span class="block font-semibold mb-1">5월 1일 근로자의 날</span><span class="block text-amber-900/90">요일제 미적용, 카드사·기관 영업 여부는 각 기관 공지 확인 필요</span></li>
-<li><span class="block font-semibold mb-1">등·초본 발급 수수료 한시 면제</span><span class="block text-amber-900/90">1차(4/27~5/8) · 2차(5/18~7/3) 신청 기간 중 주민센터 방문 또는 무인민원발급기 이용 시 (온라인 발급은 원래 무료, 방문·무인발급기만 한시 면제)</span></li>
-<li><span class="block font-semibold mb-1">읍·면 지역 사용처 확장</span><span class="block text-amber-900/90">하나로마트, 로컬푸드직매장, 지역소비자생활협동조합, 아름다운가게 추가</span></li>
-</ul>
-</div>
-
 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
 <p class="font-semibold text-blue-800">4월 27일(월) 09시부터 5월 8일(금) 18시까지 1차 신청 기간입니다.</p>
 <p class="text-blue-700 mt-1">첫 주(4/27~4/30)는 출생연도 끝자리별 요일제(5부제)가 적용되며, 5월 1일부터는 모두 신청 가능합니다.</p>

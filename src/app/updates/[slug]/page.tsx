@@ -8,6 +8,7 @@ import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
 import { ShareButtons } from "@/components/share-buttons";
 import { UPDATES } from "@/data/updates";
+import { NoticeBox } from "@/components/notice-box";
 
 export function generateStaticParams() {
   return UPDATES.map((post) => ({ slug: post.slug }));
@@ -53,8 +54,12 @@ export default async function UpdateDetailPage({ params }: Props) {
 
         <ShareButtons title={post.title} />
 
+        {post.notices?.map((notice, idx) => (
+          <NoticeBox key={idx} notice={notice} />
+        ))}
+
         {/* 요약 박스 */}
-        <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8 space-y-2">
+        <div className="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8 space-y-2">
           <p className="text-sm font-medium text-foreground">핵심 요약</p>
           <ul className="text-sm text-muted-foreground space-y-1">
             <li>현재 상태: 추경 국회 통과 (4월 10일)</li>
@@ -70,7 +75,7 @@ export default async function UpdateDetailPage({ params }: Props) {
         </div>
 
         <div
-          className="prose prose-sm max-w-prose leading-relaxed prose-headings:text-foreground prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:mb-4 prose-li:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:my-4 prose-ul:space-y-2 prose-ol:my-4 prose-ol:space-y-2 prose-hr:my-8"
+          className="prose prose-sm max-w-3xl leading-relaxed prose-headings:text-foreground prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:mb-4 prose-li:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:my-4 prose-ul:space-y-2 prose-ol:my-4 prose-ol:space-y-2 prose-hr:my-8"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
