@@ -18,11 +18,11 @@ export const UPDATES: UpdatePost[] = [
 <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
 <p class="font-semibold text-amber-900">📢 4월 26일 행정안전부 추가 발표 안내</p>
 <p class="text-xs text-amber-800 mt-1">※ 아래 내용은 4월 27일 신청 시작부터 적용됩니다.</p>
-<ul class="text-amber-900 mt-2 list-disc list-inside space-y-1">
-<li><strong>4월 30일(목)</strong>: 5월 1일 근로자의 날 휴무로, 출생연도 끝자리 4·9 + 5·0 통합 신청 가능</li>
-<li><strong>5월 1일 근로자의 날</strong>: 요일제 미적용, 카드사·기관 영업 여부는 각 기관 공지 확인 필요</li>
-<li><strong>등·초본 발급 수수료 한시 면제</strong>: 1차(4/27~5/8) · 2차(5/18~7/3) 신청 기간 중 주민센터 방문 또는 무인민원발급기 이용 시 (온라인 발급은 원래 무료, 방문·무인발급기만 한시 면제)</li>
-<li><strong>읍·면 지역 사용처 확장</strong>: 하나로마트, 로컬푸드직매장, 지역소비자생활협동조합, 아름다운가게 추가</li>
+<ul class="text-amber-900 mt-2 space-y-2 text-sm">
+<li><strong>4월 30일(목):</strong> 5월 1일 근로자의 날 휴무로, 출생연도 끝자리 4·9 + 5·0 통합 신청 가능</li>
+<li><strong>5월 1일 근로자의 날:</strong> 요일제 미적용, 카드사·기관 영업 여부는 각 기관 공지 확인 필요</li>
+<li><strong>등·초본 발급 수수료 한시 면제:</strong> 1차(4/27~5/8) · 2차(5/18~7/3) 신청 기간 중 주민센터 방문 또는 무인민원발급기 이용 시 (온라인 발급은 원래 무료, 방문·무인발급기만 한시 면제)</li>
+<li><strong>읍·면 지역 사용처 확장:</strong> 하나로마트, 로컬푸드직매장, 지역소비자생활협동조합, 아름다운가게 추가</li>
 </ul>
 </div>
 
