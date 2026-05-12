@@ -82,7 +82,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
-            1차 신청 진행중 (4/27~5/8)
+            2차 신청 5/18 시작 예정
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
             고유가 피해지원금 대상인지
@@ -109,6 +109,20 @@ export default function HomePage() {
           <p className="text-xs text-muted-foreground mt-4">
             건강보험료 기준으로 예상 금액을 바로 계산합니다
           </p>
+        </div>
+      </section>
+
+      {/* 시스템 정비 기간 안내 */}
+      <section className="max-w-6xl mx-auto px-4 -mt-4 mb-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p className="font-semibold text-blue-800">시스템 정비 기간 안내</p>
+          <p className="text-blue-700 text-sm mt-1">
+            현재 5/9~5/17은 1차 신청 종료 후 2차 신청 준비를 위한 시스템 정비 기간입니다.
+            2차 신청은 5월 18일(월) 09:00부터 시작되며, 첫 주에는 출생연도 끝자리 5부제가 적용됩니다.
+          </p>
+          <Link href="/updates/secondary-application-guide-2026" className="text-blue-700 underline text-sm mt-2 inline-block">
+            2차 신청 가이드 자세히 보기 →
+          </Link>
         </div>
       </section>
 
