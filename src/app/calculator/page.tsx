@@ -25,6 +25,7 @@ import {
 } from "@/data/subsidy";
 
 type CalcResult = {
+  status: "eligible" | "ineligible" | "needsCheck";
   eligible: boolean;
   message: string;
   amount: number;
@@ -91,11 +92,13 @@ export default function CalculatorPage() {
 
     const memberNum = parseInt(members);
     const eligibility = checkEligibility(memberNum, insuranceNum);
-    const amount = eligibility.eligible
-      ? getSubsidyAmount(regionType as RegionType) * memberNum
-      : 0;
+    const amount =
+      eligibility.status === "eligible"
+        ? getSubsidyAmount(regionType as RegionType) * memberNum
+        : 0;
 
     setResult({
+      status: eligibility.status,
       eligible: eligibility.eligible,
       message: eligibility.message,
       amount,
@@ -266,7 +269,7 @@ export default function CalculatorPage() {
         <div ref={resultRef}>
         <Card className="mt-6">
           <CardContent className="pt-6">
-            {result.eligible ? (
+            {result.status === "eligible" && (
               <div className="text-center">
                 <Badge className="mb-3 bg-green-100 text-green-800 hover:bg-green-100">
                   예상 지원 대상
@@ -308,32 +311,64 @@ export default function CalculatorPage() {
                   </a>
                 </div>
               </div>
-            ) : (
+            )}
+
+            {result.status === "needsCheck" && (
+              <div>
+                {result.members >= 5 && (
+                  <p className="text-sm text-muted-foreground mb-3 text-center">
+                    ※ 계산기에서는 5인 이상 가구를 단일 항목으로 입력하므로 자동 판정이 어렵습니다.
+                  </p>
+                )}
+                <div className="text-center">
+                  <Badge className="mb-3 bg-amber-100 text-amber-800 hover:bg-amber-100">
+                    확인 필요
+                  </Badge>
+                  <p className="text-muted-foreground mt-2">{result.message}</p>
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4 text-left">
+                    <p className="font-semibold text-amber-900">콜센터 확인 후 산정 가능</p>
+                    <p className="text-amber-800 mt-1 text-sm">
+                      전담 콜센터 <strong>1670-2626</strong> 또는 건강보험공단 <strong>1577-1000</strong>에서 확인하세요.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {result.status === "ineligible" && (
               <div className="text-center">
                 <Badge
                   variant="secondary"
                   className="mb-3 bg-gray-100 text-gray-700"
                 >
-                  {members === "5" ? "별도 산정" : "대상 외 추정"}
+                  대상 외 추정
                 </Badge>
                 <p className="text-muted-foreground mt-2">{result.message}</p>
-                {members !== "5" && (
-                  <p className="text-sm text-muted-foreground mt-4">
-                    정확한 대상 여부는 관할 주민센터 또는 카드사 앱에서 확인하세요
-                  </p>
-                )}
+                <p className="text-sm text-muted-foreground mt-4">
+                  정확한 대상 여부는 관할 주민센터 또는 카드사 앱에서 확인하세요
+                </p>
               </div>
             )}
 
             <div className="mt-6 pt-4 border-t">
               <p className="text-xs text-muted-foreground text-center">
-                * 위 결과는 예상 기준이며, 건강보험료 컷오프 기준에 따라 변경될 수
-                있습니다. 정확한 정보는 관할 주민센터 또는 카드사 앱을 통해
-                확인하시기 바랍니다.
+                ※ 행정안전부 5/11 발표 기준. 최종 대상 여부는 신청 시 카드사·지자체 안내에서 확인됩니다.
               </p>
             </div>
           </CardContent>
         </Card>
+
+        {/* 자산 기준 확인 — 모든 결과 공통 */}
+        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p className="font-semibold text-blue-800">자산 기준 확인 필요</p>
+          <p className="text-sm text-blue-700 mt-1">
+            건강보험료 기준을 충족해도 다음 중 하나에 해당하면 가구 전원이 제외됩니다.
+          </p>
+          <ul className="text-sm text-blue-700 mt-2 space-y-1">
+            <li>2025년 재산세 과세표준 합계 <strong>12억원 초과</strong> (공시가 약 26.7억원)</li>
+            <li>2024년 귀속 금융소득 합계 <strong>2,000만원 초과</strong></li>
+          </ul>
+        </div>
         </div>
       )}
 
@@ -351,7 +386,7 @@ export default function CalculatorPage() {
       </div>
 
       {/* 신청 경로 안내 */}
-      {result && result.eligible && (
+      {result && result.status === "eligible" && (
         <div className="mt-6 bg-[#0369A1]/5 border border-[#0369A1]/20 rounded-lg p-4">
           <p className="text-sm text-muted-foreground">
             신청은 카드사 앱, 지역사랑상품권 앱, 주민센터에서 가능합니다.
@@ -479,12 +514,12 @@ export default function CalculatorPage() {
                     <td className="text-right py-2.5">
                       {t.insuranceEmployee > 0
                         ? `${formatAmount(t.insuranceEmployee)}원 이하`
-                        : "별도 산정"}
+                        : "확인 필요"}
                     </td>
                     <td className="text-right py-2.5">
                       {t.insuranceRegional > 0
                         ? `${formatAmount(t.insuranceRegional)}원 이하`
-                        : "별도 산정"}
+                        : "확인 필요"}
                     </td>
                   </tr>
                 ))}
@@ -492,7 +527,7 @@ export default function CalculatorPage() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-3">
-            * 소득 하위 70% 기준 예상치이며, 건강보험료 컷오프 기준은 5월 중 발표 예정입니다
+            ※ 건강보험료 본인부담금 가구 합산액 기준 (장기요양보험료 제외). 가입자 유형(직장/지역) 입력 없이 보수적으로 판정합니다.
           </p>
         </CardContent>
       </Card>
