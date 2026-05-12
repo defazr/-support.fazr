@@ -113,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* 시스템 정비 기간 안내 */}
-      <section className="max-w-6xl mx-auto px-4 -mt-4 mb-4">
+      <section className="max-w-6xl mx-auto px-4 -mt-4 mb-10">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <p className="font-semibold text-blue-800">시스템 정비 기간 안내</p>
           <p className="text-blue-700 text-sm mt-1">
@@ -151,6 +151,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <p className="text-sm text-muted-foreground text-center max-w-6xl mx-auto px-4 mt-8">
+        1차 신청은 5월 8일 마감됐으며, 행안부 5월 8일 18시 기준 <strong>294만 4,073명</strong>이 신청했습니다.
+      </p>
 
       {/* Ad Slot — In-article (Key Stats 아래) */}
       <section className="max-w-6xl mx-auto px-4 pt-8">
