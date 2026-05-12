@@ -1,18 +1,39 @@
 # SESSION HANDOFF — support.fazr.co.kr
 
 > 다음 Claude Code / Claude GPT UI 세션이 이 파일을 먼저 읽고 현재 상태를 파악한다.
-> 5/12 핫픽스 후 갱신.
+> 5/12 저녁 갱신 (gas station 핫픽스 + 전수 오디트 + P0 준비 완료).
 
-## 마지막 세션: 2026-05-12
+## 📍 새 세션 시작 시 (READ ME FIRST)
 
-### 프로젝트 상태: ✅ 운영 중 + 1차 종료 + 2차 신청 대기
+```
+GitHub의 메모리/핸드오프 숙지해.
+SESSION-HANDOFF.md → GPT-HANDOFF-20260512.md → GPT-HANDOFF-20260512-v2.md → HOTFIX-STATUS-20260513.md
+순서로 읽고, STEP 0 mini-audit부터 시작.
+```
+
+### 핵심 문서 4종 (필독 순서)
+1. **SESSION-HANDOFF.md** (이 파일) — 현 상태 / 룰 / 다음 작업 우선순위
+2. **GPT-HANDOFF-20260512.md** (v1) — 5/12 오전 핫픽스 narrative
+3. **GPT-HANDOFF-20260512-v2.md** (v2) — 5/12 저녁 추가 작업 + 오디트 + P0 준비
+4. **HOTFIX-STATUS-20260513.md** — 5/13 첫 작업용 실행 스펙 (STEP 0~5)
+
+### 부차 문서 (참조용)
+- SESSION-MEMORY-20260512.md (v1) — code-level 디테일 (5/11 발표 핫픽스)
+- SESSION-MEMORY-20260512-v2.md (v2) — code-level 디테일 (5/12 추가 작업)
+- HOTFIX-CRITERIA-20260511.md — 5/12 오전에 실행 완료된 핫픽스 스펙 (역사 자료)
+
+---
+
+## 마지막 세션: 2026-05-12 (저녁)
+
+### 프로젝트 상태: ✅ 운영 중 + 1차 종료 + 5/9~5/17 시스템 정비 기간 + 2차 5/18 시작 예정
 
 - **사이트**: https://support.fazr.co.kr
 - **저장소**: https://github.com/defazr/-support.fazr.git (main 브랜치)
 - **배포**: Vercel 자동 배포 (push → 자동 빌드)
 - **Ignored Build Step**: `.md만 변경 시 빌드 스킵` (Vercel Dashboard)
-- **총 페이지**: 110개 (5/11 신규 글 1개 추가)
-- **main HEAD**: `a83ee09` (PR #6 머지, DisclaimerBanner 보강)
+- **총 페이지**: 110개 + 핸드오프 .md 문서 다수
+- **main HEAD**: `6f4ea20` (PR #8 머지, gas station 핫픽스)
 
 ### 기술 스택
 
@@ -177,74 +198,100 @@
 - `main`, `hotfix/*` 등 직접 push → HTTP 403
 - **우회 흐름**: 변경 → `claude/check-memory-handoff-4RKK5` push → GitHub UI에서 PR 머지 → Vercel 자동 빌드
 
-### 다음 작업 후보 (5/13 이후 우선순위)
+### 5/12 저녁 추가 완료 작업
 
-#### 1️⃣ 커밋 2: 신규 글 발행 — 가장 시급
+- ✅ PR #8: 주유소 5/1 사용처 확대 핫픽스 (`6f4ea20`)
+  - calculator 블록4 (amber → blue 톤 전환), faq:77/81, updates.ts 7건
+  - 옛 표현 ("주유소.*30억", "10곳 중 7곳", "대부분의 주유소") 0건
+  - 신 정책 ("5월 1일부터", "연 매출액과 관계없이", "한시적으로 추가 등록") 반영
+- ✅ 전수 오디트 — 행안부 발표 5개 기준 25개 항목 점검
+- ✅ HOTFIX-STATUS-20260513.md (P0 실행 스펙) 작성 완료
 
-- 슬러그: `health-insurance-criteria-confirmed-2026`
-- 내용: 5/11 발표 건보료 기준 확정 안내 (검색 트래픽 흡수)
-- 사유: **5/18 D-Day 5일 전 색인 시간 확보**
+### 다음 작업 후보 (5/13 이후 — 전수 오디트 기반 P0/P1/P2 분류)
 
-#### 2️⃣ 1차 종료 → 2차 대기 문구 정리
+#### 🚨 P0 (즉시 — 5/13 오전, 40분 컷)
 
-- subsidy.ts status: "신청중" 유지 (2차 5/18 시작 전까지)
-- Hero 배지: "1차 신청 진행중 (4/27~5/8)" → "2차 신청 5/18 시작 예정" 같은 톤
-- 스키니바: 이미 2차 가이드 링크라 부분 OK
-- eligibility 1차 취약계층 섹션 제목 강조
+**HOTFIX-STATUS-20260513.md 참조하여 STEP 0~5 실행**
 
-#### 3️⃣ 커밋 4: 사용처 정책 일괄 점검
+1. **Hero 배지 만료 문구** — `src/app/page.tsx:85` "1차 신청 진행중 (4/27~5/8)" 잔존
+2. **5/9~5/17 시스템 정비 안내** — 홈/eligibility/calculator/faq에 직접 노출 없음 (updates.ts에만 있음)
+3. **status 부정확** — `subsidy.ts:4` + `banner.ts:5` 둘 다 "신청중" (실제: 정비 기간)
 
-- `calculator/page.tsx:413-429` "주유소 사용처 안내 블록" (5/11 발표 후 변화 시)
-- 동일 패턴 사용처 안내 — FAQ + updates + 홈 4곳 점검
-- 5/11 발표문 전체에 사용처/카드사 변경 사항이 있는지 사용자 확인 필요
+→ 단일 커밋 3개 파일 (page.tsx + subsidy.ts + banner.ts)
+→ 옵션 A (타입 확장) vs B (UI만 변경) STEP 0 후 결정
 
-#### 4️⃣ 커밋 3: calculator 가입자 유형 UI
+#### 🟡 P1 (5/13~5/14 — 분리, 2~3 커밋)
 
-- 직장/지역 선택 Select 추가
-- checkEligibility 시그니처에 insuranceType 추가
-- "5인 이상" → "5인" + "6인 이상" 분리 검토
-- 정확한 자동 판정 가능
+4. **이의신청 5/18~7/17 안내** — FAQ Q&A 신규 추가 + eligibility 1줄 보강
+   - 현재: `updates.ts:604`에만 1줄
+5. **1차 신청자 통계 107만/6094억** — 신규 글 발행 또는 홈 박스
+   - 현재: 0건
+6. **5부제 amber 박스 링크 정리** — `weekly-application-schedule-2026` 글 갱신 또는 링크 변경
+   - 현재: `eligibility:304`, `calculator:378` → 1·2차 둘 다 다루지만 1차가 상단
 
-#### 5️⃣ FAQ 신규 Q&A 3건 (SEO 보강)
+#### 🟢 P2 (5/15+)
 
-- Q: 맞벌이 가구 +1명 특례 적용 방법
-- Q: 자산 기준 확인 방법 (위택스/홈택스)
-- Q: 5인 이상 가구 신청 방법
+7. **환산 연소득 노출 확장** — FAQ에만 있음 (4,340만 / 1억 682만)
+   - eligibility 박스 또는 표에 추가 (선택)
+8. **1차 중복 불가 FAQ 추가** — 현재 `updates.ts:27`에만 1줄
+   - 1차 수급자 혼란 방지 (선택)
+
+#### 📦 별도 큐 (별개 커밋)
+
+- **커밋 2**: 신규 글 발행 `health-insurance-criteria-confirmed-2026` (5/18 D-Day 색인 시간)
+- **커밋 3**: calculator 가입자 유형 UI (직장/지역 Select + checkEligibility 시그니처 확장)
+- **커밋 5**: FAQ 신규 Q&A 3건 SEO 보강
 
 ### 5/13 작업 시작 방법
 
 ```bash
 git checkout main
 git pull origin main
-# 작업 시작
+# Claude Code에 다음 메시지:
+# "GitHub의 메모리/핸드오프 숙지해.
+#  SESSION-HANDOFF.md → GPT-HANDOFF-20260512.md → GPT-HANDOFF-20260512-v2.md → HOTFIX-STATUS-20260513.md
+#  순서로 읽고, STEP 0 mini-audit부터 시작."
 ```
 
-### 핸드오프 문서 위치 (5/12 기준 최신)
+### 핸드오프 문서 위치 (5/12 저녁 기준 최신)
 
-- `GPT-HANDOFF-20260512.md` — narrative 핸드오프
-- `SESSION-MEMORY-20260512.md` — 기술 디테일·결정 기록
-- `SESSION-HANDOFF.md` — 이 파일 (living doc, 현 상태)
-- `HOTFIX-CRITERIA-20260511.md` — 5/12 핫픽스 스펙 (참고 자료)
+| 우선순위 | 파일 | 용도 |
+|---|---|---|
+| 1 | `SESSION-HANDOFF.md` (이 파일) | living state doc |
+| 2 | `GPT-HANDOFF-20260512.md` | 5/12 오전 narrative |
+| 3 | `GPT-HANDOFF-20260512-v2.md` | 5/12 저녁 추가 (오디트 포함) |
+| 4 | `HOTFIX-STATUS-20260513.md` | 5/13 P0 실행 스펙 |
+| 부차 | `SESSION-MEMORY-20260512.md` | code-level (5/11 발표) |
+| 부차 | `SESSION-MEMORY-20260512-v2.md` | code-level (5/12 추가) |
+| 부차 | `HOTFIX-CRITERIA-20260511.md` | 5/12 실행 완료 스펙 (역사) |
 
-### 색인 요청 상태 (5/12 던진 직후)
+### 색인 요청 상태 (5/12 가스 핫픽스 후)
 
-#### 네이버 웹마스터 도구 — 5건 요청
+#### 네이버 웹마스터 도구 — 5건 (사용자가 던질 예정)
 
-1. /eligibility
+1. /faq
 2. /calculator
-3. /faq
+3. /updates/oil-subsidy-usage-guide-2026
 4. /updates/secondary-application-guide-2026
 5. /sitemap.xml
 
-#### Google Search Console — 4건 요청
+#### Google Search Console — 4건 (사용자가 던질 예정)
 
-1. /eligibility
+1. /faq
 2. /calculator
-3. /faq
+3. /updates/oil-subsidy-usage-guide-2026
 4. /updates/secondary-application-guide-2026
 
 ### 5/13 오전 관찰 항목
 
-1. 네이버 색인 반영 확인 (수집 요청 5건 처리 상태)
+1. 네이버 색인 반영 확인 (5/12 수집 요청 처리 상태)
 2. AdSense 5/12 vs 5/13 비교
 3. GA — 신규 글(2차 신청 가이드) + eligibility 트래픽 변화
+
+### 워크플로 회고 (5/12 저녁)
+
+- 오후~저녁에 GPT 의견 과의존 문제 발생
+- "GPT 지시서 받아서 그대로 던지세요" 패턴 = 사용자 본인 검토 단계 스킵
+- 본래 워크플로: **GPT 전략 판단 → 사용자 검토 + 지시서 작성 → CC 실행**
+- 5/13 회복: HOTFIX-STATUS-20260513.md는 **사용자 본인 작성** (GPT 의존 X)
+- 역할 분리 명확화: CC는 audit + 실행, 사용자는 판단 + 결정
