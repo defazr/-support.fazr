@@ -84,7 +84,7 @@ export default function EligibilityPage() {
                 <ul className="text-sm text-red-800 mt-2 space-y-1">
                   <li>건강보험료 기준 초과</li>
                   <li>고소득 가구 (상위 30%)</li>
-                  <li>세부 제외 대상 (건보료 컷오프 5월 중 발표)</li>
+                  <li>자산 제외 대상 (한 가지라도 해당 시 가구 전원 제외)</li>
                 </ul>
               </div>
             </div>
@@ -107,9 +107,6 @@ export default function EligibilityPage() {
                 <tr className="border-b bg-muted/50">
                   <th className="text-left py-3 px-3 font-medium">가구원 수</th>
                   <th className="text-right py-3 px-3 font-medium">
-                    기준 중위소득 (예상)
-                  </th>
-                  <th className="text-right py-3 px-3 font-medium">
                     직장가입자
                   </th>
                   <th className="text-right py-3 px-3 font-medium">
@@ -125,15 +122,12 @@ export default function EligibilityPage() {
                   >
                     <td className="py-3 px-3 font-medium">{t.members}인 가구</td>
                     <td className="text-right py-3 px-3">
-                      {formatAmount(t.monthlyIncome)}원
-                    </td>
-                    <td className="text-right py-3 px-3">
                       {t.insuranceEmployee > 0 ? (
                         <span className="font-bold text-blue-600">
                           {formatAmount(t.insuranceEmployee)}원 이하
                         </span>
                       ) : (
-                        <span className="text-muted-foreground">별도 산정</span>
+                        <span className="text-muted-foreground">확인 필요</span>
                       )}
                     </td>
                     <td className="text-right py-3 px-3">
@@ -142,7 +136,7 @@ export default function EligibilityPage() {
                           {formatAmount(t.insuranceRegional)}원 이하
                         </span>
                       ) : (
-                        <span className="text-muted-foreground">별도 산정</span>
+                        <span className="text-muted-foreground">확인 필요</span>
                       )}
                     </td>
                   </tr>
@@ -150,9 +144,65 @@ export default function EligibilityPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-muted-foreground mt-4">
-            * 위 기준은 소득 하위 70% 예상 기준이며, 건강보험료 컷오프 기준은
-            5월 중 발표 예정입니다.
+          <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+            ※ 위 기준은 2026년 3월 부과된 건강보험료 본인부담금(장기요양보험료 제외) 가구 합산액 기준입니다. 행정안전부 5/11 발표 기준.
+            <br />
+            ※ 위 기준은 외벌이 가구 기준입니다.
+            <br />
+            ※ 5인 이상 지역가입자 기준은 행안부 공식 표에서 미발표 항목입니다.
+            <br />
+            ※ 정확한 대상 여부는 콜센터 1670-2626 또는 건강보험공단 1577-1000으로 확인하세요.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 혼합가구 안내 */}
+      <Card className="mb-8 border-blue-200 bg-blue-50/50">
+        <CardContent className="pt-5">
+          <p className="font-semibold text-blue-900">혼합가구 안내</p>
+          <p className="text-sm text-blue-800 mt-1">
+            혼합가구는 직장가입자와 지역가입자가 함께 있는 가구를 말합니다.
+          </p>
+          <ul className="text-sm text-blue-800 mt-2 space-y-1">
+            <li>4인 혼합가구: 월 건강보험료 합산 <strong>30만원 이하</strong> 기준</li>
+            <li>1~3인 및 5인 이상 혼합가구: 공식 표에서 확인되지 않아 콜센터 확인 필요</li>
+          </ul>
+          <p className="text-sm text-blue-800 mt-2">
+            전담 콜센터 <strong>1670-2626</strong> 또는 건강보험공단 <strong>1577-1000</strong>에서 확인하세요.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 자산 제외 기준 */}
+      <Card className="mb-8 border-amber-200 bg-amber-50/50">
+        <CardContent className="pt-5">
+          <p className="font-semibold text-amber-900">자산 제외 기준</p>
+          <p className="text-sm text-amber-800 mt-1">
+            다음 중 한 가지라도 해당하면 가구 전원이 지급 대상에서 제외됩니다.
+          </p>
+          <ul className="text-sm text-amber-800 mt-2 space-y-1">
+            <li>가구원 합산 2025년 재산세 과세표준 <strong>12억원 초과</strong> (공시가 약 26.7억원 수준)</li>
+            <li>가구원 합산 2024년 귀속 금융소득 <strong>2,000만원 초과</strong></li>
+          </ul>
+          <p className="text-sm text-amber-800 mt-3 font-medium">확인 방법</p>
+          <ul className="text-sm text-amber-800 mt-1 space-y-1">
+            <li>재산세 과세표준: 위택스 홈페이지/앱</li>
+            <li>금융소득: 홈택스 홈페이지</li>
+          </ul>
+        </CardContent>
+      </Card>
+
+      {/* 맞벌이/다소득원 특례 */}
+      <Card className="mb-8 border-green-200 bg-green-50/50">
+        <CardContent className="pt-5">
+          <p className="font-semibold text-green-900">맞벌이/다소득원 가구 특례</p>
+          <p className="text-sm text-green-800 mt-1">
+            가구 내 직장가입자가 여러 명인 경우, &quot;가구원 수 +1명&quot; 기준을 적용합니다.
+          </p>
+          <p className="text-sm text-green-800 mt-2">
+            예) 직장가입자 2인이 포함된 4인 가구
+            <br />
+            → 일반 4인 기준(32만원) 대신 5인 기준(39만원) 이하 적용
           </p>
         </CardContent>
       </Card>
