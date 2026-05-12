@@ -31,7 +31,7 @@ export const UPDATES: UpdatePost[] = [
     content: `
 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
 <p class="font-semibold text-blue-800">시스템 정비 기간 안내</p>
-<p class="text-blue-700 mt-1">현재 5/9~5/17은 1차와 2차 신청 사이의 시스템 정비 기간입니다. 2차 신청은 5/18(월) 오전 9시부터 시작됩니다.</p>
+<p class="text-blue-700 mt-1">5월 9일~17일은 1차와 2차 신청 사이의 시스템 정비 기간입니다. 2차 신청은 5월 18일(월) 오전 9시부터 시작됩니다.</p>
 </div>
 
 <h2>2차 신청 기간</h2>
