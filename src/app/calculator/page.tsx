@@ -444,22 +444,19 @@ export default function CalculatorPage() {
             </Card>
           </div>
 
-          {/* 블록 4 — ⚠️ 경고 */}
-          <div className="border-l-4 border-amber-400 bg-amber-50 rounded-r-lg p-4">
-            <p className="font-semibold text-amber-800 mb-2">
-              ⚠️ 주유소에서 사용하려면 반드시 확인하세요
+          {/* 블록 4 — 주유소 사용 안내 (5/1 사용처 확대) */}
+          <div className="border-l-4 border-blue-400 bg-blue-50 rounded-r-lg p-4">
+            <p className="font-semibold text-blue-800 mb-2">
+              💡 주유소 사용 안내 (5월 1일부터 확대)
             </p>
-            <p className="text-base font-medium text-amber-900 mb-2">
-              실제로 10곳 중 약 7곳은 기준을 초과합니다.
+            <p className="text-sm text-blue-800 mb-2">
+              5월 1일부터 주소지 관할 지자체 내 주유소에서는 연 매출액과 관계없이 고유가 피해지원금을 사용할 수 있습니다. 다만 대형매장과 사업자등록번호 또는 결제 단말기를 공유하는 일부 주유소는 사용이 제한될 수 있으므로 결제 전 가맹 여부를 확인하는 것이 안전합니다.
             </p>
-            <p className="text-sm text-amber-800 mb-2">
-              주유소는 연매출 30억원 이하만 사용 가능하기 때문에, 대부분의 주유소에서는 사용할 수 없는 경우가 많습니다.
+            <p className="text-sm text-blue-800 mb-3">
+              신용·체크카드 또는 선불카드로 받은 경우 5/1부터 매출과 무관하게 사용 가능합니다. 지역사랑상품권으로 받은 경우 기존 가맹 주유소와 한시적으로 추가 등록된 주유소에서 사용할 수 있으며, 가맹 여부는 지역사랑상품권 앱 또는 지자체 누리집에서 확인하세요.
             </p>
-            <p className="text-sm text-amber-800 mb-3">
-              카드로 받아도 대부분의 주유소에서는 사용할 수 없는 경우가 많고, 지역사랑상품권은 가맹 주유소 자체가 매우 적거나 없는 지역도 있습니다.
-            </p>
-            <p className="text-sm font-medium text-amber-900">
-              👉 특히 주유가 목적이라면, 지급 수단 선택 전에 반드시 사용 가능 여부를 확인하세요.
+            <p className="text-sm font-medium text-blue-900">
+              👉 결제 전 가맹 여부 한 번 확인하면 더 안전합니다.
             </p>
           </div>
 
