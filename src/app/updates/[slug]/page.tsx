@@ -29,6 +29,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function generateArticleJsonLd(post: { slug: string; title: string; description: string; date: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: "다파라코프" },
+    publisher: {
+      "@type": "Organization",
+      name: "FAZR 고유가 피해지원금",
+      logo: { "@type": "ImageObject", url: "https://support.fazr.co.kr/og/og-main.jpg" },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://support.fazr.co.kr/updates/${post.slug}`,
+    },
+    inLanguage: "ko",
+  };
+}
+
 export default async function UpdateDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = UPDATES.find((p) => p.slug === slug);
@@ -36,6 +58,12 @@ export default async function UpdateDetailPage({ params }: Props) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleJsonLd(post)),
+        }}
+      />
       <Link
         href="/updates"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-6"
