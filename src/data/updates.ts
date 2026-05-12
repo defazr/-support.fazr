@@ -153,7 +153,13 @@ export const UPDATES: UpdatePost[] = [
 <p class="text-blue-700 mt-1">내가 언제 신청 가능한지 출생연도 끝자리로 아래 표에서 바로 확인하세요.</p>
 </div>
 
-<h2>1차 신청 일정 (4/27~5/8)</h2>
+<h2>1차 신청 일정 (4/27~5/8, 종료)</h2>
+
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4">
+<p class="text-gray-700 text-sm">※ 1차 신청은 5월 8일에 종료되었습니다. 1차 미신청자(기초생활수급자·차상위·한부모)는 2차 기간(5/18~7/3)에 신청 가능합니다.</p>
+</div>
+
+<p class="text-gray-700 text-sm mb-4">1차 신청은 5월 8일 종료됐으며, 행정안전부 5월 8일 18시 기준 총 <strong>294만 4,073명</strong>이 신청했고 <strong>1조 6,728억 원</strong>이 지급되었습니다. 신청률은 <strong>91.2%</strong>입니다.</p>
 
 <h3>신청 기간</h3>
 <ul>

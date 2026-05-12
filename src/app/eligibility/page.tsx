@@ -207,6 +207,21 @@ export default function EligibilityPage() {
         </CardContent>
       </Card>
 
+      {/* 이의신청 안내 */}
+      <Card className="mb-8 border-gray-200 bg-gray-50/50">
+        <CardContent className="pt-5">
+          <p className="font-semibold text-gray-900">대상 여부에 이의가 있다면</p>
+          <p className="text-sm text-gray-800 mt-1">
+            이의신청 기간은 2026년 5월 18일~7월 17일입니다. 신청 방법과
+            세부 안내는{" "}
+            <Link href="/faq" className="text-primary underline">
+              자주 묻는 질문
+            </Link>
+            에서 확인하세요.
+          </p>
+        </CardContent>
+      </Card>
+
       {/* 지역별 지급액 */}
       <Card className="mb-8">
         <CardHeader>
