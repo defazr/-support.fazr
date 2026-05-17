@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { AdSlot } from "@/components/ad-slot";
 import { ShareButtons } from "@/components/share-buttons";
-import { UPDATES } from "@/data/updates";
+import { UPDATES, type FaqItem } from "@/data/updates";
 import { NoticeBox } from "@/components/notice-box";
 
 export function generateStaticParams() {
@@ -51,6 +51,21 @@ function generateArticleJsonLd(post: { slug: string; title: string; description:
   };
 }
 
+function generateFaqPageJsonLd(faqItems: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export default async function UpdateDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = UPDATES.find((p) => p.slug === slug);
@@ -64,6 +79,14 @@ export default async function UpdateDetailPage({ params }: Props) {
           __html: JSON.stringify(generateArticleJsonLd(post)),
         }}
       />
+      {post.faqItems && post.faqItems.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateFaqPageJsonLd(post.faqItems)),
+          }}
+        />
+      )}
       <Link
         href="/updates"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-6"

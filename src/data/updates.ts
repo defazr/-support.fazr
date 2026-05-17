@@ -1,15 +1,119 @@
 import type { Notice } from "@/components/notice-box";
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface UpdatePost {
   slug: string;
   title: string;
   description: string;
   date: string;
   notices?: Notice[];
+  faqItems?: FaqItem[];
   content: string;
 }
 
 export const UPDATES: UpdatePost[] = [
+  {
+    slug: "objection-qa-2026",
+    title: "고유가 피해지원금 2차 이의신청 Q&A — 보험료 초과, 가구분리, 기준일 이후 변경까지",
+    description: "고유가 피해지원금 2차 이의신청 기간, 신청 방법, 보험료 초과 뜻, 성과급·기초수급·가구분리 사례별 안내",
+    date: "2026-05-17",
+    faqItems: [
+      { question: "이의신청 기간은 언제까지인가요?", answer: "2026년 5월 18일 09:00부터 7월 17일 18:00까지입니다. 온라인은 국민신문고, 오프라인은 주소지 관할 주민센터에서 접수합니다." },
+      { question: "이의신청은 어디서 하나요?", answer: "온라인은 국민신문고에서, 오프라인은 2026년 3월 30일 기준 주민등록상 주소지 관할 읍·면·동 주민센터에서 접수합니다." },
+      { question: "보험료 초과는 무슨 뜻인가요?", answer: "가구원 전체의 건강보험료 본인부담금 합산액이 가구원 수별 기준액을 초과했다는 뜻입니다." },
+      { question: "3월 성과급 때문에 건보료가 올랐으면 이의신청 가능한가요?", answer: "일시적 소득 변동으로 건강보험료가 상승한 경우 이의신청 대상이 될 수 있습니다. 건강보험공단에 보험료 조정 문의를 먼저 하는 것이 좋습니다." },
+      { question: "기준일 이후 기초수급자가 됐으면 이의신청 가능한가요?", answer: "2026년 3월 30일 이후 기초생활수급자로 확정된 경우 이의신청 대상이 될 수 있습니다. 수급자 증명서류를 첨부하여 접수합니다." },
+      { question: "주소지만 같고 실제로 따로 사는 가족 때문에 탈락했다면 어떻게 하나요?", answer: "실제로 따로 거주하는 가족이 주소지만 같아 가구 합산으로 탈락한 경우, 전입신고 후 가구분리 이의신청이 가능합니다. 재직증명서, 숙소 임대차계약서 등 별도 거주 증빙이 필요합니다." },
+      { question: "소득은 평균인데 왜 보험료 초과로 비대상일 수 있나요?", answer: "건강보험료는 소득뿐 아니라 재산(자동차, 부동산 등)도 반영됩니다. 특히 지역가입자는 재산 비중이 커서 소득이 평균이어도 보험료가 높을 수 있습니다." },
+      { question: "이의신청할 때 어떤 자료를 준비해야 하나요?", answer: "사유에 따라 건강보험료 납부확인서, 소득금액증명원, 재직증명서, 임대차계약서, 수급자증명서 등이 필요합니다. 전담 콜센터 1670-2626에서 본인 사유에 맞는 서류를 안내받을 수 있습니다." },
+    ],
+    content: `
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+<p class="font-semibold text-blue-800">이의신청 핵심 안내</p>
+<ul class="text-blue-700 mt-1">
+<li>이의신청 기간: 2026년 5월 18일 09:00 ~ 7월 17일 18:00</li>
+<li>온라인: <a href="https://www.epeople.go.kr/nsf/Intro.html" target="_blank" rel="noopener noreferrer">국민신문고</a> / 오프라인: 주소지 관할 읍·면·동 주민센터</li>
+<li>문의: 1670-2626 · 건강보험공단 1577-1000</li>
+</ul>
+</div>
+
+<ul>
+<li><a href="#objection-period">이의신청 기간은 언제까지인가요?</a></li>
+<li><a href="#objection-where">이의신청은 어디서 하나요?</a></li>
+<li><a href="#premium-excess-meaning">보험료 초과는 무슨 뜻인가요?</a></li>
+<li><a href="#bonus-premium-increase">3월 성과급 때문에 건보료가 올랐으면 이의신청 가능한가요?</a></li>
+<li><a href="#post-cutoff-recipient">기준일 이후 기초수급자가 됐으면 이의신청 가능한가요?</a></li>
+<li><a href="#household-separation">주소지만 같고 실제로 따로 사는 가족 때문에 탈락했다면?</a></li>
+<li><a href="#average-income-excluded">소득은 평균인데 왜 보험료 초과로 비대상일 수 있나요?</a></li>
+<li><a href="#objection-documents">이의신청할 때 어떤 자료를 준비해야 하나요?</a></li>
+</ul>
+
+<h2>이의신청 Q&A</h2>
+
+<h3 id="objection-period">이의신청 기간은 언제까지인가요?</h3>
+<p>이의신청 기간은 2026년 5월 18일 09:00부터 7월 17일 18:00까지입니다. 이 기간 안에 접수해야 하며, 마감일 이후에는 접수할 수 없습니다.</p>
+<table>
+<thead><tr><th>구분</th><th>접수처</th><th>시간</th></tr></thead>
+<tbody>
+<tr><td>온라인</td><td><a href="https://www.epeople.go.kr/nsf/Intro.html" target="_blank" rel="noopener noreferrer">국민신문고</a></td><td>24시간</td></tr>
+<tr><td>오프라인</td><td>주소지 관할 읍·면·동 주민센터</td><td>평일 09:00~18:00</td></tr>
+</tbody>
+</table>
+
+<h3 id="objection-where">이의신청은 어디서 하나요?</h3>
+<p>온라인은 <a href="https://www.epeople.go.kr/nsf/Intro.html" target="_blank" rel="noopener noreferrer">국민신문고</a>에서 접수합니다. 오프라인은 2026년 3월 30일 기준 주민등록상 주소지 관할 읍·면·동 주민센터에서 접수합니다. 기준일 이후 이사한 경우에도 기준일 당시 주소지 기준입니다. 문의는 전담 콜센터 1670-2626 또는 건강보험공단 1577-1000으로 하시면 됩니다.</p>
+
+<h3 id="premium-excess-meaning">보험료 초과는 무슨 뜻인가요?</h3>
+<p>보험료 초과란 가구원 전체의 건강보험료 본인부담금 합산액이 가구원 수별 기준액을 초과했다는 뜻입니다. 예를 들어 외벌이 직장가입자 4인 가구 기준은 월 32만원 이하이며, 가구원 보험료를 합산한 금액이 이 기준을 넘으면 지급 대상에서 제외됩니다.</p>
+<p>건강보험료는 직장가입자와 지역가입자의 산정 방식이 다르고, 지역가입자는 소득뿐 아니라 재산(자동차, 부동산 등)도 반영됩니다. 기준 금액은 <a href="/updates/health-insurance-criteria-confirmed-2026">건보료 기준 확인</a> 페이지에서 가구원 수별로 확인할 수 있습니다.</p>
+
+<h3 id="bonus-premium-increase">3월 성과급 때문에 건보료가 올랐으면 이의신청 가능한가요?</h3>
+<p>일시적 소득 변동(성과급, 상여금 등)으로 건강보험료가 일시적으로 상승한 경우 이의신청 대상이 될 수 있습니다. 다만 실제 인정 여부는 접수기관에서 판단합니다. 건강보험공단(1577-1000)에 보험료 조정 가능 여부를 먼저 문의하는 것이 좋습니다. 소득금액증명원 등 소득 변동을 입증할 수 있는 자료를 함께 준비하시기 바랍니다.</p>
+
+<h3 id="post-cutoff-recipient">기준일 이후 기초수급자가 됐으면 이의신청 가능한가요?</h3>
+<p>2026년 3월 30일 이후 기초생활수급자로 확정된 경우 이의신청 대상이 될 수 있습니다. 수급자 증명서류를 첨부하여 국민신문고 또는 주소지 관할 주민센터에서 접수합니다. 실제 인정 여부는 접수기관에서 판단합니다.</p>
+<p>참고로 고유가 피해지원금과 같은 일회성 정책 지원금은 일반적으로 기초생활보장 소득인정액에 포함되지 않습니다. 다만 개별 급여 변동 여부는 주민센터에서 확인하시기 바랍니다.</p>
+
+<h3 id="household-separation">주소지만 같고 실제로 따로 사는 가족 때문에 탈락했다면 어떻게 하나요?</h3>
+<p>실제로 따로 거주하는 가족이 주소지만 같아서 가구원 합산 보험료가 기준을 초과한 경우, 가구분리 이의신청이 가능합니다. 해당 가족이 실제 거주지로 전입신고를 한 뒤 이의신청을 접수하면 됩니다.</p>
+<p>별도 거주를 증명할 수 있는 자료를 준비해야 합니다.</p>
+<ul>
+<li>재직증명서 (직장 소재지가 다른 경우)</li>
+<li>숙소 임대차계약서 또는 기숙사 입소 확인서</li>
+<li>공공요금 납부 내역 등 별도 거주를 증빙할 수 있는 자료</li>
+</ul>
+<p>실제 인정 여부는 접수기관에서 판단하며, 전담 콜센터 1670-2626에서 본인 상황에 맞는 안내를 받을 수 있습니다.</p>
+
+<h3 id="average-income-excluded">소득은 평균인데 왜 보험료 초과로 비대상일 수 있나요?</h3>
+<p>건강보험료는 소득만으로 결정되지 않습니다. 특히 지역가입자는 소득과 재산(자동차, 부동산 등)을 함께 반영하여 보험료를 산정합니다. 소득이 평균 수준이어도 자동차나 부동산 등 재산이 있으면 보험료가 높아질 수 있습니다.</p>
+<p>또한 고유가 피해지원금은 개인이 아니라 가구 단위로 판정하므로, 같은 주민등록표에 있는 가구원 전체의 보험료가 합산됩니다. 본인 보험료가 낮아도 가구원 합산액이 기준을 초과하면 지급 대상에서 제외될 수 있습니다.</p>
+<p>정확한 보험료와 가구 구성 확인은 건강보험공단(1577-1000) 또는 <a href="/calculator">지원금 계산기</a>에서 할 수 있습니다.</p>
+
+<h3 id="objection-documents">이의신청할 때 어떤 자료를 준비해야 하나요?</h3>
+<p>이의신청 사유에 따라 필요한 자료가 다릅니다. 아래는 주요 사례별 준비 서류입니다.</p>
+<ul>
+<li><strong>보험료 이의</strong>: 건강보험료 납부확인서, 소득금액증명원</li>
+<li><strong>가구분리</strong>: 재직증명서, 숙소 임대차계약서, 공공요금 납부 내역</li>
+<li><strong>기준일 이후 수급자 확정</strong>: 기초생활수급자 증명서</li>
+<li><strong>금융소득 이의</strong>: 소득금액증명원 (금융소득은 2024년 귀속 기준이 적용되며, 2025년 귀속 기준은 미확정 상태이므로 2024년 기준이 사용됩니다)</li>
+</ul>
+<p>본인 사유에 맞는 서류는 전담 콜센터 1670-2626에서 안내받을 수 있습니다.</p>
+
+<div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+<p class="font-semibold text-amber-800">이의신청 전 참고사항</p>
+<p class="text-amber-700 mt-1">이의신청 인정 여부는 접수기관(관할 지방정부)에서 판단합니다. 이의신청을 접수했다고 자동으로 지급이 확정되는 것은 아닙니다. 접수 후 확인 절차를 거쳐 결과를 안내받게 됩니다.</p>
+</div>
+
+<hr />
+<p><a href="/eligibility">지원 대상 확인</a> · <a href="/calculator">예상 금액 계산</a> · <a href="/updates/health-insurance-criteria-confirmed-2026">건보료 기준 확인</a></p>
+<hr />
+<p class="text-sm text-muted-foreground">출처: 행정안전부, 정책브리핑, 건강보험공단</p>
+    `.trim(),
+  },
   {
     slug: "health-insurance-criteria-confirmed-2026",
     title:
