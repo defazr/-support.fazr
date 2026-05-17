@@ -312,17 +312,17 @@ export default function EligibilityPage() {
         </ul>
       </div>
 
-      {/* 요일제 안내 (4/27 1차 신청) */}
+      {/* 2차 요일제 안내 */}
       <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
         <p className="text-sm text-amber-900">
-          <span className="font-semibold">📅 출생연도 끝자리에 따라 신청일이 다릅니다.</span>
-          <Link href="/updates/weekly-application-schedule-2026" className="block mt-1 text-amber-900 font-medium underline">
-            자세한 일정 확인 →
-          </Link>
+          <span className="font-semibold">📅 첫 주 5월 18일~22일은 출생연도 끝자리 기준 요일제가 적용됩니다.</span>
         </p>
         <p className="text-xs text-amber-800 mt-2">
-          📢 4/26 추가 발표: 4/30 통합 운영(끝자리 4·9·5·0) · 등·초본 수수료 면제 · 읍·면 사용처 확장
+          온라인 신청은 첫 주 이후 요일제 없이 신청할 수 있으며, 오프라인 신청은 평일 운영과 지자체 여건에 따라 요일제가 연장될 수 있습니다.
         </p>
+        <Link href="/updates/secondary-application-guide-2026" className="block mt-2 text-amber-900 font-medium underline text-sm">
+          2차 신청 가이드 자세히 보기 →
+        </Link>
       </div>
 
       {/* 신청 경로 안내 */}

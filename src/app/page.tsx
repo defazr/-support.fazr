@@ -82,7 +82,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <Badge variant="secondary" className="mb-4 text-sm px-4 py-1">
-            2차 신청 5월 18일~7월 3일
+            2차 신청 진행중 (5/18~7/3)
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
             고유가 피해지원금 대상인지
@@ -112,13 +112,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 시스템 정비 기간 안내 */}
+      {/* 2차 신청 진행 안내 */}
       <section className="max-w-6xl mx-auto px-4 -mt-4 mb-12">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="font-semibold text-blue-800">신청 일정 안내</p>
+          <p className="font-semibold text-blue-800">2차 신청 진행 안내</p>
           <p className="text-blue-700 text-sm mt-1">
-            1차 신청은 5월 8일 종료되었고, 5월 9일~17일은 2차 신청 준비를 위한 시스템 정비 기간입니다.
-            2차 신청은 5월 18일(월) 09:00부터 시작되며, 첫 주에는 출생연도 끝자리 5부제가 적용됩니다.
+            신청 기간: 2026년 5월 18일 09:00 ~ 7월 3일 18:00.
+            첫 주 5월 18일~5월 22일은 출생연도 끝자리 기준 요일제가 적용됩니다.
+            온라인은 카드사·간편결제 앱, 지역사랑상품권 앱에서 신청할 수 있고, 오프라인은 평일 주민센터·은행영업점에서 신청할 수 있습니다.
           </p>
           <Link href="/updates/secondary-application-guide-2026" className="text-blue-700 underline text-sm mt-2 inline-block">
             2차 신청 가이드 자세히 보기 →

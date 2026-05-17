@@ -86,14 +86,15 @@ export default async function UpdateDetailPage({ params }: Props) {
           <NoticeBox key={idx} notice={notice} />
         ))}
 
-        {/* 요약 박스 */}
+        {/* 정책 일정 안내 박스 */}
         <div className="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8 space-y-2">
-          <p className="text-sm font-medium text-foreground">핵심 요약</p>
+          <p className="text-sm font-medium text-foreground">정책 일정 안내</p>
           <ul className="text-sm text-muted-foreground space-y-1">
-            <li>현재 상태: 추경 국회 통과 (4월 10일)</li>
-            <li>1차 지급: 4월 27일~5월 8일 (취약계층 자동 지급)</li>
-            <li>2차 지급: 5월 18일~7월 3일 (일반 가구, 건보료 기준)</li>
-            <li>금액: 1인당 10만~60만원 (지역·계층별 차등)</li>
+            <li>2차 신청: 2026년 5월 18일 09:00 ~ 7월 3일 18:00</li>
+            <li>첫 주 요일제: 5월 18일 ~ 5월 22일 (출생연도 끝자리 기준)</li>
+            <li>이의신청: 5월 18일 ~ 7월 17일</li>
+            <li>사용기한: 8월 31일까지</li>
+            <li>문의: 1670-2626 · 정부합동 민원센터 110 · 건강보험공단 1577-1000</li>
           </ul>
         </div>
 
