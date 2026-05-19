@@ -272,6 +272,7 @@ export const UPDATES: UpdatePost[] = [
 <li><a href="#large-stores">대형 테마파크나 대형 매장에서도 사용할 수 있나요?</a></li>
 <li><a href="#voucher-vs-card">지역사랑상품권과 카드 사용지역 기준은 같은가요?</a></li>
 <li><a href="#illegal-use">카드깡, 현금화, 양도는 왜 안 되나요?</a></li>
+<li><a href="#card-apply-links">카드사별 신청 링크</a></li>
 </ul>
 
 <h2>사용처·사용지역 Q&A</h2>
@@ -322,6 +323,29 @@ export const UPDATES: UpdatePost[] = [
 <p class="font-semibold text-amber-800">부정사용 주의</p>
 <p class="text-amber-700 mt-1">카드깡, 현금화, 타인 양도, 중고거래는 지원금 환수·과태료·형사처벌 대상입니다. 본인 명의로 가맹점에서 직접 결제한 경우만 정상 사용으로 인정됩니다.</p>
 </div>
+
+<h3 id="card-apply-links">카드사별 신청 링크</h3>
+<p>아래는 카드사별 고유가 피해지원금 신청 페이지 링크입니다. 카드사 앱에서도 신청할 수 있습니다.</p>
+<table>
+<thead><tr><th>카드사·간편결제</th><th>신청 방법</th></tr></thead>
+<tbody>
+<tr><td><a href="https://card.kbcard.com/BON/DVIEW/HBGV1103" target="_blank" rel="noopener noreferrer">KB국민카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://card.nonghyup.com/servlet/IPCS012601.menu" target="_blank" rel="noopener noreferrer">NH농협카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://jiwon3.lottecard.co.kr/app/LPEMRFA_V100.lc#none" target="_blank" rel="noopener noreferrer">롯데카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://www.samsungcard.com/personal/aid/UHPPAS1501M0.jsp?click=sc_notice_govfund_2604" target="_blank" rel="noopener noreferrer">삼성카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://www.shinhancard.com/gov/GOVN/GOV2026C01.shc" target="_blank" rel="noopener noreferrer">신한카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://pc.wooricard.com/dcpc/yh1/cct/cct02/news/H1CCT202S01.do?scBbsCode=1007&amp;scBbscttSn=20260421135817483" target="_blank" rel="noopener noreferrer">우리카드</a></td><td>공지·앱</td></tr>
+<tr><td><a href="https://m.hanacard.co.kr/MKGAAV9300M.web" target="_blank" rel="noopener noreferrer">하나카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://www.hyundaicard.com/cpb/gs/CPBGS2501_02.hc" target="_blank" rel="noopener noreferrer">현대카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://go.bccard.com/" target="_blank" rel="noopener noreferrer">BC카드</a></td><td>홈페이지·앱</td></tr>
+<tr><td><a href="https://pay.naver.com/gov/energyrelief" target="_blank" rel="noopener noreferrer">네이버페이</a></td><td>전용 페이지</td></tr>
+<tr><td><a href="https://www.kakaopay.com/" target="_blank" rel="noopener noreferrer">카카오페이</a></td><td>홈페이지·앱</td></tr>
+<tr><td>카카오뱅크</td><td>앱에서 신청</td></tr>
+<tr><td>토스</td><td>앱에서 신청</td></tr>
+<tr><td>케이뱅크</td><td>앱에서 신청</td></tr>
+</tbody>
+</table>
+<p>카드사·간편결제 신청 화면은 점검이나 접속 환경에 따라 변경될 수 있습니다. 링크가 열리지 않으면 해당 카드사 앱이나 홈페이지에서 '고유가 피해지원금'을 검색해 신청하세요.</p>
 
 <hr />
 <p><a href="/updates/oil-subsidy-usage-guide-2026">사용처 상세 안내</a> · <a href="/calculator">예상 금액 계산</a> · <a href="/eligibility">지원 대상 확인</a> · <a href="/updates/health-insurance-household-duplicate-qa-2026">건보료·가구원 Q&A</a></p>
