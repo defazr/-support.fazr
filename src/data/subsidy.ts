@@ -24,42 +24,16 @@ export const SUBSIDY_CONFIG = {
   },
 
   incomeThresholds: [
-    {
-      members: 1,
-      monthlyIncome: 3850000,
-      insuranceEmployee: 130000,
-      insuranceRegional: 80000,
-    },
-    {
-      members: 2,
-      monthlyIncome: 6300000,
-      insuranceEmployee: 140000,
-      insuranceRegional: 120000,
-    },
-    {
-      members: 3,
-      monthlyIncome: 8040000,
-      insuranceEmployee: 260000,
-      insuranceRegional: 190000,
-    },
-    {
-      members: 4,
-      monthlyIncome: 9740000,
-      insuranceEmployee: 320000,
-      insuranceRegional: 220000,
-    },
-    {
-      members: 5,
-      monthlyIncome: 11200000,
-      insuranceEmployee: 390000,
-      insuranceRegional: 0,
-    },
-    {
-      members: 6,
-      monthlyIncome: 12700000,
-      insuranceEmployee: 430000,
-      insuranceRegional: 0,
-    },
+    { members: 1, insuranceEmployee: 130000, insuranceRegional: 80000, insuranceMixed: 0 },
+    { members: 2, insuranceEmployee: 140000, insuranceRegional: 120000, insuranceMixed: 140000 },
+    { members: 3, insuranceEmployee: 260000, insuranceRegional: 190000, insuranceMixed: 240000 },
+    { members: 4, insuranceEmployee: 320000, insuranceRegional: 220000, insuranceMixed: 300000 },
+    { members: 5, insuranceEmployee: 390000, insuranceRegional: 240000, insuranceMixed: 360000 },
+    { members: 6, insuranceEmployee: 430000, insuranceRegional: 290000, insuranceMixed: 380000 },
+    { members: 7, insuranceEmployee: 470000, insuranceRegional: 320000, insuranceMixed: 420000 },
+    { members: 8, insuranceEmployee: 510000, insuranceRegional: 400000, insuranceMixed: 490000 },
+    { members: 9, insuranceEmployee: 540000, insuranceRegional: 440000, insuranceMixed: 510000 },
+    { members: 10, insuranceEmployee: 580000, insuranceRegional: 470000, insuranceMixed: 550000 },
   ],
 } as const;
 
@@ -92,17 +66,11 @@ export function checkEligibility(
   members: number,
   monthlyInsurance: number
 ): EligibilityResult {
-  if (members >= 5) {
-    return {
-      status: "needsCheck",
-      eligible: false,
-      message:
-        "5인 이상 가구는 가입자 유형과 공식 기준 확인이 필요합니다. 콜센터 1670-2626 또는 건강보험공단 1577-1000으로 확인하세요.",
-    };
-  }
+  // 10인 이상은 10인 기준 적용
+  const lookupMembers = members >= 10 ? 10 : members;
 
   const threshold = SUBSIDY_CONFIG.incomeThresholds.find(
-    (t) => t.members === members
+    (t) => t.members === lookupMembers
   );
   if (!threshold) {
     return {
@@ -112,14 +80,23 @@ export function checkEligibility(
     };
   }
 
-  const lower = Math.min(
+  // 직장·지역·혼합 중 0이 아닌 값들로 lower/upper 산출
+  const values = [
     threshold.insuranceEmployee,
-    threshold.insuranceRegional
-  );
-  const upper = Math.max(
-    threshold.insuranceEmployee,
-    threshold.insuranceRegional
-  );
+    threshold.insuranceRegional,
+    threshold.insuranceMixed,
+  ].filter((v) => v > 0);
+
+  if (values.length === 0) {
+    return {
+      status: "needsCheck",
+      eligible: false,
+      message: "해당 가구원 수 기준은 별도 확인이 필요합니다.",
+    };
+  }
+
+  const lower = Math.min(...values);
+  const upper = Math.max(...values);
 
   if (monthlyInsurance <= lower) {
     return {
@@ -135,7 +112,7 @@ export function checkEligibility(
       status: "needsCheck",
       eligible: false,
       message:
-        "가입자 유형(직장/지역)에 따라 대상 여부가 달라질 수 있습니다. 콜센터에 문의해 확인하세요.",
+        "가입자 유형(직장/지역/혼합)에 따라 대상 여부가 달라질 수 있습니다. 콜센터에 문의해 확인하세요.",
     };
   }
 

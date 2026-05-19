@@ -161,7 +161,12 @@ export default function CalculatorPage() {
                 <SelectItem value="2">2인 가구</SelectItem>
                 <SelectItem value="3">3인 가구</SelectItem>
                 <SelectItem value="4">4인 가구</SelectItem>
-                <SelectItem value="5">5인 이상 가구</SelectItem>
+                <SelectItem value="5">5인 가구</SelectItem>
+                <SelectItem value="6">6인 가구</SelectItem>
+                <SelectItem value="7">7인 가구</SelectItem>
+                <SelectItem value="8">8인 가구</SelectItem>
+                <SelectItem value="9">9인 가구</SelectItem>
+                <SelectItem value="10">10인 이상</SelectItem>
               </SelectContent>
             </Select>
             {errorField === "household-size" && (
@@ -315,11 +320,6 @@ export default function CalculatorPage() {
 
             {result.status === "needsCheck" && (
               <div>
-                {result.members >= 5 && (
-                  <p className="text-sm text-muted-foreground mb-3 text-center">
-                    ※ 계산기에서는 5인 이상 가구를 단일 항목으로 입력하므로 자동 판정이 어렵습니다.
-                  </p>
-                )}
                 <div className="text-center">
                   <Badge className="mb-3 bg-amber-100 text-amber-800 hover:bg-amber-100">
                     확인 필요
@@ -500,23 +500,29 @@ export default function CalculatorPage() {
               <thead>
                 <tr className="border-b">
                   <th className="text-left py-2 font-medium">가구원</th>
-                  <th className="text-right py-2 font-medium">직장가입자</th>
-                  <th className="text-right py-2 font-medium">지역가입자</th>
+                  <th className="text-right py-2 font-medium">직장</th>
+                  <th className="text-right py-2 font-medium">지역</th>
+                  <th className="text-right py-2 font-medium">혼합</th>
                 </tr>
               </thead>
               <tbody>
                 {SUBSIDY_CONFIG.incomeThresholds.map((t) => (
                   <tr key={t.members} className="border-b last:border-0">
-                    <td className="py-2.5">{t.members}인</td>
+                    <td className="py-2.5">{t.members >= 10 ? "10인 이상" : `${t.members}인`}</td>
                     <td className="text-right py-2.5">
                       {t.insuranceEmployee > 0
-                        ? `${formatAmount(t.insuranceEmployee)}원 이하`
-                        : "확인 필요"}
+                        ? `${formatAmount(t.insuranceEmployee)}원`
+                        : "-"}
                     </td>
                     <td className="text-right py-2.5">
                       {t.insuranceRegional > 0
-                        ? `${formatAmount(t.insuranceRegional)}원 이하`
-                        : "확인 필요"}
+                        ? `${formatAmount(t.insuranceRegional)}원`
+                        : "-"}
+                    </td>
+                    <td className="text-right py-2.5">
+                      {t.insuranceMixed > 0
+                        ? `${formatAmount(t.insuranceMixed)}원`
+                        : "-"}
                     </td>
                   </tr>
                 ))}
@@ -524,7 +530,7 @@ export default function CalculatorPage() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-3">
-            ※ 건강보험료 본인부담금 가구 합산액 기준 (장기요양보험료 제외). 가입자 유형(직장/지역) 입력 없이 보수적으로 판정합니다.
+            ※ 건강보험료 본인부담금 가구 합산액 기준 (장기요양보험료 제외). 가입자 유형(직장/지역/혼합) 입력 없이 보수적으로 판정합니다.
           </p>
         </CardContent>
       </Card>

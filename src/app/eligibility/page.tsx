@@ -106,12 +106,9 @@ export default function EligibilityPage() {
               <thead>
                 <tr className="border-b bg-muted/50">
                   <th className="text-left py-3 px-3 font-medium">가구원 수</th>
-                  <th className="text-right py-3 px-3 font-medium">
-                    직장가입자
-                  </th>
-                  <th className="text-right py-3 px-3 font-medium">
-                    지역가입자
-                  </th>
+                  <th className="text-right py-3 px-3 font-medium">직장</th>
+                  <th className="text-right py-3 px-3 font-medium">지역</th>
+                  <th className="text-right py-3 px-3 font-medium">혼합</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,14 +117,14 @@ export default function EligibilityPage() {
                     key={t.members}
                     className="border-b last:border-0 hover:bg-muted/30"
                   >
-                    <td className="py-3 px-3 font-medium">{t.members}인 가구</td>
+                    <td className="py-3 px-3 font-medium">{t.members >= 10 ? "10인 이상" : `${t.members}인 가구`}</td>
                     <td className="text-right py-3 px-3">
                       {t.insuranceEmployee > 0 ? (
                         <span className="font-bold text-blue-600">
                           {formatAmount(t.insuranceEmployee)}원 이하
                         </span>
                       ) : (
-                        <span className="text-muted-foreground">확인 필요</span>
+                        <span className="text-muted-foreground">-</span>
                       )}
                     </td>
                     <td className="text-right py-3 px-3">
@@ -136,7 +133,16 @@ export default function EligibilityPage() {
                           {formatAmount(t.insuranceRegional)}원 이하
                         </span>
                       ) : (
-                        <span className="text-muted-foreground">확인 필요</span>
+                        <span className="text-muted-foreground">-</span>
+                      )}
+                    </td>
+                    <td className="text-right py-3 px-3">
+                      {t.insuranceMixed > 0 ? (
+                        <span className="font-bold text-blue-600">
+                          {formatAmount(t.insuranceMixed)}원 이하
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">-</span>
                       )}
                     </td>
                   </tr>
@@ -145,11 +151,11 @@ export default function EligibilityPage() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-            ※ 위 기준은 2026년 3월 부과된 건강보험료 본인부담금(장기요양보험료 제외) 가구 합산액 기준입니다. 행정안전부 5/11 발표 기준.
+            ※ 위 기준은 2026년 3월 부과된 건강보험료 본인부담금(장기요양보험료 제외) 가구 합산액 기준입니다. 행정안전부 발표 기준.
             <br />
-            ※ 위 기준은 외벌이 가구 기준입니다.
+            ※ 위 기준은 외벌이 가구 기준입니다. 다소득원 가구는 아래 별도 기준 참고.
             <br />
-            ※ 5인 이상 지역가입자 기준은 행안부 공식 표에서 미발표 항목입니다.
+            ※ 1인 가구는 혼합(직장+지역) 해당 없음.
             <br />
             ※ 정확한 대상 여부는 콜센터 1670-2626 또는 건강보험공단 1577-1000으로 확인하세요.
           </p>
@@ -161,14 +167,14 @@ export default function EligibilityPage() {
         <CardContent className="pt-5">
           <p className="font-semibold text-blue-900">혼합가구 안내</p>
           <p className="text-sm text-blue-800 mt-1">
-            혼합가구는 직장가입자와 지역가입자가 함께 있는 가구를 말합니다.
+            혼합가구는 직장가입자와 지역가입자가 함께 있는 가구를 말합니다. 위 기준표의 &quot;혼합&quot; 열을 참고하세요.
           </p>
           <ul className="text-sm text-blue-800 mt-2 space-y-1">
-            <li>4인 혼합가구: 월 건강보험료 합산 <strong>30만원 이하</strong> 기준</li>
-            <li>1~3인 및 5인 이상 혼합가구: 공식 표에서 확인되지 않아 콜센터 확인 필요</li>
+            <li>1인 가구: 직장 또는 지역 단일 가입이므로 혼합 해당 없음</li>
+            <li>2~10인 이상 가구: 혼합 기준은 위 표의 혼합 열 참고</li>
           </ul>
           <p className="text-sm text-blue-800 mt-2">
-            전담 콜센터 <strong>1670-2626</strong> 또는 건강보험공단 <strong>1577-1000</strong>에서 확인하세요.
+            정확한 판정은 콜센터 <strong>1670-2626</strong> 또는 건강보험공단 <strong>1577-1000</strong>에서 확인하세요.
           </p>
         </CardContent>
       </Card>
@@ -197,12 +203,32 @@ export default function EligibilityPage() {
         <CardContent className="pt-5">
           <p className="font-semibold text-green-900">맞벌이/다소득원 가구 특례</p>
           <p className="text-sm text-green-800 mt-1">
-            가구 내 직장가입자가 여러 명인 경우, &quot;가구원 수 +1명&quot; 기준을 적용합니다.
+            다소득원 가구는 &quot;가구원 수 +1명&quot; 기준을 적용합니다. 예) 직장가입자 2인 포함 4인 가구 → 5인 기준 적용.
           </p>
-          <p className="text-sm text-green-800 mt-2">
-            예) 직장가입자 2인이 포함된 4인 가구
-            <br />
-            → 일반 4인 기준(32만원) 대신 5인 기준(39만원) 이하 적용
+          <div className="overflow-x-auto mt-3">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left py-2 px-2 font-medium text-green-900">가구원 수</th>
+                  <th className="text-right py-2 px-2 font-medium text-green-900">직장</th>
+                  <th className="text-right py-2 px-2 font-medium text-green-900">지역</th>
+                  <th className="text-right py-2 px-2 font-medium text-green-900">혼합</th>
+                </tr>
+              </thead>
+              <tbody className="text-green-800">
+                <tr className="border-b"><td className="py-2 px-2">2인</td><td className="text-right py-2 px-2">26만원</td><td className="text-right py-2 px-2">19만원</td><td className="text-right py-2 px-2">24만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">3인</td><td className="text-right py-2 px-2">32만원</td><td className="text-right py-2 px-2">22만원</td><td className="text-right py-2 px-2">30만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">4인</td><td className="text-right py-2 px-2">39만원</td><td className="text-right py-2 px-2">24만원</td><td className="text-right py-2 px-2">36만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">5인</td><td className="text-right py-2 px-2">43만원</td><td className="text-right py-2 px-2">29만원</td><td className="text-right py-2 px-2">38만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">6인</td><td className="text-right py-2 px-2">47만원</td><td className="text-right py-2 px-2">32만원</td><td className="text-right py-2 px-2">42만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">7인</td><td className="text-right py-2 px-2">51만원</td><td className="text-right py-2 px-2">40만원</td><td className="text-right py-2 px-2">49만원</td></tr>
+                <tr className="border-b"><td className="py-2 px-2">8인</td><td className="text-right py-2 px-2">54만원</td><td className="text-right py-2 px-2">44만원</td><td className="text-right py-2 px-2">51만원</td></tr>
+                <tr><td className="py-2 px-2">9인 이상</td><td className="text-right py-2 px-2">58만원</td><td className="text-right py-2 px-2">47만원</td><td className="text-right py-2 px-2">55만원</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-green-700 mt-2">
+            ※ 다소득원 기준: 가구 내 직장가입자 2인 이상, 또는 종합소득+분리과세 합산 연 300만원 이상인 가구원 2인 이상.
           </p>
         </CardContent>
       </Card>
