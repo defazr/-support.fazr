@@ -127,6 +127,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Ad Slot 1 — support 01 */}
+      <section className="max-w-6xl mx-auto px-4 py-4">
+        <AdSlot slot="4106279506" format="horizontal" />
+      </section>
+
       {/* Key Stats */}
       <section className="max-w-6xl mx-auto px-4 -mt-2 md:-mt-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -212,11 +217,6 @@ export default function HomePage() {
         <p className="text-xs text-muted-foreground text-center mt-4">
           * 취약계층은 별도 신청 없이 자동 지급됩니다
         </p>
-      </section>
-
-      {/* Ad Slot 1 */}
-      <section className="max-w-6xl mx-auto px-4 py-4">
-        <AdSlot slot="4106279506" format="horizontal" />
       </section>
 
       {/* 스미싱 경고 */}
